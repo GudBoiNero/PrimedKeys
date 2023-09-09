@@ -59,6 +59,12 @@
     <ClCompile Include="libs\imgui_widgets.cpp">
       <Filter>libs\imgui</Filter>
     </ClCompile>
+    <ClCompile Include="src\render.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\usynergy\uSynergy.c">
+      <Filter>sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include=".\imgui\imgui.h" />
@@ -117,6 +123,11 @@
       <Filter>libs\imgui</Filter>
     </ClInclude>
     <ClInclude Include="libs\imstb_truetype.h" />
+    <ClInclude Include="src\render.h" />
+    <ClInclude Include="libs\emscripten\emscripten_mainloop_stub.h" />
+    <ClInclude Include="libs\glfw\include\GLFW\glfw3.h" />
+    <ClInclude Include="libs\glfw\include\GLFW\glfw3native.h" />
+    <ClInclude Include="libs\usynergy\uSynergy.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitattributes" />
@@ -125,9 +136,14 @@
     <None Include="debuggers\imgui.natstepfilter" />
     <None Include="debuggers\imgui.natvis" />
     <None Include="README.md" />
+    <None Include="libs\emscripten\shell_minimal.html" />
+    <None Include="imgui.ini" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="debuggers\README.txt" />
+    <Text Include="libs\glfw\COPYING.txt" />
+    <Text Include="libs\usynergy\README.txt" />
+    <Text Include="LICENSE.txt" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="images\buttons\button.png" />
@@ -142,5 +158,9 @@
     <Image Include="images\buttons\icon_undo.png" />
     <Image Include="images\buttons\icon_x.png" />
     <Image Include="images\palettes\sky.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="libs\glfw\lib-vc2010-32\glfw3.lib" />
+    <Library Include="libs\glfw\lib-vc2010-64\glfw3.lib" />
   </ItemGroup>
 </Project>

@@ -22,7 +22,7 @@
     <ProjectGuid>{BBAEB705-1669-40F3-8567-04CF6A991F4C}</ProjectGuid>
     <RootNamespace>example_sdl2_opengl3</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>PrimedKeys Master</ProjectName>
+    <ProjectName>PrimedKeys</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -80,7 +80,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(ProjectDir)$(Configuration)\</OutDir>
     <IntDir>$(ProjectDir)$(Configuration)\</IntDir>
-    <IncludePath>C:\vclib\SDL2-2.28.3\include;C:\Users\benny\OneDrive\Desktop\Desktop Folders\Development\C++\ImGui Apps\PrimedKeys\libs;$(IncludePath)</IncludePath>
+    <IncludePath>C:\vclib\SDL2-2.28.3\include;libs;src;$(IncludePath)</IncludePath>
     <LibraryPath>C:\vclib\SDL2-2.28.3\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -127,6 +127,7 @@
       <AdditionalIncludeDirectories>..\..;..\..\backends;%SDL2_DIR%\include;$(VcpkgCurrentInstalledDir)include\SDL2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -168,11 +169,16 @@
     <ClCompile Include="libs\imgui_impl_sdl2.cpp" />
     <ClCompile Include="libs\imgui_tables.cpp" />
     <ClCompile Include="libs\imgui_widgets.cpp" />
+    <ClCompile Include="libs\usynergy\uSynergy.c" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\render.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="./imgui/*.cpp" />
     <ClInclude Include="./imgui/*.h" />
+    <ClInclude Include="libs\emscripten\emscripten_mainloop_stub.h" />
+    <ClInclude Include="libs\glfw\include\GLFW\glfw3.h" />
+    <ClInclude Include="libs\glfw\include\GLFW\glfw3native.h" />
     <ClInclude Include="libs\imconfig.h" />
     <ClInclude Include="libs\imgui.h" />
     <ClInclude Include="libs\imgui_impl_opengl3.h" />
@@ -182,6 +188,8 @@
     <ClInclude Include="libs\imstb_rectpack.h" />
     <ClInclude Include="libs\imstb_textedit.h" />
     <ClInclude Include="libs\imstb_truetype.h" />
+    <ClInclude Include="libs\usynergy\uSynergy.h" />
+    <ClInclude Include="src\render.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitattributes" />
@@ -189,8 +197,13 @@
     <None Include="debuggers\imgui.gdb" />
     <None Include="debuggers\imgui.natvis" />
     <None Include="debuggers\imgui.natstepfilter" />
+    <None Include="imgui.ini" />
+    <None Include="libs\emscripten\shell_minimal.html" />
     <None Include="README.md" />
     <Text Include="debuggers\README.txt" />
+    <Text Include="libs\glfw\COPYING.txt" />
+    <Text Include="libs\usynergy\README.txt" />
+    <Text Include="LICENSE.txt" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="images\buttons\button.png" />
@@ -205,6 +218,10 @@
     <Image Include="images\buttons\icon_undo.png" />
     <Image Include="images\buttons\icon_x.png" />
     <Image Include="images\palettes\sky.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="libs\glfw\lib-vc2010-32\glfw3.lib" />
+    <Library Include="libs\glfw\lib-vc2010-64\glfw3.lib" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
