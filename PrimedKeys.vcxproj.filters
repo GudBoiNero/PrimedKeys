@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="sources">
+      <UniqueIdentifier>{f18ab499-84e1-499f-8eff-9754361e0e52}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="libs">
+      <UniqueIdentifier>{03770597-921b-4bdf-b30b-ea65ca7627d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="libs\imgui">
+      <UniqueIdentifier>{20b90ce4-7fcb-4731-b9a0-075f875de82d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="debuggers">
+      <UniqueIdentifier>{b18e0416-d5cd-45e0-adef-3af952c0dbb4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="./imgui/*.cpp">
+      <Filter>libs\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="./imgui/*.cpp">
+      <Filter>libs\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="./imgui/*.cpp">
+      <Filter>libs\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="./imgui/*.cpp">
+      <Filter>libs\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="./imgui/*.cpp">
+      <Filter>libs\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="./imgui/*.cpp">
+      <Filter>libs\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="./imgui/*.cpp">
+      <Filter>libs\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="libs\imgui.cpp">
+      <Filter>libs\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\imgui_demo.cpp">
+      <Filter>libs\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\imgui_draw.cpp">
+      <Filter>libs\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\imgui_impl_opengl3.cpp">
+      <Filter>libs\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\imgui_impl_sdl2.cpp">
+      <Filter>libs\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\imgui_tables.cpp">
+      <Filter>libs\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\imgui_widgets.cpp">
+      <Filter>libs\imgui</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include=".\imgui\imgui.h" />
+    <ClInclude Include=".\imgui\imgui_impl_opengl3.h" />
+    <ClInclude Include=".\imgui\imgui_impl_opengl3_loader.h" />
+    <ClInclude Include=".\imgui\imgui_impl_sdl2.h" />
+    <ClInclude Include=".\imgui\imgui_internal.h" />
+    <ClInclude Include=".\imgui\imstb_rectpack.h" />
+    <ClInclude Include=".\imgui\imstb_textedit.h" />
+    <ClInclude Include="./imgui/*.h">
+      <Filter>libs\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="./imgui/*.h">
+      <Filter>libs\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="./imgui/*.h">
+      <Filter>libs\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="./imgui/*.h">
+      <Filter>libs\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="./imgui/*.h">
+      <Filter>libs\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="./imgui/*.h">
+      <Filter>libs\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="./imgui/*.h">
+      <Filter>libs\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="./imgui/*.h">
+      <Filter>libs\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="libs\imconfig.h">
+      <Filter>libs\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="libs\imgui.h">
+      <Filter>libs\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="libs\imgui_impl_opengl3.h">
+      <Filter>libs\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="libs\imgui_impl_opengl3_loader.h">
+      <Filter>libs\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="libs\imgui_impl_sdl2.h">
+      <Filter>libs\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="libs\imgui_internal.h">
+      <Filter>libs\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="libs\imstb_rectpack.h">
+      <Filter>libs\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="libs\imstb_textedit.h">
+      <Filter>libs\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="libs\imstb_truetype.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".gitattributes" />
+    <None Include=".gitignore" />
+    <None Include="debuggers\imgui.gdb" />
+    <None Include="debuggers\imgui.natstepfilter" />
+    <None Include="debuggers\imgui.natvis" />
+    <None Include="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="debuggers\README.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="images\buttons\button.png" />
+    <Image Include="images\buttons\button_active.png" />
+    <Image Include="images\buttons\button_hover.png" />
+    <Image Include="images\buttons\icon_arrow_left.png" />
+    <Image Include="images\buttons\icon_arrow_right.png" />
+    <Image Include="images\buttons\icon_arrow_up.png" />
+    <Image Include="images\buttons\icon_pause.png" />
+    <Image Include="images\buttons\icon_play.png" />
+    <Image Include="images\buttons\icon_redo.png" />
+    <Image Include="images\buttons\icon_undo.png" />
+    <Image Include="images\buttons\icon_x.png" />
+    <Image Include="images\palettes\sky.png" />
+  </ItemGroup>
+</Project>
