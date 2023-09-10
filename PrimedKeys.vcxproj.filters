@@ -128,6 +128,7 @@
     <ClInclude Include="libs\glfw\include\GLFW\glfw3.h" />
     <ClInclude Include="libs\glfw\include\GLFW\glfw3native.h" />
     <ClInclude Include="libs\usynergy\uSynergy.h" />
+    <ClInclude Include="src\gui.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitattributes" />

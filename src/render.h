@@ -18,21 +18,29 @@
 
 namespace render
 {
-	inline SDL_WindowFlags window_flags;
 	inline SDL_Window* window;
 	inline SDL_GLContext gl_context;
+	inline ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
+	inline SDL_WindowFlags window_flags = (SDL_WindowFlags)(
+		SDL_WINDOW_OPENGL |
+		SDL_WINDOW_RESIZABLE |
+		SDL_WINDOW_ALLOW_HIGHDPI | 
+		SDL_WINDOW_HIDDEN |
+		SDL_WINDOW_ALWAYS_ON_TOP);
+	
+	inline ImGuiConfigFlags config_flags = 
+		ImGuiConfigFlags_NavEnableKeyboard | 
+		ImGuiConfigFlags_NavEnableGamepad | 
+		ImGuiConfigFlags_DockingEnable | 
+		ImGuiConfigFlags_ViewportsEnable;
 
-	// Determines when the window should exit
 	inline bool done = false;
-
 	inline char title[] = "PrimedKeys";
 
-	inline ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
+	void Render();
+	void BeginRender();
+	void EndRender();
 
 	void Setup();
 	void Cleanup();
-
-	void BeginRender();
-	void Render();
-	void EndRender();
 }
