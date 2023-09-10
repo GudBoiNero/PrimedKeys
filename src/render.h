@@ -24,7 +24,8 @@ namespace render
 	inline SDL_WindowFlags window_flags = (SDL_WindowFlags)(
 		SDL_WINDOW_OPENGL |
 		SDL_WINDOW_RESIZABLE |
-		SDL_WINDOW_ALLOW_HIGHDPI | 
+		SDL_WINDOW_ALLOW_HIGHDPI |
+		SDL_WINDOW_SKIP_TASKBAR |
 		SDL_WINDOW_HIDDEN |
 		SDL_WINDOW_ALWAYS_ON_TOP);
 	
@@ -36,6 +37,8 @@ namespace render
 
 	inline bool done = false;
 	inline char title[] = "PrimedKeys";
+
+	inline bool show_macro_menu = true;
 
 	void Render();
 	void BeginRender();

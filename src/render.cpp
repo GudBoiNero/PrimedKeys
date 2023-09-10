@@ -5,7 +5,7 @@ namespace render
 {
     void Render()
     {
-        gui::ShowMacroMenu();
+        gui::ShowMacroMenu(&show_macro_menu);
     }
 
     void BeginRender()
@@ -36,7 +36,7 @@ namespace render
         // Rendering
         ImGui::Render();
         glViewport(0, 0, (int)io.DisplaySize.x, (int)io.DisplaySize.y);
-        glClearColor(clear_color.x * clear_color.w, clear_color.y * clear_color.w, clear_color.z * clear_color.w, clear_color.w);
+        glClearColor(clear_color.x * clear_color.w, clear_color.y * clear_color.w, clear_color.z * clear_color.w, 0);
         glClear(GL_COLOR_BUFFER_BIT);
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
@@ -108,6 +108,8 @@ namespace render
         ImGuiIO& io = ImGui::GetIO(); (void)io;
         io.ConfigFlags = config_flags;
         io.ConfigViewportsNoTaskBarIcon = true;
+        io.ConfigViewportsNoAutoMerge = true; // Separates all child viewports
+        io.ConfigViewportsNoDefaultParent = true; // Prevent SDL_WINDOW_HIDDEN from hiding all viewports.
 
         // Setup Dear ImGui style
         ImGui::StyleColorsDark();
