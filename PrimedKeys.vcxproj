@@ -80,7 +80,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(ProjectDir)$(Configuration)\</OutDir>
     <IntDir>$(ProjectDir)$(Configuration)\</IntDir>
-    <IncludePath>C:\vclib\SDL2-2.28.3\include;libs;src;$(IncludePath)</IncludePath>
+    <IncludePath>C:\vclib\SDL2-2.28.3\include;libs;src;include;$(IncludePath)</IncludePath>
     <LibraryPath>C:\vclib\SDL2-2.28.3\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -162,13 +162,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="libs\imgui.cpp" />
-    <ClCompile Include="libs\imgui_demo.cpp" />
-    <ClCompile Include="libs\imgui_draw.cpp" />
-    <ClCompile Include="libs\imgui_impl_opengl3.cpp" />
-    <ClCompile Include="libs\imgui_impl_sdl2.cpp" />
-    <ClCompile Include="libs\imgui_tables.cpp" />
-    <ClCompile Include="libs\imgui_widgets.cpp" />
+    <ClCompile Include="include\imgui.cpp" />
+    <ClCompile Include="include\imgui_demo.cpp" />
+    <ClCompile Include="include\imgui_draw.cpp" />
+    <ClCompile Include="include\imgui_impl_opengl3.cpp" />
+    <ClCompile Include="include\imgui_impl_sdl2.cpp" />
+    <ClCompile Include="include\imgui_tables.cpp" />
+    <ClCompile Include="include\imgui_widgets.cpp" />
     <ClCompile Include="libs\usynergy\uSynergy.c" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="src\render.cpp" />
@@ -179,15 +179,15 @@
     <ClInclude Include="libs\emscripten\emscripten_mainloop_stub.h" />
     <ClInclude Include="libs\glfw\include\GLFW\glfw3.h" />
     <ClInclude Include="libs\glfw\include\GLFW\glfw3native.h" />
-    <ClInclude Include="libs\imconfig.h" />
-    <ClInclude Include="libs\imgui.h" />
-    <ClInclude Include="libs\imgui_impl_opengl3.h" />
-    <ClInclude Include="libs\imgui_impl_opengl3_loader.h" />
-    <ClInclude Include="libs\imgui_impl_sdl2.h" />
-    <ClInclude Include="libs\imgui_internal.h" />
-    <ClInclude Include="libs\imstb_rectpack.h" />
-    <ClInclude Include="libs\imstb_textedit.h" />
-    <ClInclude Include="libs\imstb_truetype.h" />
+    <ClInclude Include="include\imconfig.h" />
+    <ClInclude Include="include\imgui.h" />
+    <ClInclude Include="include\imgui_impl_opengl3.h" />
+    <ClInclude Include="include\imgui_impl_opengl3_loader.h" />
+    <ClInclude Include="include\imgui_impl_sdl2.h" />
+    <ClInclude Include="include\imgui_internal.h" />
+    <ClInclude Include="include\imstb_rectpack.h" />
+    <ClInclude Include="include\imstb_textedit.h" />
+    <ClInclude Include="include\imstb_truetype.h" />
     <ClInclude Include="libs\usynergy\uSynergy.h" />
     <ClInclude Include="src\gui.h" />
     <ClInclude Include="src\render.h" />
