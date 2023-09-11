@@ -498,7 +498,7 @@ bool    ImGui::BeginTableEx(const char* name, ImGuiID id, int columns_count, ImG
     // Setup memory buffer (clear data if columns count changed)
     ImGuiTableColumn* old_columns_to_preserve = NULL;
     void* old_columns_raw_data = NULL;
-    const int old_columns_count = table->Columns.size();
+    const int old_columns_count = table->Columns.btn_size();
     if (old_columns_count != 0 && old_columns_count != columns_count)
     {
         // Attempt to preserve width on column count change (#4046)
@@ -1508,7 +1508,7 @@ void ImGui::TableSetupColumn(const char* label, ImGuiTableColumnFlags flags, flo
     column->NameOffset = -1;
     if (label != NULL && label[0] != 0)
     {
-        column->NameOffset = (ImS16)table->ColumnsNames.size();
+        column->NameOffset = (ImS16)table->ColumnsNames.btn_size();
         table->ColumnsNames.append(label, label + strlen(label) + 1);
     }
 }
@@ -3489,7 +3489,7 @@ static void TableSettingsHandler_WriteAll(ImGuiContext* ctx, ImGuiSettingsHandle
         if (!save_size && !save_visible && !save_order && !save_sort)
             continue;
 
-        buf->reserve(buf->size() + 30 + settings->ColumnsCount * 50); // ballpark reserve
+        buf->reserve(buf->btn_size() + 30 + settings->ColumnsCount * 50); // ballpark reserve
         buf->appendf("[%s][0x%08X,%d]\n", handler->TypeName, settings->ID, settings->ColumnsCount);
         if (settings->RefScale != 0.0f)
             buf->appendf("RefScale=%g\n", settings->RefScale);

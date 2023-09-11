@@ -418,14 +418,14 @@ static void sProcessMessage(uSynergyContext *context, const uint8_t *message)
 		{
 			// Parse clipboard format header
 			uint32_t format	= sNetToNative32(parse_msg);
-			uint32_t size	= sNetToNative32(parse_msg+4);
+			uint32_t btn_size	= sNetToNative32(parse_msg+4);
 			parse_msg += 8;
 			
 			// Call callback
 			if (context->m_clipboardCallback)
-				context->m_clipboardCallback(context->m_cookie, format, parse_msg, size);
+				context->m_clipboardCallback(context->m_cookie, format, parse_msg, btn_size);
 
-			parse_msg += size;
+			parse_msg += btn_size;
 		}
 	}
 	else

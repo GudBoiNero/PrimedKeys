@@ -932,10 +932,10 @@ static ImVec2 ImGui_ImplSDL2_GetWindowSize(ImGuiViewport* viewport)
     return ImVec2((float)w, (float)h);
 }
 
-static void ImGui_ImplSDL2_SetWindowSize(ImGuiViewport* viewport, ImVec2 size)
+static void ImGui_ImplSDL2_SetWindowSize(ImGuiViewport* viewport, ImVec2 btn_size)
 {
     ImGui_ImplSDL2_ViewportData* vd = (ImGui_ImplSDL2_ViewportData*)viewport->PlatformUserData;
-    SDL_SetWindowSize(vd->Window, (int)size.x, (int)size.y);
+    SDL_SetWindowSize(vd->Window, (int)btn_size.x, (int)btn_size.y);
 }
 
 static void ImGui_ImplSDL2_SetWindowTitle(ImGuiViewport* viewport, const char* title)

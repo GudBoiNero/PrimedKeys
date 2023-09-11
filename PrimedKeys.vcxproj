@@ -191,7 +191,6 @@
     <ClInclude Include="include\imstb_textedit.h" />
     <ClInclude Include="include\imstb_truetype.h" />
     <ClInclude Include="libs\usynergy\uSynergy.h" />
-    <ClInclude Include="src\buttons.h" />
     <ClInclude Include="src\gui.h" />
     <ClInclude Include="src\render.h" />
   </ItemGroup>

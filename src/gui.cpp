@@ -1,10 +1,7 @@
-#include <imgui.h>
-#include <SDL_opengl.h>
 #include "gui.h"
-#include "buttons.h"
 
 #define STB_IMAGE_IMPLEMENTATION
-#include "stb_image.h"
+#include <stb_image.h>
 
 namespace gui
 {
@@ -12,52 +9,10 @@ namespace gui
         ImGui::Begin("MacroMenu", &p_open, default_window_flags);
         ImGui::GetWindowViewport()->Flags = default_viewport_flags;
 
-        /*{
-            TextureButtonData img_default_data;
-            TextureButtonData img_hover_data;
-            TextureButtonData img_active_data;
-
-            const char img_icon[] = "images/buttons/button.png";
-            const char img_default[] = "images/buttons/button.png";
-            const char img_hover[] = "images/buttons/button.png";
-            const char img_active[] = "images/buttons/button.png";
-
-            bool ret = LoadTextureFromFile(img_default, &img_default_data.texture, &img_default_data.width, &img_default_data.height);
-            IM_ASSERT(ret);
-            ret = LoadTextureFromFile(img_hover, &img_hover_data.texture, &img_hover_data.width, &img_hover_data.height);
-            IM_ASSERT(ret);
-            ret = LoadTextureFromFile(img_active, &img_active_data.texture, &img_active_data.width, &img_active_data.height);
-            IM_ASSERT(ret);
-
-            ImGuiID texture;
-
-            gui::PKImageButton(texture, img_default_data, img_hover_data, img_active_data);
-        }*/
-
         {
-            TextureButtonData default_data;
-            TextureButtonData hover_data;
-            TextureButtonData active_data;
-
             const char img_icon[] = "images/buttons/button.png";
-            const char img_default[] = "images/buttons/button.png";
-            const char img_hover[] = "images/buttons/button_hover.png";
-            const char img_active[] = "images/buttons/button_active.png";
 
-            bool ret = LoadTextureFromFile(img_default, (GLuint*)(void*)&default_data.texture, &default_data.width, &default_data.height);
-            IM_ASSERT(ret);
-            ret = LoadTextureFromFile(img_hover, (GLuint*)(void*)&hover_data.texture, &hover_data.width, &hover_data.height);
-            IM_ASSERT(ret);
-            ret = LoadTextureFromFile(img_active, (GLuint*)(void*)&active_data.texture, &active_data.width, &active_data.height);
-            IM_ASSERT(ret);
-
-            ImVec2 size = ImVec2(default_data.width, default_data.height);
-            ImVec2 uv0 = ImVec2(0.0f, 0.0f);
-            ImVec2 uv1 = ImVec2(size / size);
-            ImVec4 bg_col = ImVec4(0.0f, 0.0f, 0.0f, 1.0f);
-            ImVec4 tint_col = ImVec4(1.0f, 1.0f, 1.0f, 1.0f);
-
-            gui::TextureButton((ImGuiID)"Hello", default_data.texture, hover_data.texture, active_data.texture, size, uv0, uv1, bg_col, tint_col, ImGuiButtonFlags_None);
+            gui::TextureButton((ImGuiID)"Hello", img_icon, ImGuiButtonFlags_None);
         }
 
 
@@ -99,4 +54,75 @@ namespace gui
 
         return true;
     }
+
+	struct TextureButtonData
+	{
+		ImTextureID texture = 0;
+		int width = 0;
+		int height = 0;
+	};
+	inline const char btn_img_default[] = "images/buttons/button.png";
+	inline const char btn_img_hover[] = "images/buttons/button_hover.png";
+	inline const char btn_img_active[] = "images/buttons/button_active.png";
+	TextureButtonData btn_default_data;
+	TextureButtonData btn_hover_data;
+	TextureButtonData btn_active_data;
+	ImVec2 btn_size;
+	ImVec2 btn_uv0 = ImVec2(0.0f, 0.0f);
+	ImVec2 btn_uv1 = ImVec2(1.0f, 1.0f);
+	ImVec4 btn_bg_col = ImVec4(0.0f, 0.0f, 0.0f, 1.0f);
+	ImVec4 btn_tint_col = ImVec4(1.0f, 1.0f, 1.0f, 1.0f);
+
+	void LoadTextureButtons()
+	{
+		bool ret = LoadTextureFromFile(btn_img_default, (GLuint*)(void*)&btn_default_data.texture, &btn_default_data.width, &btn_default_data.height);
+		IM_ASSERT(ret);
+		ret = LoadTextureFromFile(btn_img_hover, (GLuint*)(void*)&btn_hover_data.texture, &btn_hover_data.width, &btn_hover_data.height);
+		IM_ASSERT(ret);
+		ret = LoadTextureFromFile(btn_img_active, (GLuint*)(void*)&btn_active_data.texture, &btn_active_data.width, &btn_active_data.height);
+		IM_ASSERT(ret);
+
+		btn_size = ImVec2(btn_default_data.width, btn_default_data.height);
+	}
+
+	bool TextureButton(ImGuiID id, const char img_icon[], ImGuiButtonFlags flags)
+	{
+		ImTextureID texture_id = btn_default_data.texture;
+		ImGuiContext& g = *GImGui;
+		ImGuiWindow* window = ImGui::GetCurrentWindow();
+		if (window->SkipItems)
+			return false;
+
+		const ImVec2 padding = g.Style.FramePadding;
+		const ImRect bb(window->DC.CursorPos, window->DC.CursorPos + btn_size + padding * 2.0f);
+		ImGui::ItemSize(bb);
+		if (!ImGui::ItemAdd(bb, id))
+			return false;
+
+		bool hovered, held;
+		bool pressed = ImGui::ButtonBehavior(bb, id, &hovered, &held, flags);
+
+		// Determine image
+		if (hovered)
+		{
+			//std::cout << "Hovered!";
+			texture_id = btn_hover_data.texture;
+		}
+		if (pressed || held)
+		{
+			//std::cout << "Pressed!";
+			texture_id = btn_active_data.texture;
+		}
+
+		// Render
+		//const ImU32 col = ImGui::GetColorU32((held && hovered) ? ImGuiCol_ButtonActive : hovered ? ImGuiCol_ButtonHovered : ImGuiCol_Button);
+		const ImU32 col = ImGui::GetColorU32(ImGuiCol_Button);
+		ImGui::RenderNavHighlight(bb, id);
+		ImGui::RenderFrame(bb.Min, bb.Max, col, true, ImClamp((float)ImMin(padding.x, padding.y), 0.0f, g.Style.FrameRounding));
+		if (btn_bg_col.w > 0.0f)
+			window->DrawList->AddRectFilled(bb.Min + padding, bb.Max - padding, ImGui::GetColorU32(btn_bg_col));
+		window->DrawList->AddImage(texture_id, bb.Min + padding, bb.Max - padding, btn_uv0, btn_uv1, ImGui::GetColorU32(btn_tint_col));
+
+		return pressed;
+	}
 }

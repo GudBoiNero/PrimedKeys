@@ -408,7 +408,7 @@ extern "C" {
 
     typedef struct
     {
-        int      (*read)  (void* user, char* data, int size);   // fill 'data' with 'size' bytes.  return number of bytes actually read
+        int      (*read)  (void* user, char* data, int btn_size);   // fill 'data' with 'size' bytes.  return number of bytes actually read
         void     (*skip)  (void* user, int n);                 // skip the next 'n' bytes, or 'unget' the last -n bytes if negative
         int      (*eof)   (void* user);                       // returns nonzero if we are at end of file/data
     } stbi_io_callbacks;
@@ -845,9 +845,9 @@ static void stbi__start_callbacks(stbi__context* s, stbi_io_callbacks* c, void* 
 
 #ifndef STBI_NO_STDIO
 
-static int stbi__stdio_read(void* user, char* data, int size)
+static int stbi__stdio_read(void* user, char* data, int btn_size)
 {
-    return (int)fread(data, 1, size, (FILE*)user);
+    return (int)fread(data, 1, btn_size, (FILE*)user);
 }
 
 static void stbi__stdio_skip(void* user, int n)
@@ -980,9 +980,9 @@ static int stbi__err(const char* str)
 }
 #endif
 
-static void* stbi__malloc(size_t size)
+static void* stbi__malloc(size_t btn_size)
 {
-    return STBI_MALLOC(size);
+    return STBI_MALLOC(btn_size);
 }
 
 // stb_image uses ints pervasively, including for offset calculations.
@@ -1941,7 +1941,7 @@ typedef struct
     // weirdly, repacking this into AoS is a 10% speed loss, instead of a win
     stbi__uint16 code[256];
     stbi_uc  values[256];
-    stbi_uc  size[257];
+    stbi_uc  btn_size[257];
     unsigned int maxcode[18];
     int    delta[17];   // old 'firstsymbol' - old 'firstcode'
 } stbi__huffman;
@@ -2007,11 +2007,11 @@ static int stbi__build_huffman(stbi__huffman* h, int* count)
     // build size list for each symbol (from JPEG spec)
     for (i = 0; i < 16; ++i) {
         for (j = 0; j < count[i]; ++j) {
-            h->size[k++] = (stbi_uc)(i + 1);
+            h->btn_size[k++] = (stbi_uc)(i + 1);
             if (k >= 257) return stbi__err("bad size list", "Corrupt JPEG");
         }
     }
-    h->size[k] = 0;
+    h->btn_size[k] = 0;
 
     // compute actual symbols (from jpeg spec)
     code = 0;
@@ -2019,8 +2019,8 @@ static int stbi__build_huffman(stbi__huffman* h, int* count)
     for (j = 1; j <= 16; ++j) {
         // compute delta to add to code to compute symbol id
         h->delta[j] = k - code;
-        if (h->size[k] == j) {
-            while (h->size[k] == j)
+        if (h->btn_size[k] == j) {
+            while (h->btn_size[k] == j)
                 h->code[k++] = (stbi__uint16)(code++);
             if (code - 1 >= (1u << j)) return stbi__err("bad code lengths", "Corrupt JPEG");
         }
@@ -2033,7 +2033,7 @@ static int stbi__build_huffman(stbi__huffman* h, int* count)
     // build non-spec acceleration table; 255 is flag for not-accelerated
     memset(h->fast, 255, 1 << FAST_BITS);
     for (i = 0; i < k; ++i) {
-        int s = h->size[i];
+        int s = h->btn_size[i];
         if (s <= FAST_BITS) {
             int c = h->code[i] << (FAST_BITS - s);
             int m = 1 << (FAST_BITS - s);
@@ -2057,7 +2057,7 @@ static void stbi__build_fast_ac(stbi__int16* fast_ac, stbi__huffman* h)
             int rs = h->values[fast];
             int run = (rs >> 4) & 15;
             int magbits = rs & 15;
-            int len = h->size[fast];
+            int len = h->btn_size[fast];
 
             if (magbits && len + magbits <= FAST_BITS) {
                 // magnitude code followed by receive_extend code
@@ -2106,7 +2106,7 @@ stbi_inline static int stbi__jpeg_huff_decode(stbi__jpeg* j, stbi__huffman* h)
     c = (j->code_buffer >> (32 - FAST_BITS)) & ((1 << FAST_BITS) - 1);
     k = h->fast[c];
     if (k < 255) {
-        int s = h->size[k];
+        int s = h->btn_size[k];
         if (s > j->code_bits)
             return -1;
         j->code_buffer <<= s;
@@ -2137,7 +2137,7 @@ stbi_inline static int stbi__jpeg_huff_decode(stbi__jpeg* j, stbi__huffman* h)
     c = ((j->code_buffer >> (32 - k)) & stbi__bmask[k]) + h->delta[k];
     if (c < 0 || c >= 256) // symbol id out of bounds!
         return -1;
-    STBI_ASSERT((((j->code_buffer) >> (32 - h->size[c])) & stbi__bmask[h->size[c]]) == h->code[c]);
+    STBI_ASSERT((((j->code_buffer) >> (32 - h->btn_size[c])) & stbi__bmask[h->btn_size[c]]) == h->code[c]);
 
     // convert the id to a symbol
     j->code_bits -= k;
@@ -4129,7 +4129,7 @@ typedef struct
     stbi__uint16 firstcode[16];
     int maxcode[17];
     stbi__uint16 firstsymbol[16];
-    stbi_uc  size[STBI__ZNSYMS];
+    stbi_uc  btn_size[STBI__ZNSYMS];
     stbi__uint16 value[STBI__ZNSYMS];
 } stbi__zhuffman;
 
@@ -4182,7 +4182,7 @@ static int stbi__zbuild_huffman(stbi__zhuffman* z, const stbi_uc* sizelist, int 
         if (s) {
             int c = next_code[s] - z->firstcode[s] + z->firstsymbol[s];
             stbi__uint16 fastv = (stbi__uint16)((s << 9) | i);
-            z->size[c] = (stbi_uc)s;
+            z->btn_size[c] = (stbi_uc)s;
             z->value[c] = (stbi__uint16)i;
             if (s <= STBI__ZFAST_BITS) {
                 int j = stbi__bit_reverse(next_code[s], s);
@@ -4262,7 +4262,7 @@ static int stbi__zhuffman_decode_slowpath(stbi__zbuf* a, stbi__zhuffman* z)
     // code size is s, so:
     b = (k >> (16 - s)) - z->firstcode[s] + z->firstsymbol[s];
     if (b >= STBI__ZNSYMS) return -1; // some data was corrupt somewhere!
-    if (z->size[b] != s) return -1;  // was originally an assert, but report failure instead.
+    if (z->btn_size[b] != s) return -1;  // was originally an assert, but report failure instead.
     a->code_buffer >>= s;
     a->num_bits -= s;
     return z->value[b];
@@ -6451,7 +6451,7 @@ static int stbi__pic_test_core(stbi__context* s)
 
 typedef struct
 {
-    stbi_uc size, type, channel;
+    stbi_uc btn_size, type, channel;
 } stbi__pic_packet;
 
 static stbi_uc* stbi__readval(stbi__context* s, int channel, stbi_uc* dest)
@@ -6493,14 +6493,14 @@ static stbi_uc* stbi__pic_load_core(stbi__context* s, int width, int height, int
         packet = &packets[num_packets++];
 
         chained = stbi__get8(s);
-        packet->size = stbi__get8(s);
+        packet->btn_size = stbi__get8(s);
         packet->type = stbi__get8(s);
         packet->channel = stbi__get8(s);
 
         act_comp |= packet->channel;
 
         if (stbi__at_eof(s))          return stbi__errpuc("bad file", "file too short (reading packets)");
-        if (packet->size != 8)  return stbi__errpuc("bad format", "packet isn't 8bpp");
+        if (packet->btn_size != 8)  return stbi__errpuc("bad format", "packet isn't 8bpp");
     } while (chained);
 
     *comp = (act_comp & 0x10 ? 4 : 3); // has alpha channel?
@@ -7567,7 +7567,7 @@ static int stbi__pic_info(stbi__context* s, int* x, int* y, int* comp)
 
         packet = &packets[num_packets++];
         chained = stbi__get8(s);
-        packet->size = stbi__get8(s);
+        packet->btn_size = stbi__get8(s);
         packet->type = stbi__get8(s);
         packet->channel = stbi__get8(s);
         act_comp |= packet->channel;
@@ -7576,7 +7576,7 @@ static int stbi__pic_info(stbi__context* s, int* x, int* y, int* comp)
             stbi__rewind(s);
             return 0;
         }
-        if (packet->size != 8) {
+        if (packet->btn_size != 8) {
             stbi__rewind(s);
             return 0;
         }

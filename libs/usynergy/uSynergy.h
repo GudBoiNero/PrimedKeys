@@ -302,7 +302,7 @@ by the application.
 @param data			Memory area containing the clipboard raw data
 @param size			Size of clipboard data
 **/
-typedef void		(*uSynergyClipboardCallback)(uSynergyCookie cookie, enum uSynergyClipboardFormat format, const uint8_t *data, uint32_t size);
+typedef void		(*uSynergyClipboardCallback)(uSynergyCookie cookie, enum uSynergyClipboardFormat format, const uint8_t *data, uint32_t btn_size);
 
 
 
