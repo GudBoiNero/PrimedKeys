@@ -4,7 +4,6 @@
 #include <imgui_impl_sdl2.h>
 #include <imgui_impl_opengl3.h>
 #include <imgui_internal.h>
-#include <stb_image.h>
 #include <iostream>
 #include <stdio.h>
 
@@ -29,7 +28,6 @@ namespace render
 	inline ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
 	inline SDL_WindowFlags window_flags = (SDL_WindowFlags)(
 		SDL_WINDOW_OPENGL |
-		SDL_WINDOW_RESIZABLE |
 		SDL_WINDOW_ALLOW_HIGHDPI |
 		SDL_WINDOW_SKIP_TASKBAR |
 		SDL_WINDOW_HIDDEN |

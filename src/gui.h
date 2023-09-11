@@ -9,7 +9,7 @@ namespace gui
 {
 	// TODO: Allow for the macro menu to show up without the main window behind it.
 	constexpr ImGuiWindowFlags default_window_flags = 
-		ImGuiWindowFlags_None;
+		ImGuiWindowFlags_AlwaysAutoResize;
 
 	constexpr ImGuiViewportFlags default_viewport_flags =
 		ImGuiViewportFlags_NoDecoration |

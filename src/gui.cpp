@@ -1,7 +1,9 @@
 #include "gui.h"
 
+#ifndef STB_IMAGE_IMPLEMENTATION
 #define STB_IMAGE_IMPLEMENTATION
-#include <stb_image.h>
+#include "stb_image.h"
+#endif
 
 namespace gui
 {
@@ -12,7 +14,15 @@ namespace gui
         {
             const char img_icon[] = "images/buttons/button.png";
 
-            gui::TextureButton((ImGuiID)"Hello", img_icon, ImGuiButtonFlags_None);
+			gui::TextureButton((ImGuiID)"_pktb1", img_icon, ImGuiButtonFlags_None); ImGui::SameLine();
+			gui::TextureButton((ImGuiID)"_pktb2", img_icon, ImGuiButtonFlags_None); ImGui::SameLine();
+			gui::TextureButton((ImGuiID)"_pktb3", img_icon, ImGuiButtonFlags_None); ImGui::SameLine();
+			gui::TextureButton((ImGuiID)"_pktb4", img_icon, ImGuiButtonFlags_None); 
+
+			gui::TextureButton((ImGuiID)"_pktb5", img_icon, ImGuiButtonFlags_None); ImGui::SameLine();
+			gui::TextureButton((ImGuiID)"_pktb6", img_icon, ImGuiButtonFlags_None); ImGui::SameLine();
+			gui::TextureButton((ImGuiID)"_pktb7", img_icon, ImGuiButtonFlags_None); ImGui::SameLine();
+			gui::TextureButton((ImGuiID)"_pktb8", img_icon, ImGuiButtonFlags_None);
         }
 
 
