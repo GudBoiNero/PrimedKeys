@@ -65,6 +65,9 @@
     <ClCompile Include="libs\usynergy\uSynergy.c">
       <Filter>sources</Filter>
     </ClCompile>
+    <ClCompile Include="src\gui.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="./imgui/*.h">
@@ -122,6 +125,8 @@
     <ClInclude Include="libs\glfw\include\GLFW\glfw3native.h" />
     <ClInclude Include="libs\usynergy\uSynergy.h" />
     <ClInclude Include="src\gui.h" />
+    <ClInclude Include="src\buttons.h" />
+    <ClInclude Include="include\stb_image.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitattributes" />

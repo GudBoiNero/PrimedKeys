@@ -5,6 +5,7 @@ namespace render
 {
     void Render()
     {
+        //ImGui::ShowDemoWindow();
         gui::ShowMacroMenu(&show_macro_menu);
     }
 
@@ -121,6 +122,8 @@ namespace render
             style.WindowRounding = 0.0f;
             style.Colors[ImGuiCol_WindowBg].w = 1.0f;
         }
+
+        style.FramePadding = {0.0f, 0.0f}; // Ugly
 
         // Setup Platform/Renderer backends
         ImGui_ImplSDL2_InitForOpenGL(window, gl_context);

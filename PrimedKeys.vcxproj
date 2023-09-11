@@ -171,11 +171,13 @@
     <ClCompile Include="include\imgui_widgets.cpp" />
     <ClCompile Include="libs\usynergy\uSynergy.c" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\gui.cpp" />
     <ClCompile Include="src\render.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="./imgui/*.cpp" />
     <ClInclude Include="./imgui/*.h" />
+    <ClInclude Include="include\stb_image.h" />
     <ClInclude Include="libs\emscripten\emscripten_mainloop_stub.h" />
     <ClInclude Include="libs\glfw\include\GLFW\glfw3.h" />
     <ClInclude Include="libs\glfw\include\GLFW\glfw3native.h" />
@@ -189,6 +191,7 @@
     <ClInclude Include="include\imstb_textedit.h" />
     <ClInclude Include="include\imstb_truetype.h" />
     <ClInclude Include="libs\usynergy\uSynergy.h" />
+    <ClInclude Include="src\buttons.h" />
     <ClInclude Include="src\gui.h" />
     <ClInclude Include="src\render.h" />
   </ItemGroup>
