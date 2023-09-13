@@ -95,9 +95,9 @@ namespace gui
 		btn_size = ImVec2(btn_default_data.width, btn_default_data.height);
 	}
 
-	bool TextureButton(ImGuiID id, const char img_icon[], ImGuiButtonFlags flags)
+	bool TextureButton(ImGuiID id, const char img_icon[], ImTextureID texture_default_id, ImTextureID texture_hover_id, ImTextureID texture_active_id, ImGuiButtonFlags flags)
 	{
-		ImTextureID texture_id = btn_default_data.texture;
+		ImTextureID texture_id = texture_default_id;
 		ImGuiContext& g = *GImGui;
 		ImGuiWindow* window = ImGui::GetCurrentWindow();
 		if (window->SkipItems)
@@ -116,12 +116,12 @@ namespace gui
 		if (hovered)
 		{
 			//std::cout << "Hovered!";
-			texture_id = btn_hover_data.texture;
+			texture_id = texture_hover_id;
 		}
 		if (pressed || held)
 		{
 			//std::cout << "Pressed!";
-			texture_id = btn_active_data.texture;
+			texture_id = texture_active_id;
 		}
 
 		// Render
@@ -134,5 +134,10 @@ namespace gui
 		window->DrawList->AddImage(texture_id, bb.Min + padding, bb.Max - padding, btn_uv0, btn_uv1, ImGui::GetColorU32(btn_tint_col));
 
 		return pressed;
+	}
+
+	bool TextureButton(ImGuiID id, const char img_icon[], ImGuiButtonFlags flags)
+	{
+		return TextureButton(id, img_icon, btn_default_data.texture, btn_hover_data.texture, btn_active_data.texture, flags);
 	}
 }
