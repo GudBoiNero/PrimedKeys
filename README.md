@@ -12,7 +12,7 @@ In the end I had no other options, so I thought to myself,
 
 > "Hmmmm. I haven't really touched C++ before." - Me
 
-Plus, I was introduced to [Dear-ImGui](https://github.com/ocornut/imgui) recently- And I really liked it! So I figured this would be a great opportunity to fix my issues, and learn a new skill!
+Plus, I was introduced to [Dear ImGui](https://github.com/ocornut/imgui) recently- And I really liked it! So I figured this would be a great opportunity to fix my issues, and learn a new skill!
 
 In my journey of trying to find a software like this. I found [RadialMenu](http://radialmenu.weebly.com/) and [AutoHotPie](https://github.com/dumbeau/AutoHotPie). But in my super specific case it didn't work out. Something about my computer did not want to work with RadialMenu. Also, my HP Pen didn't want to work with AutoHotPie regardless of what I did. Overall I really liked how RadialMenu was a legitamate gui overlay with a top level window holding buttons that replicate keystrokes.
 
