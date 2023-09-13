@@ -145,7 +145,7 @@ namespace render
         //io.Fonts->AddFontFromFileTTF("../../misc/fonts/Cousine-Regular.ttf", 15.0f);
         //ImFont* font = io.Fonts->AddFontFromFileTTF("c:\\Windows\\Fonts\\ArialUni.ttf", 18.0f, nullptr, io.Fonts->GetGlyphRangesJapanese());
         //IM_ASSERT(font != nullptr);
-        gui::LoadTextureButtons();
+        gui::LoadNativeTextures();
 	}
     void Cleanup()
     {

@@ -20,7 +20,7 @@ namespace gui
 	bool LoadTextureFromFile(const char* filename, GLuint* out_texture, int* out_width, int* out_height);
 
 #pragma region TextureButton
-	void LoadTextureButtons();
+	void LoadNativeTextures();
 	bool TextureButton(ImGuiID id, const char img_icon[], ImGuiButtonFlags flags);
 #pragma endregion
 }

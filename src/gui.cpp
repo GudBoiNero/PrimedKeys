@@ -83,7 +83,7 @@ namespace gui
 	ImVec4 btn_bg_col = ImVec4(0.0f, 0.0f, 0.0f, 1.0f);
 	ImVec4 btn_tint_col = ImVec4(1.0f, 1.0f, 1.0f, 1.0f);
 
-	void LoadTextureButtons()
+	void LoadNativeTextures()
 	{
 		bool ret = LoadTextureFromFile(btn_img_default, (GLuint*)(void*)&btn_default_data.texture, &btn_default_data.width, &btn_default_data.height);
 		IM_ASSERT(ret);
@@ -95,6 +95,7 @@ namespace gui
 		btn_size = ImVec2(btn_default_data.width, btn_default_data.height);
 	}
 
+	// Custom Textures
 	bool TextureButton(ImGuiID id, const char img_icon[], ImTextureID texture_default_id, ImTextureID texture_hover_id, ImTextureID texture_active_id, ImGuiButtonFlags flags)
 	{
 		ImTextureID texture_id = texture_default_id;
@@ -136,6 +137,7 @@ namespace gui
 		return pressed;
 	}
 
+	// Native textures
 	bool TextureButton(ImGuiID id, const char img_icon[], ImGuiButtonFlags flags)
 	{
 		return TextureButton(id, img_icon, btn_default_data.texture, btn_hover_data.texture, btn_active_data.texture, flags);
