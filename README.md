@@ -17,7 +17,14 @@ Plus, I was introduced to [Dear ImGui](https://github.com/ocornut/imgui) recentl
 In my journey of trying to find a software like this. I found [RadialMenu](http://radialmenu.weebly.com/) and [AutoHotPie](https://github.com/dumbeau/AutoHotPie). But in my super specific case it didn't work out. Something about my computer did not want to work with RadialMenu. Also, my HP Pen didn't want to work with AutoHotPie regardless of what I did. Overall I really liked how RadialMenu was a legitamate gui overlay with a top level window holding buttons that replicate keystrokes.
 
 # Setup
-- [SDL2 Installation](https://lazyfoo.net/tutorials/SDL/01_hello_SDL/index.php)
-- More to come...
+1. Clone the repo. Ensure you're using Visual Studio 2022.
+2. Check project settings and fix if needed.
+   - `General/Platform Toolset` -> `Visual Studio 2022 (v143)`
+   - `General/C++ Language Standard` -> `ISO C++ 20 Standard (/std:c++20)`
+   - `Advanced/Whole Program Optimization` -> `Use Link Time Code Generation`
+   - `Advanced/Character Set` -> `Use Multi-Byte Character Set`
+   - `VC++ Directories/Include Directories` -> `lib\SDL2-2.28.3\include;src;include;$(IncludePath)`
+   - `VC++ Directories/Library Directories` -> `lib\SDL2-2.28.3\lib\x86;$(LibraryPath)`
+   - `Linker::Input/Addictional Dependencies` -> `opengl32.lib;gdi32.lib;imm32.lib;SDL2.lib;SDL2main.lib;%(AdditionalDependencies)`
 
 If you need any help compiling/starting the project DM me on Discord (GudBoiNero#6650) or open an [issue](https://github.com/GudBoiNero/PrimedKeys/issues).
