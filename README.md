@@ -36,7 +36,7 @@ If you need any help compiling/starting the project DM me on Discord (GudBoiNero
 
 # Contribution Rules
 1. For changes you must use a separate branch.
-2. You may not push to `master`. You may only push to `beta`.
-3. Pull requests to main may only be from `beta`.
+2. You may not push to [`master`](https://github.com/GudBoiNero/PrimedKeys/tree/master). You may only push to [`beta`](https://github.com/GudBoiNero/PrimedKeys/tree/master).
+3. Pull requests to main may only be from [`beta`](https://github.com/GudBoiNero/PrimedKeys/tree/master).
 4. When making pull requests make sure to state the purpose of your changes, unless the issue the change is derived from clearly explains it.
 5. Try to keep commit comments relevant. (Flexible)
