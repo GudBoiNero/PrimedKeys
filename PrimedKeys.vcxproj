@@ -76,8 +76,8 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(ProjectDir)$(Configuration)\</OutDir>
     <IntDir>$(ProjectDir)$(Configuration)\</IntDir>
-    <IncludePath>libs\SDL2-2.28.3\include;src;include\libs$(IncludePath)</IncludePath>
-    <LibraryPath>libs\SDL2-2.28.3\lib\86x;$(LibraryPath)$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64)</LibraryPath>
+    <IncludePath>lib\SDL2-2.28.3\include;src;include\lib$(IncludePath)</IncludePath>
+    <LibraryPath>lib\SDL2-2.28.3\lib\86x;$(LibraryPath)$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(ProjectDir)$(Configuration)\</OutDir>
@@ -165,6 +165,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="include\glad.c" />
     <ClCompile Include="include\imgui.cpp" />
     <ClCompile Include="include\imgui_demo.cpp" />
     <ClCompile Include="include\imgui_draw.cpp" />
@@ -180,6 +181,8 @@
   <ItemGroup>
     <ClCompile Include="./imgui/*.cpp" />
     <ClInclude Include="./imgui/*.h" />
+    <ClInclude Include="include\glad.h" />
+    <ClInclude Include="include\khrplatform.h" />
     <ClInclude Include="include\stb_image.h" />
     <ClInclude Include="lib\emscripten\emscripten_mainloop_stub.h" />
     <ClInclude Include="lib\glfw\include\GLFW\glfw3.h" />

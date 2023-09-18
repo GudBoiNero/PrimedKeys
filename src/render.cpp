@@ -1,5 +1,5 @@
-#include "render.h"
 #include "gui.h"
+#include "render.h"
 
 namespace render
 {
@@ -102,6 +102,8 @@ namespace render
         gl_context = SDL_GL_CreateContext(window);
         SDL_GL_MakeCurrent(window, gl_context);
         SDL_GL_SetSwapInterval(1); // Enable vsync
+
+        gladLoadGLLoader((GLADloadproc)SDL_GL_GetProcAddress);
 
         // Setup Dear ImGui context
         IMGUI_CHECKVERSION();
