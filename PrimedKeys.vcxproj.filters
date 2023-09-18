@@ -68,6 +68,9 @@
     <ClCompile Include="src\gui.cpp">
       <Filter>sources</Filter>
     </ClCompile>
+    <ClCompile Include="include\glad.c">
+      <Filter>sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="./imgui/*.h">
@@ -204,6 +207,8 @@
     <ClInclude Include="lib\SDL2-2.28.3\include\SDL_version.h" />
     <ClInclude Include="lib\SDL2-2.28.3\include\SDL_video.h" />
     <ClInclude Include="lib\SDL2-2.28.3\include\SDL_vulkan.h" />
+    <ClInclude Include="include\glad.h" />
+    <ClInclude Include="include\khrplatform.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitattributes" />
