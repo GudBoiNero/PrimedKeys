@@ -209,6 +209,7 @@
     <ClInclude Include="lib\SDL2-2.28.3\include\SDL_vulkan.h" />
     <ClInclude Include="include\glad.h" />
     <ClInclude Include="include\khrplatform.h" />
+    <ClInclude Include="src\macro.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitattributes" />
