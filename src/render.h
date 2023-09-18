@@ -6,7 +6,6 @@
 #include <imgui_internal.h>
 #include <iostream>
 #include <stdio.h>
-
 #include <SDL.h>
 #if defined(IMGUI_IMPL_OPENGL_ES2)
 #include <SDL_opengles2.h>

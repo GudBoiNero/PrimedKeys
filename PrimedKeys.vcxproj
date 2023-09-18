@@ -165,6 +165,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="include\glad.c" />
     <ClCompile Include="include\imgui.cpp" />
     <ClCompile Include="include\imgui_demo.cpp" />
     <ClCompile Include="include\imgui_draw.cpp" />
@@ -180,6 +181,8 @@
   <ItemGroup>
     <ClCompile Include="./imgui/*.cpp" />
     <ClInclude Include="./imgui/*.h" />
+    <ClInclude Include="include\glad.h" />
+    <ClInclude Include="include\khrplatform.h" />
     <ClInclude Include="include\stb_image.h" />
     <ClInclude Include="lib\emscripten\emscripten_mainloop_stub.h" />
     <ClInclude Include="lib\glfw\include\GLFW\glfw3.h" />

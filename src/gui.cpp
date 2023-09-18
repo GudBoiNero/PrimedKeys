@@ -25,7 +25,6 @@ namespace gui
 			gui::TextureButton((ImGuiID)"_pktb8", img_icon, ImGuiButtonFlags_None);
         }
 
-
 		ImGui::End();
 	}
 
