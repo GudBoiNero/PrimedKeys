@@ -71,6 +71,9 @@
     <ClCompile Include="include\glad.c">
       <Filter>sources</Filter>
     </ClCompile>
+    <ClCompile Include="src\texture.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="./imgui/*.h">
@@ -210,6 +213,7 @@
     <ClInclude Include="include\glad.h" />
     <ClInclude Include="include\khrplatform.h" />
     <ClInclude Include="src\macro.h" />
+    <ClInclude Include="src\texture.h" />
     <ClInclude Include="include\readf.h" />
   </ItemGroup>
   <ItemGroup>

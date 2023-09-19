@@ -177,6 +177,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="src\gui.cpp" />
     <ClCompile Include="src\render.cpp" />
+    <ClCompile Include="src\texture.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="./imgui/*.cpp" />
@@ -279,6 +280,7 @@
     <ClInclude Include="src\macro.h" />
     <ClInclude Include="include\readf.h" />
     <ClInclude Include="src\render.h" />
+    <ClInclude Include="src\texture.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitattributes" />

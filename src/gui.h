@@ -1,5 +1,7 @@
 #pragma once
 
+#include "texture.h"
+
 #include <glad.h>
 #include <imgui.h>
 #include <imgui_internal.h>
@@ -18,7 +20,6 @@ namespace gui
 		ImGuiViewportFlags_NoTaskBarIcon;
 
 	void ShowMacroMenu(bool p_open);
-	bool LoadTextureFromFile(const char* filename, GLuint* out_texture, int* out_width, int* out_height);
 
 #pragma region TextureButton
 	void LoadNativeTextures();
