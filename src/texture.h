@@ -6,6 +6,11 @@
 #include <imgui.h>
 #include <imgui_internal.h>
 
+#ifndef STB_IMAGE_IMPLEMENTATION
+#define STB_IMAGE_IMPLEMENTATION
+#include "stb_image.h"
+#endif
+
 namespace tex {
 
 	// https://github.com/ocornut/imgui/wiki/Image-Loading-and-Displaying-Examples#example-for-opengl-users

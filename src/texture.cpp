@@ -1,10 +1,5 @@
 #include "texture.h"
 
-#ifndef STB_IMAGE_IMPLEMENTATION
-#define STB_IMAGE_IMPLEMENTATION
-#include "stb_image.h"
-#endif
-
 namespace tex {
 	bool LoadTextureFromFile(const char* filename, GLuint* out_texture, int* out_width, int* out_height)
 	{
