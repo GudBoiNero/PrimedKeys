@@ -214,6 +214,7 @@
     <ClInclude Include="include\khrplatform.h" />
     <ClInclude Include="src\macro.h" />
     <ClInclude Include="src\texture.h" />
+    <ClInclude Include="include\readf.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitattributes" />
@@ -225,6 +226,8 @@
     <None Include="lib\emscripten\shell_minimal.html" />
     <None Include="imgui.ini" />
     <None Include="SDL2.dll" />
+    <None Include="src\frag.glsl" />
+    <None Include="src\vert.glsl" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="debuggers\README.txt" />
