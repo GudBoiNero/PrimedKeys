@@ -13,11 +13,6 @@
 #include <SDL_opengl.h>
 #endif
 
-#ifndef STB_IMAGE_IMPLEMENTATION
-#define STB_IMAGE_IMPLEMENTATION
-#include "stb_image.h"
-#endif
-
 // This example can also compile and run with Emscripten! See 'Makefile.emscripten' for details.
 #ifdef __EMSCRIPTEN__
 #include "emscripten/emscripten_mainloop_stub.h"

@@ -1,15 +1,16 @@
 #pragma once
 
+#ifndef STB_IMAGE_IMPLEMENTATION
+#define STB_IMAGE_IMPLEMENTATION
+#include "stb_image.h"
+#endif
+
 #include <glad.h>
 #include <iostream>
 #include <map>
 #include <imgui.h>
 #include <imgui_internal.h>
 
-#ifndef STB_IMAGE_IMPLEMENTATION
-#define STB_IMAGE_IMPLEMENTATION
-#include "stb_image.h"
-#endif
 
 namespace tex {
 
