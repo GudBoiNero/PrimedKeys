@@ -1,9 +1,12 @@
 #include "gui.h"
+#include "readf.h"
+#include <iostream>
+#include <stdio.h>
 
 #ifndef STB_IMAGE_IMPLEMENTATION
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
-#endif
+#endif 
 
 namespace gui
 {
@@ -27,11 +30,24 @@ namespace gui
 
 		ImGui::End();
 	}
+	
+
+	std::string fragShaderString = ReadFile::ReadFile("src/frag.glsl");
+
+	const char* fragShaderSource = const_cast<char*>(fragShaderString.c_str());
 
     // https://github.com/ocornut/imgui/wiki/Image-Loading-and-Displaying-Examples#example-for-opengl-users
     // Simple helper function to load an image into a OpenGL texture with common settings
     bool LoadTextureFromFile(const char* filename, GLuint* out_texture, int* out_width, int* out_height)
     {
+		GLuint FragShader = glCreateShader(GL_FRAGMENT_SHADER);
+		glShaderSource(FragShader, 1, &fragShaderSource, NULL);
+		glCompileShader(FragShader);
+
+		GLuint ShaderProgram = glCreateProgram();
+		glAttachShader(ShaderProgram, FragShader);
+		glLinkProgram(ShaderProgram);
+
         // Load from file
         int image_width = 0;
         int image_height = 0;
@@ -43,6 +59,8 @@ namespace gui
         GLuint image_texture;
         glGenTextures(1, &image_texture);
         glBindTexture(GL_TEXTURE_2D, image_texture);
+		glUseProgram(ShaderProgram);
+		glUniform1i(glGetUniformLocation(ShaderProgram, "textureSampler"), 1);
 
         // Setup filtering parameters for display
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
