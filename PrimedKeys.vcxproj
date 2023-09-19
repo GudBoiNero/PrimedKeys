@@ -277,6 +277,7 @@
     <ClInclude Include="lib\usynergy\uSynergy.h" />
     <ClInclude Include="src\gui.h" />
     <ClInclude Include="src\macro.h" />
+    <ClInclude Include="include\readf.h" />
     <ClInclude Include="src\render.h" />
   </ItemGroup>
   <ItemGroup>
@@ -289,6 +290,8 @@
     <None Include="lib\emscripten\shell_minimal.html" />
     <None Include="SDL2.dll" />
     <None Include="README.md" />
+    <None Include="src\frag.glsl" />
+    <None Include="src\vert.glsl" />
     <Text Include="debuggers\README.txt" />
     <Text Include="lib\glfw\COPYING.txt" />
     <Text Include="lib\SDL2-2.28.3\BUGS.txt" />

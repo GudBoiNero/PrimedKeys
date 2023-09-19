@@ -1,9 +1,12 @@
 #include "gui.h"
+#include "readf.h"
+#include <iostream>
+#include <stdio.h>
 
 #ifndef STB_IMAGE_IMPLEMENTATION
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
-#endif
+#endif 
 
 namespace gui
 {
@@ -26,30 +29,50 @@ namespace gui
 
 		ImGui::End();
 	}
+	
 
-	// https://github.com/ocornut/imgui/wiki/Image-Loading-and-Displaying-Examples#example-for-opengl-users
-	// Simple helper function to load an image into a OpenGL texture with common settings
-	bool LoadTextureFromFile(const char* filename, GLuint* out_texture, int* out_width, int* out_height)
-	{
-		// Load from file
-		int image_width = 0;
-		int image_height = 0;
-		unsigned char* image_data = stbi_load(filename, &image_width, &image_height, NULL, 4);
-		if (image_data == NULL)
-			return false;
+	std::string fragShaderString = ReadFile::ReadFile("src/frag.glsl");
 
-		// Create a OpenGL texture identifier
-		GLuint image_texture;
-		glGenTextures(1, &image_texture);
-		glBindTexture(GL_TEXTURE_2D, image_texture);
+	const char* fragShaderSource = const_cast<char*>(fragShaderString.c_str());
 
-		// Setup filtering parameters for display
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE); // This is required on WebGL for non power-of-two textures
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE); // Same
+    // https://github.com/ocornut/imgui/wiki/Image-Loading-and-Displaying-Examples#example-for-opengl-users
+    // Simple helper function to load an image into a OpenGL texture with common settings
+    bool LoadTextureFromFile(const char* filename, GLuint* out_texture, int* out_width, int* out_height)
+    {
+	GLuint FragShader = glCreateShader(GL_FRAGMENT_SHADER);
+	glShaderSource(FragShader, 1, &fragShaderSource, NULL);
+	glCompileShader(FragShader);
 
-		// Upload pixels into texture
+	GLuint ShaderProgram = glCreateProgram();
+	glAttachShader(ShaderProgram, FragShader);
+	glLinkProgram(ShaderProgram);
+
+        // Load from file
+        int image_width = 0;
+        int image_height = 0;
+		
+        unsigned char* image_data = stbi_load(filename, &image_width, &image_height, NULL, 4);
+        if (image_data == NULL)
+            return false;
+
+
+
+
+        // Create a OpenGL texture identifier
+        GLuint image_texture;
+        glGenTextures(1, &image_texture);
+        glBindTexture(GL_TEXTURE_2D, image_texture);
+		glUseProgram(ShaderProgram);
+		glUniform1i(glGetUniformLocation(ShaderProgram, "textureSampler"), 1);
+
+        // Setup filtering parameters for display
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE); // This is required on WebGL for non power-of-two textures
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE); // Same
+
+        // Upload pixels into texture
+        
 #if defined(GL_UNPACK_ROW_LENGTH) && !defined(__EMSCRIPTEN__)
 		glPixelStorei(GL_UNPACK_ROW_LENGTH, 0);
 #endif
