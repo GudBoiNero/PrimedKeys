@@ -110,20 +110,22 @@ namespace gui
 
 		bool hovered, held;
 		bool pressed = ImGui::ButtonBehavior(bb, id, &hovered, &held, flags);
+		ImVec2 icon_offset;
 
 		// Determine image
 		if (hovered)
 		{
 			//std::cout << "Hovered!";
 			texture_id = texture_hover_id;
+			icon_offset = ImVec2(0, 1);
 		}
 		if (pressed || held)
 		{
 			//std::cout << "Pressed!";
 			texture_id = texture_active_id;
+			icon_offset = ImVec2(0, 2);
 		}
 
-		ImVec2 icon_offset = (hovered ? (pressed || held ? ImVec2(0, 2) : ImVec2(0, 1)) : (pressed || held ? ImVec2(0, 2) : ImVec2()));
 
 		// Render
 		//const ImU32 col = ImGui::GetColorU32((held && hovered) ? ImGuiCol_ButtonActive : hovered ? ImGuiCol_ButtonHovered : ImGuiCol_Button);
