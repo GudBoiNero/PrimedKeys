@@ -31,11 +31,11 @@ namespace render
 		SDL_WINDOW_SKIP_TASKBAR |
 		SDL_WINDOW_HIDDEN |
 		SDL_WINDOW_ALWAYS_ON_TOP);
-	
-	inline ImGuiConfigFlags config_flags = 
-		ImGuiConfigFlags_NavEnableKeyboard | 
-		ImGuiConfigFlags_NavEnableGamepad | 
-		ImGuiConfigFlags_DockingEnable | 
+
+	inline ImGuiConfigFlags config_flags =
+		ImGuiConfigFlags_NavEnableKeyboard |
+		ImGuiConfigFlags_NavEnableGamepad |
+		ImGuiConfigFlags_DockingEnable |
 		ImGuiConfigFlags_ViewportsEnable;
 
 	inline bool done = false;

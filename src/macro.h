@@ -2,6 +2,7 @@
 #ifndef MACRO_H
 #define MACRO_H
 
+#include <iostream>
 #include <vector>
 #include <fstream>
 #include <string>

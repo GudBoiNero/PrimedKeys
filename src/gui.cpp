@@ -1,66 +1,31 @@
 #include "gui.h"
 
-#ifndef STB_IMAGE_IMPLEMENTATION
-#define STB_IMAGE_IMPLEMENTATION
-#include "stb_image.h"
-#endif
-
 namespace gui
 {
+	bool playing = false;
 	void ShowMacroMenu(bool p_open) {
 		ImGui::Begin("MacroMenu", &p_open, default_window_flags);
 		ImGui::GetWindowViewport()->Flags = default_viewport_flags;
 
 		{
+			gui::TextureButton((ImGuiID)"_pktb1",
+				tex::GetTextureID("images\\buttons\\icon_arrow_left.png").id,
+				ImGuiButtonFlags_None); ImGui::SameLine();
 
-			gui::TextureButton((ImGuiID)"_pktb1", nullptr, ImGuiButtonFlags_None); ImGui::SameLine();
-			gui::TextureButton((ImGuiID)"_pktb2", nullptr, ImGuiButtonFlags_None); ImGui::SameLine();
-			gui::TextureButton((ImGuiID)"_pktb3", nullptr, ImGuiButtonFlags_None); ImGui::SameLine();
-			gui::TextureButton((ImGuiID)"_pktb4", nullptr, ImGuiButtonFlags_None);
+			bool play = gui::TextureButton((ImGuiID)"_pktb2",
+				tex::GetTextureID(playing ? "images\\buttons\\icon_pause.png" : "images\\buttons\\icon_play.png").id,
+				ImGuiButtonFlags_None); ImGui::SameLine();
 
-			gui::TextureButton((ImGuiID)"_pktb5", nullptr, ImGuiButtonFlags_None); ImGui::SameLine();
-			gui::TextureButton((ImGuiID)"_pktb6", nullptr, ImGuiButtonFlags_None); ImGui::SameLine();
-			gui::TextureButton((ImGuiID)"_pktb7", nullptr, ImGuiButtonFlags_None); ImGui::SameLine();
-			gui::TextureButton((ImGuiID)"_pktb8", nullptr, ImGuiButtonFlags_None);
+			gui::TextureButton((ImGuiID)"_pktb3",
+				tex::GetTextureID("images\\buttons\\icon_arrow_right.png").id,
+				ImGuiButtonFlags_None);
+
+			if (play) {
+				playing = !playing;
+			}
 		}
 
 		ImGui::End();
-	}
-
-	// https://github.com/ocornut/imgui/wiki/Image-Loading-and-Displaying-Examples#example-for-opengl-users
-	// Simple helper function to load an image into a OpenGL texture with common settings
-	bool LoadTextureFromFile(const char* filename, GLuint* out_texture, int* out_width, int* out_height)
-	{
-		// Load from file
-		int image_width = 0;
-		int image_height = 0;
-		unsigned char* image_data = stbi_load(filename, &image_width, &image_height, NULL, 4);
-		if (image_data == NULL)
-			return false;
-
-		// Create a OpenGL texture identifier
-		GLuint image_texture;
-		glGenTextures(1, &image_texture);
-		glBindTexture(GL_TEXTURE_2D, image_texture);
-
-		// Setup filtering parameters for display
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE); // This is required on WebGL for non power-of-two textures
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE); // Same
-
-		// Upload pixels into texture
-#if defined(GL_UNPACK_ROW_LENGTH) && !defined(__EMSCRIPTEN__)
-		glPixelStorei(GL_UNPACK_ROW_LENGTH, 0);
-#endif
-		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, image_width, image_height, 0, GL_RGBA, GL_UNSIGNED_BYTE, image_data);
-		stbi_image_free(image_data);
-
-		*out_texture = image_texture;
-		*out_width = image_width;
-		*out_height = image_height;
-
-		return true;
 	}
 
 	struct TextureButtonData
@@ -83,11 +48,11 @@ namespace gui
 
 	void LoadNativeTextures()
 	{
-		bool ret = LoadTextureFromFile(btn_img_default, (GLuint*)(void*)&btn_default_data.texture, &btn_default_data.width, &btn_default_data.height);
+		bool ret = tex::LoadTextureFromFile(btn_img_default, (GLuint*)(void*)&btn_default_data.texture, &btn_default_data.width, &btn_default_data.height);
 		IM_ASSERT(ret);
-		ret = LoadTextureFromFile(btn_img_hover, (GLuint*)(void*)&btn_hover_data.texture, &btn_hover_data.width, &btn_hover_data.height);
+		ret = tex::LoadTextureFromFile(btn_img_hover, (GLuint*)(void*)&btn_hover_data.texture, &btn_hover_data.width, &btn_hover_data.height);
 		IM_ASSERT(ret);
-		ret = LoadTextureFromFile(btn_img_active, (GLuint*)(void*)&btn_active_data.texture, &btn_active_data.width, &btn_active_data.height);
+		ret = tex::LoadTextureFromFile(btn_img_active, (GLuint*)(void*)&btn_active_data.texture, &btn_active_data.width, &btn_active_data.height);
 		IM_ASSERT(ret);
 
 		btn_size = ImVec2(btn_default_data.width, btn_default_data.height);
@@ -125,7 +90,6 @@ namespace gui
 			texture_id = texture_active_id;
 			icon_offset = ImVec2(0, 2);
 		}
-
 
 		// Render
 		//const ImU32 col = ImGui::GetColorU32((held && hovered) ? ImGuiCol_ButtonActive : hovered ? ImGuiCol_ButtonHovered : ImGuiCol_Button);
