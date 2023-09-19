@@ -28,18 +28,12 @@ namespace gui
 		ImGui::End();
 	}
 
-	struct TextureButtonData
-	{
-		ImTextureID texture = 0;
-		int width = 0;
-		int height = 0;
-	};
-	inline const char btn_img_default[] = "images/buttons/button.png";
-	inline const char btn_img_hover[] = "images/buttons/button_hover.png";
-	inline const char btn_img_active[] = "images/buttons/button_active.png";
-	TextureButtonData btn_default_data;
-	TextureButtonData btn_hover_data;
-	TextureButtonData btn_active_data;
+	inline const char path_btn_default[] = "images/buttons/button.png";
+	inline const char path_btn_hover[] = "images/buttons/button_hover.png";
+	inline const char path_btn_active[] = "images/buttons/button_active.png";
+	tex::Tex tex_btn_default;
+	tex::Tex tex_btn_hover;
+	tex::Tex tex_btn_active;
 	ImVec2 btn_size;
 	ImVec2 btn_uv0 = ImVec2(0.0f, 0.0f);
 	ImVec2 btn_uv1 = ImVec2(1.0f, 1.0f);
@@ -48,20 +42,20 @@ namespace gui
 
 	void LoadNativeTextures()
 	{
-		bool ret = tex::LoadTextureFromFile(btn_img_default, (GLuint*)(void*)&btn_default_data.texture, &btn_default_data.width, &btn_default_data.height);
+		bool ret = tex::LoadTextureFromFile(path_btn_default, (GLuint*)(void*)&tex_btn_default.id, &tex_btn_default.width, &tex_btn_default.height);
 		IM_ASSERT(ret);
-		ret = tex::LoadTextureFromFile(btn_img_hover, (GLuint*)(void*)&btn_hover_data.texture, &btn_hover_data.width, &btn_hover_data.height);
+		ret = tex::LoadTextureFromFile(path_btn_hover, (GLuint*)(void*)&tex_btn_hover.id, &tex_btn_hover.width, &tex_btn_hover.height);
 		IM_ASSERT(ret);
-		ret = tex::LoadTextureFromFile(btn_img_active, (GLuint*)(void*)&btn_active_data.texture, &btn_active_data.width, &btn_active_data.height);
+		ret = tex::LoadTextureFromFile(path_btn_active, (GLuint*)(void*)&tex_btn_active.id, &tex_btn_active.width, &tex_btn_active.height);
 		IM_ASSERT(ret);
 
-		btn_size = ImVec2(btn_default_data.width, btn_default_data.height);
+		btn_size = ImVec2(tex_btn_default.width, tex_btn_default.height);
 	}
 
 	// Custom Textures
-	bool TextureButton(ImGuiID id, ImTextureID texture_icon_id, ImTextureID texture_default_id, ImTextureID texture_hover_id, ImTextureID texture_active_id, ImGuiButtonFlags flags)
+	bool TextureButton(ImGuiID id, ImTextureID tex_icon_id, ImTextureID tex_default_id, ImTextureID tex_hover_id, ImTextureID tex_active_id, ImGuiButtonFlags flags)
 	{
-		ImTextureID texture_id = texture_default_id;
+		ImTextureID tex_id = tex_default_id;
 		ImGuiContext& g = *GImGui;
 		ImGuiWindow* window = ImGui::GetCurrentWindow();
 		if (window->SkipItems)
@@ -81,13 +75,13 @@ namespace gui
 		if (hovered)
 		{
 			//std::cout << "Hovered!";
-			texture_id = texture_hover_id;
+			tex_id = tex_hover_id;
 			icon_offset = ImVec2(0, 1);
 		}
 		if (pressed || held)
 		{
 			//std::cout << "Pressed!";
-			texture_id = texture_active_id;
+			tex_id = tex_active_id;
 			icon_offset = ImVec2(0, 2);
 		}
 
@@ -98,16 +92,16 @@ namespace gui
 		ImGui::RenderFrame(bb.Min, bb.Max, col, true, ImClamp((float)ImMin(padding.x, padding.y), 0.0f, g.Style.FrameRounding));
 		if (btn_bg_col.w > 0.0f)
 			window->DrawList->AddRectFilled(bb.Min + padding, bb.Max - padding, ImGui::GetColorU32(btn_bg_col));
-		window->DrawList->AddImage(texture_id, bb.Min + padding, bb.Max - padding, btn_uv0, btn_uv1, ImGui::GetColorU32(btn_tint_col));
-		if (texture_icon_id)
-			window->DrawList->AddImage(texture_icon_id, bb.Min + padding + icon_offset, bb.Max - padding + icon_offset, btn_uv0, btn_uv1, ImGui::GetColorU32(btn_tint_col));
+		window->DrawList->AddImage(tex_id, bb.Min + padding, bb.Max - padding, btn_uv0, btn_uv1, ImGui::GetColorU32(btn_tint_col));
+		if (tex_icon_id)
+			window->DrawList->AddImage(tex_icon_id, bb.Min + padding + icon_offset, bb.Max - padding + icon_offset, btn_uv0, btn_uv1, ImGui::GetColorU32(btn_tint_col));
 
 		return pressed;
 	}
 
 	// Native textures
-	bool TextureButton(ImGuiID id, ImTextureID texture_icon_id, ImGuiButtonFlags flags)
+	bool TextureButton(ImGuiID id, ImTextureID tex_icon_id, ImGuiButtonFlags flags)
 	{
-		return TextureButton(id, texture_icon_id, btn_default_data.texture, btn_hover_data.texture, btn_active_data.texture, flags);
+		return TextureButton(id, tex_icon_id, tex_btn_default.id, tex_btn_hover.id, tex_btn_active.id, flags);
 	}
 }

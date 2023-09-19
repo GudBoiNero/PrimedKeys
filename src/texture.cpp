@@ -40,14 +40,15 @@ namespace tex {
 		return true;
 	}
 
+	// Checks our texture_cache and returns the texture id if found, otherwise, load the texture and put it into the cache.
 	Tex GetTextureID(std::string file_path)
 	{
-		if (auto& t = textures[file_path]; !&t.id)
+		if (auto& t = texture_cache[file_path]; !&t.id)
 			return t;
-		else // Otherwise load, map, then return it
+		else
 		{
 			LoadTextureFromFile(file_path.data(), (GLuint*)(void*)&t.id, &t.width, &t.height);
-			textures[file_path] = t;
+			texture_cache[file_path] = t;
 			return t;
 		}
 	}

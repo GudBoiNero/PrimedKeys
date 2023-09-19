@@ -19,6 +19,6 @@ namespace tex {
 		int height = 0;
 	};
 
-	static inline std::map<std::string, Tex> textures = {};
+	static inline std::map<std::string, Tex> texture_cache = {};
 	Tex GetTextureID(std::string file_path);
 }
