@@ -51,20 +51,19 @@ namespace gui
         // Load from file
         int image_width = 0;
         int image_height = 0;
+		
         unsigned char* image_data = stbi_load(filename, &image_width, &image_height, NULL, 4);
         if (image_data == NULL)
             return false;
 
-		GLdouble img_width = image_width;
-		GLdouble img_height = image_height;
+
+
 
         // Create a OpenGL texture identifier
         GLuint image_texture;
         glGenTextures(1, &image_texture);
         glBindTexture(GL_TEXTURE_2D, image_texture);
 		glUseProgram(ShaderProgram);
-		glUniform2dv(glGetUniformLocation(ShaderProgram, "texCoords"), 2 , &img_width);
-		glUniform2dv(glGetUniformLocation(ShaderProgram, "texCoords"), 2, &img_height);
 		glUniform1i(glGetUniformLocation(ShaderProgram, "textureSampler"), 1);
 
         // Setup filtering parameters for display
