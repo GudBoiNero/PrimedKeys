@@ -9,7 +9,7 @@
 namespace gui
 {
 	// TODO: Allow for the macro menu to show up without the main window behind it.
-	constexpr ImGuiWindowFlags default_window_flags = 
+	constexpr ImGuiWindowFlags default_window_flags =
 		ImGuiWindowFlags_AlwaysAutoResize;
 
 	constexpr ImGuiViewportFlags default_viewport_flags =
@@ -22,6 +22,7 @@ namespace gui
 
 #pragma region TextureButton
 	void LoadNativeTextures();
-	bool TextureButton(ImGuiID id, const char img_icon[], ImGuiButtonFlags flags);
+	bool TextureButton(ImGuiID id, ImTextureID texture_icon_id, ImGuiButtonFlags flags);
+	bool TextureButton(ImGuiID id, ImTextureID texture_icon_id, ImTextureID texture_default_id, ImTextureID texture_hover_id, ImTextureID texture_active_id, ImGuiButtonFlags flags);
 #pragma endregion
 }
