@@ -1,12 +1,8 @@
-#pragma once
+#ifndef GUI_H
+#define GUI_H
 
 #include "texture.h"
-
-#include <glad.h>
-#include <imgui.h>
 #include <imgui_internal.h>
-#include <iostream>
-#include <SDL_opengl.h>
 
 namespace gui
 {
@@ -27,3 +23,5 @@ namespace gui
 	bool TextureButton(ImGuiID id, ImTextureID texture_icon_id, ImTextureID texture_default_id, ImTextureID texture_hover_id, ImTextureID texture_active_id, ImGuiButtonFlags flags);
 #pragma endregion
 }
+
+#endif // GUI_H

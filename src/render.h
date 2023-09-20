@@ -1,19 +1,10 @@
-#pragma once
+#ifndef RENDER_H
+#define RENDER_H
 
-#include <imgui.h>
+#include "gui.h"
 #include <imgui_impl_sdl2.h>
 #include <imgui_impl_opengl3.h>
-#include <imgui_internal.h>
-#include <iostream>
-#include <stdio.h>
 #include <SDL.h>
-#if defined(IMGUI_IMPL_OPENGL_ES2)
-#include <SDL_opengles2.h>
-#else
-#include <SDL_opengl.h>
-#endif
-
-
 
 // This example can also compile and run with Emscripten! See 'Makefile.emscripten' for details.
 #ifdef __EMSCRIPTEN__
@@ -50,3 +41,4 @@ namespace render
 	void Setup();
 	void Cleanup();
 }
+#endif // RENDER_H

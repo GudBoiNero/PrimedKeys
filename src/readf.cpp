@@ -1,10 +1,11 @@
-#include <iostream>
+#include "readf.h"
+
 #include <fstream>
 #include <sstream>
-#include <stdio.h>
 
 //quick read file function for shader files
-namespace ReadFile {
+namespace readf
+{
 	std::string ReadFile(const std::string& filePath) {
 		std::ifstream file(filePath);
 		if (!file.is_open()) {

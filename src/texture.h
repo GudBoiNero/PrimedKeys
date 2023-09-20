@@ -1,12 +1,16 @@
-#pragma once
+#ifndef TEXTURE_H
+#define TEXTURE_H
 
 #include <glad.h>
 #include <iostream>
-#include <map>
 #include <imgui.h>
-#include <imgui_internal.h>
+#include <readf.h>
+#include <map>
 
-namespace tex {
+namespace tex
+{
+	inline std::string fragShaderString = readf::ReadFile("src/frag.glsl");
+	inline char* fragShaderSource = const_cast<char*>(fragShaderString.c_str());
 
 	// https://github.com/ocornut/imgui/wiki/Image-Loading-and-Displaying-Examples#example-for-opengl-users
 	// Simple helper function to load an image into a OpenGL texture with common settings
@@ -22,3 +26,5 @@ namespace tex {
 	static inline std::map<std::string, Tex> texture_cache = {};
 	Tex GetTextureID(std::string file_path);
 }
+
+#endif // TEXTURE_H

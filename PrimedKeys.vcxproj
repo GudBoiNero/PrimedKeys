@@ -176,6 +176,7 @@
     <ClCompile Include="lib\usynergy\uSynergy.c" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="src\gui.cpp" />
+    <ClCompile Include="src\readf.cpp" />
     <ClCompile Include="src\render.cpp" />
     <ClCompile Include="src\texture.cpp" />
   </ItemGroup>
@@ -278,7 +279,7 @@
     <ClInclude Include="lib\usynergy\uSynergy.h" />
     <ClInclude Include="src\gui.h" />
     <ClInclude Include="src\macro.h" />
-    <ClInclude Include="include\readf.h" />
+    <ClInclude Include="src\readf.h" />
     <ClInclude Include="src\render.h" />
     <ClInclude Include="src\texture.h" />
   </ItemGroup>
