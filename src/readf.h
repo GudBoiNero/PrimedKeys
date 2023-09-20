@@ -8,4 +8,5 @@ namespace readf
 {
 	std::string ReadFile(const std::string& filePath);
 }
+
 #endif // READF_H
