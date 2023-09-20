@@ -1,7 +1,4 @@
 #include "gui.h"
-#include "readf.h"
-#include <iostream>
-#include <stdio.h>
 
 namespace gui
 {
@@ -37,57 +34,6 @@ namespace gui
 	tex::Tex tex_btn_default;
 	tex::Tex tex_btn_hover;
 	tex::Tex tex_btn_active;
-
-	std::string fragShaderString = ReadFile::ReadFile("src/frag.glsl");
-	const char* fragShaderSource = const_cast<char*>(fragShaderString.c_str());
-
-	// https://github.com/ocornut/imgui/wiki/Image-Loading-and-Displaying-Examples#example-for-opengl-users
-	// Simple helper function to load an image into a OpenGL texture with common settings
-	bool LoadTextureFromFile(const char* filename, GLuint* out_texture, int* out_width, int* out_height)
-	{
-		GLuint FragShader = glCreateShader(GL_FRAGMENT_SHADER);
-		glShaderSource(FragShader, 1, &fragShaderSource, NULL);
-		glCompileShader(FragShader);
-
-		GLuint ShaderProgram = glCreateProgram();
-		glAttachShader(ShaderProgram, FragShader);
-		glLinkProgram(ShaderProgram);
-
-		// Load from file
-		int image_width = 0;
-		int image_height = 0;
-
-		unsigned char* image_data = stbi_load(filename, &image_width, &image_height, NULL, 4);
-		if (image_data == NULL)
-			return false;
-
-		// Create a OpenGL texture identifier
-		GLuint image_texture;
-		glGenTextures(1, &image_texture);
-		glBindTexture(GL_TEXTURE_2D, image_texture);
-		glUseProgram(ShaderProgram);
-		glUniform1i(glGetUniformLocation(ShaderProgram, "textureSampler"), 1);
-
-		// Setup filtering parameters for display
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE); // This is required on WebGL for non power-of-two textures
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE); // Same
-
-		// Upload pixels into texture
-
-#if defined(GL_UNPACK_ROW_LENGTH) && !defined(__EMSCRIPTEN__)
-		glPixelStorei(GL_UNPACK_ROW_LENGTH, 0);
-#endif
-		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, image_width, image_height, 0, GL_RGBA, GL_UNSIGNED_BYTE, image_data);
-		stbi_image_free(image_data);
-
-		*out_texture = image_texture;
-		*out_width = image_width;
-		*out_height = image_height;
-
-		return true;
-	}
 
 	ImVec2 btn_size;
 	ImVec2 btn_uv0 = ImVec2(0.0f, 0.0f);
