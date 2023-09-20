@@ -2,13 +2,14 @@
 #define TEXTURE_H
 
 #include <glad.h>
+#include <iostream>
 #include <imgui.h>
 #include <readf.h>
 #include <map>
 
 namespace tex
 {
-	inline std::string fragShaderString = ::ReadFile("src/frag.glsl");
+	inline std::string fragShaderString = readf::ReadFile("src/frag.glsl");
 	inline char* fragShaderSource = const_cast<char*>(fragShaderString.c_str());
 
 	// https://github.com/ocornut/imgui/wiki/Image-Loading-and-Displaying-Examples#example-for-opengl-users
