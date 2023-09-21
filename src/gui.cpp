@@ -43,11 +43,11 @@ namespace gui
 
 	void LoadNativeTextures()
 	{
-		bool ret = tex::LoadTextureFromFile(path_btn_default, (GLuint*)(void*)&tex_btn_default.id, &tex_btn_default.width, &tex_btn_default.height);
+		bool ret = tex::LoadTextureFromFile(path_btn_default, (GLuint*)(void*)&tex_btn_default.id, &tex_btn_default.width, &tex_btn_default.height, {});
 		IM_ASSERT(ret);
-		ret = tex::LoadTextureFromFile(path_btn_hover, (GLuint*)(void*)&tex_btn_hover.id, &tex_btn_hover.width, &tex_btn_hover.height);
+		ret = tex::LoadTextureFromFile(path_btn_hover, (GLuint*)(void*)&tex_btn_hover.id, &tex_btn_hover.width, &tex_btn_hover.height, {});
 		IM_ASSERT(ret);
-		ret = tex::LoadTextureFromFile(path_btn_active, (GLuint*)(void*)&tex_btn_active.id, &tex_btn_active.width, &tex_btn_active.height);
+		ret = tex::LoadTextureFromFile(path_btn_active, (GLuint*)(void*)&tex_btn_active.id, &tex_btn_active.width, &tex_btn_active.height, {});
 		IM_ASSERT(ret);
 
 		btn_size = ImVec2(tex_btn_default.width, tex_btn_default.height);

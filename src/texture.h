@@ -6,6 +6,7 @@
 #include <imgui.h>
 #include <readf.h>
 #include <map>
+#include <vector>
 
 namespace tex
 {
@@ -14,17 +15,25 @@ namespace tex
 
 	// https://github.com/ocornut/imgui/wiki/Image-Loading-and-Displaying-Examples#example-for-opengl-users
 	// Simple helper function to load an image into a OpenGL texture with common settings
-	bool LoadTextureFromFile(const char* filename, GLuint* out_texture, int* out_width, int* out_height);
+	bool LoadTextureFromFile(const char* filename, GLuint* out_texture, int* out_width, int* out_height, const std::string* shaders[] = {});
 
 	struct Tex
 	{
-		ImTextureID* id = 0;
-		int width = 0;
-		int height = 0;
+		ImTextureID* id;
+		int width;
+		int height;
+
+		Tex() = default;
+	};
+
+	struct TexKey
+	{
+		const std::string file_path;
+		const std::vector<std::string> shader_file_paths;
 	};
 
 	static inline std::map<std::string, Tex> texture_cache = {};
-	Tex GetTextureID(std::string file_path);
+	Tex GetTextureID(const std::string file_path, const std::string shader_paths[] = {});
 }
 
 #endif // TEXTURE_H

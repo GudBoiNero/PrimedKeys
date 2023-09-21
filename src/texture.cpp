@@ -6,8 +6,9 @@
 #endif
 
 namespace tex {
-	bool LoadTextureFromFile(const char* filename, GLuint* out_texture, int* out_width, int* out_height)
+	bool LoadTextureFromFile(const char* filename, GLuint* out_texture, int* out_width, int* out_height, const std::string* shaders[])
 	{
+		// Initalize shader
 		GLuint FragShader = glCreateShader(GL_FRAGMENT_SHADER);
 		glShaderSource(FragShader, 1, &fragShaderSource, NULL);
 		glCompileShader(FragShader);
@@ -53,7 +54,7 @@ namespace tex {
 	}
 
 	// Checks our texture_cache and returns the texture id if found, otherwise, load the texture and put it into the cache.
-	Tex GetTextureID(std::string file_path)
+	Tex GetTextureID(const std::string file_path, const std::string shader_paths[])
 	{
 		if (auto& t = texture_cache[file_path]; !&t.id)
 			return t;
