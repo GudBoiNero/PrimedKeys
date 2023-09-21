@@ -6,7 +6,7 @@
 #endif
 
 namespace tex {
-	bool LoadTextureFromFile(const char* filename, GLuint* out_texture, int* out_width, int* out_height, const std::string* shaders[])
+	bool LoadTextureFromFile(const char* filename, GLuint* out_texture, int* out_width, int* out_height, std::vector<std::string> shaders)
 	{
 		// Initalize shader
 		GLuint FragShader = glCreateShader(GL_FRAGMENT_SHADER);
@@ -54,14 +54,23 @@ namespace tex {
 	}
 
 	// Checks our texture_cache and returns the texture id if found, otherwise, load the texture and put it into the cache.
-	Tex GetTextureID(const std::string file_path, const std::string shader_paths[])
+	Tex GetTextureID(const std::string file_path, std::vector<std::string> shader_paths)
 	{
-		if (auto& t = texture_cache[file_path]; !&t.id)
+		std::string crap_hash = file_path;
+
+		if (&shader_paths)
+		{
+			for (const auto& shader_path : shader_paths) {
+				crap_hash += ";" + shader_path;
+			}
+		}
+
+		if (auto& t = tex_cache[crap_hash]; !&t.id)
 			return t;
 		else
 		{
-			LoadTextureFromFile(file_path.data(), (GLuint*)(void*)&t.id, &t.width, &t.height);
-			texture_cache[file_path] = t;
+			LoadTextureFromFile(file_path.data(), (GLuint*)(void*)&t.id, &t.width, &t.height, shader_paths);
+			tex_cache[crap_hash] = t;
 			return t;
 		}
 	}
