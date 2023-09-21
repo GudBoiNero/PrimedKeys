@@ -26,12 +26,6 @@ namespace tex
 		Tex() = default;
 	};
 
-	struct TexKey
-	{
-		const std::string file_path;
-		const std::vector<std::string> shader_file_paths;
-	};
-
 	static inline std::map<std::string, Tex> texture_cache = {};
 	Tex GetTextureID(const std::string file_path, const std::string shader_paths[] = {});
 }
