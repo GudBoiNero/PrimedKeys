@@ -6,6 +6,7 @@
 #include <imgui.h>
 #include <readf.h>
 #include <map>
+#include <vector>
 
 namespace tex
 {
@@ -14,17 +15,22 @@ namespace tex
 
 	// https://github.com/ocornut/imgui/wiki/Image-Loading-and-Displaying-Examples#example-for-opengl-users
 	// Simple helper function to load an image into a OpenGL texture with common settings
-	bool LoadTextureFromFile(const char* filename, GLuint* out_texture, int* out_width, int* out_height);
+	bool LoadTextureFromFile(const char* filename, GLuint* out_texture, int* out_width, int* out_height, std::vector<std::string> shaders = {});
 
 	struct Tex
 	{
-		ImTextureID* id = 0;
-		int width = 0;
-		int height = 0;
+		ImTextureID* id;
+		int width;
+		int height;
+
+		Tex() = default;
 	};
 
-	static inline std::map<std::string, Tex> texture_cache = {};
-	Tex GetTextureID(std::string file_path);
+	// Uses a hash of the file_path and all of the shader_paths. It's called `crap_hash` for a reason. 
+	// It could really be done better. But it works for now.
+	// It's used so we can determine the difference between `apple.png` and `apple.png` + `shader.glsl`
+	static inline std::map<std::string, Tex> tex_cache = {};
+	Tex GetTextureID(const std::string file_path, std::vector<std::string> shader_paths = {});
 }
 
 #endif // TEXTURE_H
