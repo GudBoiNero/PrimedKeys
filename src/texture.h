@@ -30,7 +30,7 @@ namespace tex
 	// It could really be done better. But it works for now.
 	// It's used so we can determine the difference between `apple.png` and `apple.png` + `shader.glsl`
 	static inline std::map<std::string, Tex> tex_cache = {};
-	Tex GetTextureID(const std::string file_path, std::vector<std::string> shader_paths);
+	Tex GetTextureID(const std::string file_path, std::vector<std::string> shader_paths = {});
 }
 
 #endif // TEXTURE_H
