@@ -12,8 +12,6 @@
 // Main code
 int main(int, char**)
 {
-	std::cout << user_config::GetFolderPath();
-
 	render::Setup();
 
 #ifdef __EMSCRIPTEN__
