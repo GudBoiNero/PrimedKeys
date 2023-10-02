@@ -12,7 +12,6 @@ namespace gui
 		ImGui::GetWindowViewport()->Flags = default_viewport_flags;
 
 		{
-
 			gui::TextureButton((ImGuiID)"_pktb1", nullptr, ImGuiButtonFlags_None); ImGui::SameLine();
 			gui::TextureButton((ImGuiID)"_pktb2", nullptr, ImGuiButtonFlags_None); ImGui::SameLine();
 			gui::TextureButton((ImGuiID)"_pktb3", nullptr, ImGuiButtonFlags_None); ImGui::SameLine();
