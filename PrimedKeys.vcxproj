@@ -287,7 +287,6 @@
     <None Include="debuggers\imgui.gdb" />
     <None Include="debuggers\imgui.natvis" />
     <None Include="debuggers\imgui.natstepfilter" />
-    <None Include="imgui.ini" />
     <None Include="lib\emscripten\shell_minimal.html" />
     <None Include="SDL2.dll" />
     <None Include="README.md" />
