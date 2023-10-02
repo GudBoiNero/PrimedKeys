@@ -176,7 +176,6 @@
     <ClCompile Include="lib\usynergy\uSynergy.c" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="src\gui.cpp" />
-    <ClCompile Include="src\readf.cpp" />
     <ClCompile Include="src\render.cpp" />
     <ClCompile Include="src\texture.cpp" />
   </ItemGroup>
@@ -279,7 +278,6 @@
     <ClInclude Include="lib\usynergy\uSynergy.h" />
     <ClInclude Include="src\gui.h" />
     <ClInclude Include="src\macro.h" />
-    <ClInclude Include="src\readf.h" />
     <ClInclude Include="src\render.h" />
     <ClInclude Include="src\texture.h" />
   </ItemGroup>
@@ -289,12 +287,9 @@
     <None Include="debuggers\imgui.gdb" />
     <None Include="debuggers\imgui.natvis" />
     <None Include="debuggers\imgui.natstepfilter" />
-    <None Include="imgui.ini" />
     <None Include="lib\emscripten\shell_minimal.html" />
     <None Include="SDL2.dll" />
     <None Include="README.md" />
-    <None Include="src\frag.glsl" />
-    <None Include="src\vert.glsl" />
     <Text Include="debuggers\README.txt" />
     <Text Include="lib\glfw\COPYING.txt" />
     <Text Include="lib\SDL2-2.28.3\BUGS.txt" />
