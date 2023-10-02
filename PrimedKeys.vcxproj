@@ -178,6 +178,7 @@
     <ClCompile Include="src\gui.cpp" />
     <ClCompile Include="src\render.cpp" />
     <ClCompile Include="src\texture.cpp" />
+    <ClCompile Include="src\user_config.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="./imgui/*.cpp" />
@@ -276,6 +277,7 @@
     <ClInclude Include="lib\SDL2-2.28.3\include\SDL_video.h" />
     <ClInclude Include="lib\SDL2-2.28.3\include\SDL_vulkan.h" />
     <ClInclude Include="lib\usynergy\uSynergy.h" />
+    <ClInclude Include="src\user_config.h" />
     <ClInclude Include="src\gui.h" />
     <ClInclude Include="src\macro.h" />
     <ClInclude Include="src\render.h" />

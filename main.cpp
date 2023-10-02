@@ -6,11 +6,14 @@
 #define STB_IMAGE_STATIC
 
 #include "render.h"
+#include "user_config.h"
 #include <thread>
 
 // Main code
 int main(int, char**)
 {
+	std::cout << user_config::GetFolderPath();
+
 	render::Setup();
 
 #ifdef __EMSCRIPTEN__
