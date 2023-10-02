@@ -1,10 +1,10 @@
 #include "user_config.h"
 
-std::string user_config::GetFolderPath()
+std::string user_config::GetConfigFolderPath()
 {
 	// Return environment variable path if it exists AND it is valid
 	auto env_path = getenv("PK_CONFIG_PATH");
-	if (env_path)
+	if (env_path ? IsValidConfigFolderPath(env_path) : false)
 		return env_path;
 
 	std::string path;
@@ -19,5 +19,33 @@ std::string user_config::GetFolderPath()
 #elif __LINUX__ || __unix || __unix__ // Linux/Unix
 	path = "/etc/pk";
 #endif
+
+	// If it's not a valid folder path, attempt to initialize one.
+	if (!IsValidConfigFolderPath(path))
+		InitConfigFolder(path);
+
 	return path;
 }
+
+bool user_config::IsValidConfigFolderPath(std::string path)
+{
+	// Does the directory exist?
+	if (access(path.c_str(), 0) == 0)
+	{
+		struct stat status;
+		stat(path.c_str(), &status);
+
+		if (status.st_mode & S_IFDIR)
+			return true; // Yea
+	}
+
+	return false; // Nope
+}
+
+void user_config::InitConfigFolder(std::string path)
+{
+	try {
+		std::filesystem::create_directories(path);
+	}
+	catch (...) {}
+};
