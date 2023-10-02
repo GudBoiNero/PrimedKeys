@@ -1,6 +1,7 @@
 #ifndef MACRO_H
 #define MACRO_H
 
+#include "user_config.h"
 #include <iostream>
 #include <vector>
 #include <fstream>
@@ -20,6 +21,9 @@ struct MacroObject {
 using json = nlohmann::json;
 class Macro {
 public:
+	static std::vector<MacroObject> GetMacros() {
+		return LoadMacros(std::format("{}\\{}", user_config::GetConfigFolderPath(), "macros.json"));
+	}
 	// load macros from a JSON file
 	static std::vector<MacroObject> LoadMacros(const std::string& filePath = "path") {
 		std::vector<MacroObject> macroList;

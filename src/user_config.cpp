@@ -1,5 +1,11 @@
 #include "user_config.h"
 
+#include <format>
+#include <io.h>   // For access().
+#include <sys/types.h>  // For stat().
+#include <sys/stat.h>   // For stat().
+#include <filesystem>
+
 std::string user_config::GetConfigFolderPath()
 {
 	// Return environment variable path if it exists AND it is valid

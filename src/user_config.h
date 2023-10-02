@@ -1,12 +1,6 @@
 #ifndef PK_USER_CONFIG_H
 #define PK_USER_CONFIG_H
 
-#include <format>
-#include <io.h>   // For access().
-#include <sys/types.h>  // For stat().
-#include <sys/stat.h>   // For stat().
-#include <filesystem>
-
 
 #ifdef _WIN32 || _WIN64 // Windows
 #include <windows.h>
