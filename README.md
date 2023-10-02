@@ -17,7 +17,8 @@ In my journey of trying to find a software like this. I found [RadialMenu](http:
 
 # Setup
 1. Clone the repo. Ensure you're using Visual Studio 2022.
-2. Check project settings and fix if needed.
+2. Ensure you're on `Release x86`
+3. Check project settings and fix if needed.
    > `General/Platform Toolset` -> `Visual Studio 2022 (v143)`
    >
    > `General/C++ Language Standard` -> `ISO C++ 20 Standard (/std:c++20)`
