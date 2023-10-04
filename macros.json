@@ -1,0 +1,52 @@
+[
+  {
+    "name": "undo",
+    "inputs": [
+      {
+        "key": "ctrl",
+        "action": "down"
+      },
+      {
+        "key": "z",
+        "action": "down"
+      },
+      {
+        "key": "z",
+        "action": "up"
+      },
+      {
+        "key": "ctrl",
+        "action": "up"
+      }
+    ]
+  },
+  {
+    "name": "redo",
+    "inputs": [
+      {
+        "key": "ctrl",
+        "action": "down"
+      },
+      {
+        "key": "shift",
+        "action": "down"
+      },
+      {
+        "key": "z",
+        "action": "down"
+      },
+      {
+        "key": "z",
+        "action": "up"
+      },
+      {
+        "key": "shift",
+        "action": "up"
+      },
+      {
+        "key": "ctrl",
+        "action": "up"
+      }
+    ]
+  }
+]
