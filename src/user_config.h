@@ -15,6 +15,7 @@
 
 namespace user_config
 {
+	inline const std::string default_macros_file_name = "macros.json";
 	std::string GetConfigFolderPath();
 	bool IsValidConfigFolderPath(std::string path);
 	void InitConfigFolder(std::string path);

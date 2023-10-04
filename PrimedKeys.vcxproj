@@ -290,6 +290,7 @@
     <None Include="debuggers\imgui.natvis" />
     <None Include="debuggers\imgui.natstepfilter" />
     <None Include="lib\emscripten\shell_minimal.html" />
+    <None Include="macros.json" />
     <None Include="SDL2.dll" />
     <None Include="README.md" />
     <Text Include="debuggers\README.txt" />

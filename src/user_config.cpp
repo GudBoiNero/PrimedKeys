@@ -1,5 +1,6 @@
 #include "user_config.h"
 
+#include "macro.h"
 #include <format>
 #include <io.h>   // For access().
 #include <sys/types.h>  // For stat().
@@ -33,25 +34,64 @@ std::string user_config::GetConfigFolderPath()
 	return path;
 }
 
-bool user_config::IsValidConfigFolderPath(std::string path)
+bool user_config::IsValidConfigFolderPath(std::string folder_path)
 {
-	// Does the directory exist?
-	if (access(path.c_str(), 0) == 0)
-	{
-		struct stat status;
-		stat(path.c_str(), &status);
+	std::string macros_json_path = std::format("{}\\{}", folder_path, "macros.json");
 
-		if (status.st_mode & S_IFDIR)
-			return true; // Yea
+	bool has_directory = false;
+	{
+		// Does the directory exist?
+		if (access(folder_path.c_str(), 0) == 0)
+		{
+			struct stat status;
+			stat(folder_path.c_str(), &status);
+
+			if (status.st_mode & S_IFDIR)
+				has_directory = true; // Yea
+		}
 	}
 
-	return false; // Nope
+	bool has_macros_json = false;
+	bool macros_json_valid = false;
+	{
+		if (access(macros_json_path.c_str(), 0) == 0)
+		{
+			struct stat status;
+			stat(macros_json_path.c_str(), &status);
+
+			if (status.st_mode & S_IFDIR);
+			else
+			{
+				has_macros_json = true;
+				try {
+					Macro::LoadMacros(macros_json_path);
+					macros_json_valid = true;
+				}
+				catch (...) {}
+			}
+		}
+
+	}
+
+	return has_directory && macros_json_valid;
 }
 
 void user_config::InitConfigFolder(std::string path)
 {
 	try {
 		std::filesystem::create_directories(path);
+
+		std::string macro_file_path = std::format("{}\\{}", path, default_macros_file_name);
+		MacroObject undo {
+			"undo",
+			{
+				MacroData { "ctrl", "down" },
+				MacroData { "z",    "down" },
+				MacroData { "z",      "up" },
+				MacroData { "ctrl",   "up" }
+			}
+		};
+		Macro::WriteMacros(std::vector<MacroObject> {undo}, macro_file_path);
 	}
 	catch (...) {}
 };
