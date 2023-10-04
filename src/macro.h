@@ -15,6 +15,9 @@ struct MacroKey {
 struct Macro {
 	std::string name = "";
 	std::vector<MacroKey> keys = {};
+
+	std::string icon_img_path = "";
+	std::string background_img_path = "";
 };
 
 using json = nlohmann::json;
