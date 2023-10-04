@@ -7,6 +7,29 @@
 #include <sys/stat.h>   // For stat().
 #include <filesystem>
 
+inline const std::vector<Macro> default_macros = {
+	Macro {
+		"undo",
+		{
+			MacroKey { "ctrl", "down" },
+			MacroKey { "z",    "down" },
+			MacroKey { "z",      "up" },
+			MacroKey { "ctrl",   "up" }
+		}
+	},
+	Macro {
+		"redo",
+		{
+			MacroKey { "ctrl", "down" },
+			MacroKey { "shift","down" },
+			MacroKey { "z",    "down" },
+			MacroKey { "z",      "up" },
+			MacroKey { "shift",  "up" },
+			MacroKey { "ctrl",   "up" }
+		}
+	},
+};
+
 std::string user_config::GetConfigFolderPath()
 {
 	// Return environment variable path if it exists AND it is valid
@@ -36,7 +59,7 @@ std::string user_config::GetConfigFolderPath()
 
 bool user_config::IsValidConfigFolderPath(std::string folder_path)
 {
-	std::string macros_json_path = std::format("{}\\{}", folder_path, "macros.json");
+	std::string macros_json_path = std::format("{}\\{}", folder_path, default_macros_file_name);
 
 	bool has_directory = false;
 	{
@@ -64,13 +87,12 @@ bool user_config::IsValidConfigFolderPath(std::string folder_path)
 			{
 				has_macros_json = true;
 				try {
-					Macro::LoadMacros(macros_json_path);
+					MacroManager::LoadMacros(macros_json_path);
 					macros_json_valid = true;
 				}
 				catch (...) {}
 			}
 		}
-
 	}
 
 	return has_directory && macros_json_valid;
@@ -82,16 +104,8 @@ void user_config::InitConfigFolder(std::string path)
 		std::filesystem::create_directories(path);
 
 		std::string macro_file_path = std::format("{}\\{}", path, default_macros_file_name);
-		MacroObject undo {
-			"undo",
-			{
-				MacroData { "ctrl", "down" },
-				MacroData { "z",    "down" },
-				MacroData { "z",      "up" },
-				MacroData { "ctrl",   "up" }
-			}
-		};
-		Macro::WriteMacros(std::vector<MacroObject> {undo}, macro_file_path);
+		
+		MacroManager::WriteMacros(default_macros, macro_file_path);
 	}
 	catch (...) {}
 };
