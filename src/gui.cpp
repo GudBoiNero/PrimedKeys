@@ -1,13 +1,25 @@
 #include "gui.h"
+#include "macro.h"
+#include "user_config.h"
 
 namespace gui
 {
-	bool playing = false;
+	//bool playing = false;
 	void ShowMacroMenu(bool p_open) {
 		ImGui::Begin("MacroMenu", &p_open, default_window_flags);
 		ImGui::GetWindowViewport()->Flags = default_viewport_flags;
 
+		std::vector<Macro> macros;
+		macros = MacroManager::GetMacros();
+
+		for (int i = 0; i < macros.size(); i++)
 		{
+			std::cout << i << std::endl;
+			Macro macro = macros[i];
+			gui::TextureButton((ImGuiID)1+i, tex::GetTextureID(macro.icon_path).id, tex::GetTextureID(macro.bg_path).id, tex::GetTextureID(macro.bg_hover_path).id, tex::GetTextureID(macro.bg_active_path).id, ImGuiButtonFlags_None);
+		}
+
+		/*{
 			gui::TextureButton((ImGuiID)"_pktb1",
 				tex::GetTextureID("images\\buttons\\icon_arrow_left.png").id,
 				ImGuiButtonFlags_None); ImGui::SameLine();
@@ -23,7 +35,7 @@ namespace gui
 			if (play) {
 				playing = !playing;
 			}
-		}
+		}*/
 
 		ImGui::End();
 	}
