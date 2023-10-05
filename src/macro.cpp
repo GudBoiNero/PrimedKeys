@@ -1,6 +1,5 @@
 #include "macro.h"
 #include "user_config.h"
-#include <visit_struct.hpp>
 
 std::vector<Macro> MacroManager::GetMacros() noexcept
 {
@@ -24,16 +23,23 @@ std::vector<Macro> MacroManager::LoadMacros(const std::string& filePath) noexcep
 	for (const auto& json_macro : j) {
 		Macro macro;
 		
-		macro.name = json_macro["name"].get<std::string>();
-		macro.icon_path = json_macro["icon_path"].get<std::string>();
-		macro.bg_path = json_macro["bg_path"].get<std::string>();
-		macro.bg_hover_path = json_macro["bg_hover_path"].get<std::string>();
-		macro.bg_active_path = json_macro["bg_active_path"].get<std::string>();
+		if (json_macro.contains("name"))
+			macro.name = json_macro["name"].get<std::string>();
+		if (json_macro.contains("icon_path"))
+			macro.icon_path = json_macro["icon_path"].get<std::string>();
+		if (json_macro.contains("bg_path"))
+			macro.bg_path = json_macro["bg_path"].get<std::string>();
+		if (json_macro.contains("bg_hover_path"))
+			macro.bg_hover_path = json_macro["bg_hover_path"].get<std::string>();
+		if (json_macro.contains("bg_active_path"))
+			macro.bg_active_path = json_macro["bg_active_path"].get<std::string>();
 
 		for (const auto& input : json_macro["inputs"]) {
 			MacroKey macro_key;
-			macro_key.key = input["key"];
-			macro_key.action = input["action"];
+			if (input.contains("key"))
+				macro_key.key = input["key"];
+			if (input.contains("action"))
+				macro_key.action = input["action"];
 			macro.keys.push_back(macro_key);
 		}
 
@@ -47,17 +53,24 @@ void MacroManager::WriteMacros(const std::vector<Macro>& macros, const std::stri
 
 	for (const auto& macro : macros) {
 		nlohmann::json json_macro;
-		json_macro["name"] = macro.name;
-		json_macro["icon_path"] = macro.icon_path;
-		json_macro["bg_path"] = macro.bg_path;
-		json_macro["bg_hover_path"] = macro.bg_hover_path;
-		json_macro["bg_active_path"] = macro.bg_active_path;
+		if (json_macro.contains("name"))
+			json_macro["name"] = macro.name;
+		if (json_macro.contains("icon_path"))
+			json_macro["icon_path"] = macro.icon_path;
+		if (json_macro.contains("bg_path"))
+			json_macro["bg_path"] = macro.bg_path;
+		if (json_macro.contains("bg_hover_path"))
+			json_macro["bg_hover_path"] = macro.bg_hover_path;
+		if (json_macro.contains("bg_active_path"))
+			json_macro["bg_active_path"] = macro.bg_active_path;
 
 		nlohmann::json inputs = nlohmann::json::array();
 		for (const auto& k : macro.keys) {
 			nlohmann::json key;
-			key["key"] = k.key;
-			key["action"] = k.action;
+			if (key.contains("action"))
+				key["key"] = k.key;
+			if (key.contains("action"))
+				key["action"] = k.action;
 			inputs.push_back(key);
 		}
 

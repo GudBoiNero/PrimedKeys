@@ -6,7 +6,6 @@
 #include <fstream>
 #include <string>
 #include <json.hpp>
-#include <tuple>
 
 struct MacroKey {
 	std::string key = "";
@@ -16,6 +15,7 @@ struct MacroKey {
 struct Macro {
 	std::string name = "";
 	std::vector<MacroKey> keys = {};
+
 	std::string icon_path = "";
 	std::string bg_path = "";
 	std::string bg_hover_path = "";
