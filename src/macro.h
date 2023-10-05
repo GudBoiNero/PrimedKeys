@@ -20,6 +20,8 @@ struct Macro {
 	std::string bg_path = "";
 	std::string bg_hover_path = "";
 	std::string bg_active_path = "";
+
+	bool is_inline = false;
 };
 
 using json = nlohmann::json;
