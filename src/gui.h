@@ -2,6 +2,7 @@
 #define GUI_H
 
 #include "texture.h"
+#include "macro.h"
 #include <imgui_internal.h>
 
 namespace gui
@@ -21,6 +22,7 @@ namespace gui
 	void LoadNativeTextures();
 	bool TextureButton(ImGuiID id, ImTextureID texture_icon_id, ImGuiButtonFlags flags);
 	bool TextureButton(ImGuiID id, ImTextureID texture_icon_id, ImTextureID texture_default_id, ImTextureID texture_hover_id, ImTextureID texture_active_id, ImGuiButtonFlags flags);
+	bool MacroButton(ImGuiID id, Macro macro);
 #pragma endregion
 }
 

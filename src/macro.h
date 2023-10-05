@@ -16,67 +16,21 @@ struct Macro {
 	std::string name = "";
 	std::vector<MacroKey> keys = {};
 
-	std::string icon_img_path = "";
-	std::string background_img_path = "";
+	std::string icon_path = "";
+	std::string bg_path = "";
+	std::string bg_hover_path = "";
+	std::string bg_active_path = "";
+
+	bool is_inline = false;
 };
 
 using json = nlohmann::json;
 class MacroManager {
 public:
-
+	static std::vector<Macro> GetMacros() noexcept;
 	// load macros from a JSON file
-	static std::vector<Macro> LoadMacros(const std::string& filePath = "path") {
-		std::vector<Macro> macroList;
-		std::ifstream file(filePath);
-		if (!file.is_open()) {
-			std::cerr << "Could not open the file " << filePath << std::endl;
-			return macroList;
-		}
-
-		nlohmann::json j;
-		file >> j;
-
-		for (const auto& macro : j) {
-			Macro m;
-			m.name = macro["name"].get<std::string>();
-			for (const auto& input : macro["inputs"]) {
-				MacroKey k;
-				k.key = input["key"];
-				k.action = input["action"];
-				m.keys.push_back(k);
-			}
-			macroList.push_back(m);
-		}
-		return macroList;
-	}
-
-	static void WriteMacros(const std::vector<Macro>& macroList, const std::string& filePath = "output.json") {
-		nlohmann::json j;
-
-		for (const auto& m : macroList) {
-			nlohmann::json macro;
-			macro["name"] = m.name;
-
-			nlohmann::json inputs = nlohmann::json::array();
-			for (const auto& k : m.keys) {
-				nlohmann::json key;
-				key["key"] = k.key;
-				key["action"] = k.action;
-				inputs.push_back(key);
-			}
-
-			macro["inputs"] = inputs;
-			j.push_back(macro);
-		}
-
-		std::ofstream file(filePath);
-		if (file.is_open()) {
-			file << j.dump(4);
-		}
-		else {
-			std::cerr << "Could not open the file for writing: " << filePath << std::endl;
-		}
-	}
+	static std::vector<Macro> LoadMacros(const std::string& filePath = "path") noexcept;
+	static void WriteMacros(const std::vector<Macro>& macroList, const std::string& filePath = "output.json") noexcept;
 };
 
 #endif // MACRO_H

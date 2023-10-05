@@ -15,7 +15,12 @@ inline const std::vector<Macro> default_macros = {
 			MacroKey { "z",    "down" },
 			MacroKey { "z",      "up" },
 			MacroKey { "ctrl",   "up" }
-		}
+		},
+		"images\\buttons\\icon_undo.png",
+		"images\\buttons\\button.png",
+		"images\\buttons\\button_hover.png",
+		"images\\buttons\\button_active.png",
+		true,
 	},
 	Macro {
 		"redo",
@@ -26,7 +31,12 @@ inline const std::vector<Macro> default_macros = {
 			MacroKey { "z",      "up" },
 			MacroKey { "shift",  "up" },
 			MacroKey { "ctrl",   "up" }
-		}
+		},
+		"images\\buttons\\icon_redo.png",
+		"images\\buttons\\button.png",
+		"images\\buttons\\button_hover.png",
+		"images\\buttons\\button_active.png",
+		true,
 	},
 };
 
@@ -55,6 +65,11 @@ std::string user_config::GetConfigFolderPath()
 		InitConfigFolder(path);
 
 	return path;
+}
+
+std::string user_config::GetMacroFilePath()
+{
+	return std::format("{}\\{}", GetConfigFolderPath(), default_macros_file_name);
 }
 
 bool user_config::IsValidConfigFolderPath(std::string folder_path)
