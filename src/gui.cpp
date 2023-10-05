@@ -1,5 +1,4 @@
 #include "gui.h"
-#include "macro.h"
 #include "user_config.h"
 
 namespace gui
@@ -16,29 +15,11 @@ namespace gui
 		{
 			std::cout << i << std::endl;
 			Macro macro = macros[i];
-			gui::TextureButton((ImGuiID)1+i, tex::GetTextureID(macro.icon_path).id, tex::GetTextureID(macro.bg_path).id, tex::GetTextureID(macro.bg_hover_path).id, tex::GetTextureID(macro.bg_active_path).id, ImGuiButtonFlags_None);
+			gui::MacroButton((ImGuiID)"macro_button_" + (char)1 + i, macro);
 		}
 
-		/*{
-			gui::TextureButton((ImGuiID)"_pktb1",
-				tex::GetTextureID("images\\buttons\\icon_arrow_left.png").id,
-				ImGuiButtonFlags_None); ImGui::SameLine();
-
-			bool play = gui::TextureButton((ImGuiID)"_pktb2",
-				tex::GetTextureID(playing ? "images\\buttons\\icon_pause.png" : "images\\buttons\\icon_play.png").id,
-				ImGuiButtonFlags_None); ImGui::SameLine();
-
-			gui::TextureButton((ImGuiID)"_pktb3",
-				tex::GetTextureID("images\\buttons\\icon_arrow_right.png").id,
-				ImGuiButtonFlags_None);
-
-			if (play) {
-				playing = !playing;
-			}
-		}*/
-
 		ImGui::End();
-	}
+	}	
 
 	inline const char path_btn_default[] = "images/buttons/button.png";
 	inline const char path_btn_hover[] = "images/buttons/button_hover.png";
@@ -116,5 +97,13 @@ namespace gui
 	bool TextureButton(ImGuiID id, ImTextureID tex_icon_id, ImGuiButtonFlags flags)
 	{
 		return TextureButton(id, tex_icon_id, tex_btn_default.id, tex_btn_hover.id, tex_btn_active.id, flags);
+	}
+
+	bool MacroButton(ImGuiID id, Macro macro)
+	{
+		bool val = TextureButton(id, tex::GetTextureID(macro.icon_path).id, tex::GetTextureID(macro.bg_path).id, tex::GetTextureID(macro.bg_hover_path).id, tex::GetTextureID(macro.bg_active_path).id, ImGuiButtonFlags_None);
+		if (macro.is_inline)
+			ImGui::SameLine();
+		return val;
 	}
 }
