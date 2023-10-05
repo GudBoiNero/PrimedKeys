@@ -74,7 +74,10 @@
     <ClCompile Include="src\texture.cpp">
       <Filter>sources</Filter>
     </ClCompile>
-    <ClCompile Include="src\readf.cpp">
+    <ClCompile Include="src\user_config.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\macro.cpp">
       <Filter>sources</Filter>
     </ClCompile>
   </ItemGroup>
@@ -217,7 +220,7 @@
     <ClInclude Include="include\khrplatform.h" />
     <ClInclude Include="src\macro.h" />
     <ClInclude Include="src\texture.h" />
-    <ClInclude Include="src\readf.h" />
+    <ClInclude Include="src\user_config.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitattributes" />
@@ -227,10 +230,8 @@
     <None Include="debuggers\imgui.natvis" />
     <None Include="README.md" />
     <None Include="lib\emscripten\shell_minimal.html" />
-    <None Include="imgui.ini" />
     <None Include="SDL2.dll" />
-    <None Include="src\frag.glsl" />
-    <None Include="src\vert.glsl" />
+    <None Include="macros.json" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="debuggers\README.txt" />

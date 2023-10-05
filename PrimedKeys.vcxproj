@@ -176,6 +176,7 @@
     <ClCompile Include="lib\usynergy\uSynergy.c" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="src\gui.cpp" />
+    <ClCompile Include="src\macro.cpp" />
     <ClCompile Include="src\render.cpp" />
     <ClCompile Include="src\texture.cpp" />
     <ClCompile Include="src\user_config.cpp" />
