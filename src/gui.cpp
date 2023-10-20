@@ -4,8 +4,8 @@
 namespace gui
 {
 	//bool playing = false;
-	void ShowMacroMenu(bool p_open) {
-		ImGui::Begin("MacroMenu", &p_open, default_window_flags);
+	void ShowMacroMenu(bool* p_open) {
+		ImGui::Begin("MacroMenu", p_open, default_window_flags);
 		ImGui::GetWindowViewport()->Flags = default_viewport_flags;
 
 		std::vector<Macro> macros;

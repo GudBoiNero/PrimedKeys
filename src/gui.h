@@ -16,7 +16,7 @@ namespace gui
 		ImGuiViewportFlags_TopMost |
 		ImGuiViewportFlags_NoTaskBarIcon;
 
-	void ShowMacroMenu(bool p_open);
+	void ShowMacroMenu(bool* p_open);
 
 #pragma region TextureButton
 	void LoadNativeTextures();
