@@ -9,7 +9,7 @@ namespace render
 		{
 			gui::ShowMacroMenu(&show_macro_menu);
 		}
-		else
+		else // end program if Macro Menu (and other windows rendered here) is closed
 		{
 			done = true;
 		}
