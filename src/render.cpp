@@ -5,9 +5,11 @@ namespace render
 	void Render()
 	{
 		//ImGui::ShowDemoWindow();
-		gui::ShowMacroMenu(&show_macro_menu);
+		if (show_macro_menu)
+		{
+			gui::ShowMacroMenu(&show_macro_menu);
+		}
 	}
-
 	void BeginRender()
 	{
 		// Poll and handle events (inputs, window resize, etc.)
@@ -147,7 +149,7 @@ namespace render
 		//ImFont* font = io.Fonts->AddFontFromFileTTF("c:\\Windows\\Fonts\\ArialUni.ttf", 18.0f, nullptr, io.Fonts->GetGlyphRangesJapanese());
 		//IM_ASSERT(font != nullptr);
 		gui::LoadNativeTextures();
-	}
+		}
 	void Cleanup()
 	{
 		// Cleanup
@@ -159,4 +161,4 @@ namespace render
 		SDL_DestroyWindow(window);
 		SDL_Quit();
 	}
-}
+	}
