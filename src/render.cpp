@@ -9,6 +9,10 @@ namespace render
 		{
 			gui::ShowMacroMenu(&show_macro_menu);
 		}
+		else
+		{
+			done = true;
+		}
 	}
 	void BeginRender()
 	{
