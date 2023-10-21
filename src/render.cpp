@@ -153,7 +153,7 @@ namespace render
 		//ImFont* font = io.Fonts->AddFontFromFileTTF("c:\\Windows\\Fonts\\ArialUni.ttf", 18.0f, nullptr, io.Fonts->GetGlyphRangesJapanese());
 		//IM_ASSERT(font != nullptr);
 		gui::LoadNativeTextures();
-		}
+	}
 	void Cleanup()
 	{
 		// Cleanup
@@ -165,4 +165,4 @@ namespace render
 		SDL_DestroyWindow(window);
 		SDL_Quit();
 	}
-	}
+}
