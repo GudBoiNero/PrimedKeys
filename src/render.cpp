@@ -5,9 +5,15 @@ namespace render
 	void Render()
 	{
 		//ImGui::ShowDemoWindow();
-		gui::ShowMacroMenu(&show_macro_menu);
+		if (show_macro_menu) // stop showing Macro Menu when window closed
+		{
+			gui::ShowMacroMenu(&show_macro_menu);
+		}
+		else // end program if Macro Menu (and other windows rendered here) is closed
+		{
+			done = true;
+		}
 	}
-
 	void BeginRender()
 	{
 		// Poll and handle events (inputs, window resize, etc.)
