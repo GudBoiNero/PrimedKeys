@@ -19,7 +19,7 @@ namespace gui
 	void ShowMacroMenu(bool* p_open);
 
 #pragma region TextureButton
-	void LoadNativeTextures();
+	void ReloadTextures();
 	bool TextureButton(ImGuiID id, ImTextureID texture_icon_id, ImGuiButtonFlags flags);
 	bool TextureButton(ImGuiID id, ImTextureID texture_icon_id, ImTextureID texture_default_id, ImTextureID texture_hover_id, ImTextureID texture_active_id, ImGuiButtonFlags flags);
 	bool MacroButton(ImGuiID id, Macro macro);

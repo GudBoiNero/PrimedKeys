@@ -34,7 +34,7 @@ namespace gui
 	ImVec4 btn_bg_col = ImVec4(0.0f, 0.0f, 0.0f, 1.0f);
 	ImVec4 btn_tint_col = ImVec4(1.0f, 1.0f, 1.0f, 1.0f);
 
-	void LoadNativeTextures()
+	void ReloadTextures()
 	{
 		bool ret = tex::LoadTextureFromFile(path_btn_default, (GLuint*)(void*)&tex_btn_default.id, &tex_btn_default.width, &tex_btn_default.height);
 		IM_ASSERT(ret);
