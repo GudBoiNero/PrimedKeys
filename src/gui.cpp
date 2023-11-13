@@ -13,9 +13,9 @@ namespace gui
 
 		for (int i = 0; i < macros.size(); i++)
 		{
-			std::cout << i << std::endl;
 			Macro macro = macros[i];
 			gui::MacroButton((ImGuiID)"macro_button_" + (char)1 + i, macro);
+			if (macro.is_inline) ImGui::SameLine();
 		}
 
 		ImGui::End();
@@ -89,7 +89,7 @@ namespace gui
 		window->DrawList->AddImage(tex_id, bb.Min + padding, bb.Max - padding, btn_uv0, btn_uv1, ImGui::GetColorU32(btn_tint_col));
 		if (tex_icon_id)
 			window->DrawList->AddImage(tex_icon_id, bb.Min + padding + icon_offset, bb.Max - padding + icon_offset, btn_uv0, btn_uv1, ImGui::GetColorU32(btn_tint_col));
-
+		
 		return pressed;
 	}
 
@@ -102,8 +102,6 @@ namespace gui
 	bool MacroButton(ImGuiID id, Macro macro)
 	{
 		bool val = TextureButton(id, tex::GetTextureID(macro.icon_path).id, tex::GetTextureID(macro.bg_path).id, tex::GetTextureID(macro.bg_hover_path).id, tex::GetTextureID(macro.bg_active_path).id, ImGuiButtonFlags_None);
-		if (macro.is_inline)
-			ImGui::SameLine();
 		return val;
 	}
 }

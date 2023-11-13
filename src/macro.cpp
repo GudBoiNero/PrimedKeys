@@ -8,6 +8,8 @@ std::vector<Macro> MacroManager::GetMacros() noexcept
 	catch (...) {}
 	return macros;
 };
+
+// ISSUE: Need to fix the macro file if any properties are missing. https://github.com/GudBoiNero/PrimedKeys/issues/43
 // load macros from a JSON file
 std::vector<Macro> MacroManager::LoadMacros(const std::string& filePath) noexcept {
 	std::vector<Macro> macros;
@@ -26,7 +28,9 @@ std::vector<Macro> MacroManager::LoadMacros(const std::string& filePath) noexcep
 		if (json_macro.contains("name"))
 			macro.name = json_macro["name"].get<std::string>();
 		if (json_macro.contains("is_inline"))
-			macro.is_inline = json_macro["is_inline"].get <bool>();
+			macro.is_inline = json_macro["is_inline"].get<bool>();
+		else 
+			macro.is_inline = false;
 		if (json_macro.contains("icon_path"))
 			macro.icon_path = json_macro["icon_path"].get<std::string>();
 		if (json_macro.contains("bg_path"))

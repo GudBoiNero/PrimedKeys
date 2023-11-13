@@ -14,6 +14,8 @@ namespace gui
 	constexpr ImGuiViewportFlags default_viewport_flags =
 		ImGuiViewportFlags_NoDecoration |
 		ImGuiViewportFlags_TopMost |
+		ImGuiViewportFlags_NoFocusOnClick |
+		ImGuiViewportFlags_NoFocusOnAppearing |
 		ImGuiViewportFlags_NoTaskBarIcon;
 
 	void ShowMacroMenu(bool* p_open);

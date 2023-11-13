@@ -6,6 +6,10 @@
 #include <imgui_impl_opengl3.h>
 #include <SDL.h>
 
+#ifdef _WIN32 || _WIN64
+#include <windows.h>
+#endif
+
 // This example can also compile and run with Emscripten! See 'Makefile.emscripten' for details.
 #ifdef __EMSCRIPTEN__
 #include "emscripten/emscripten_mainloop_stub.h"
