@@ -54,7 +54,8 @@ namespace render
 			SDL_Window* backup_current_window = SDL_GL_GetCurrentWindow();
 			SDL_GLContext backup_current_context = SDL_GL_GetCurrentContext();
 
-// This
+// This should technically prevent our window from taking focus.
+// Clearly it doesn't
 #ifdef _WIN32 || _WIN64
 			HWND hwnd = (HWND)window;
 			::ShowWindow(hwnd, SW_SHOWNA);
