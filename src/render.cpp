@@ -54,13 +54,10 @@ namespace render
 			SDL_Window* backup_current_window = SDL_GL_GetCurrentWindow();
 			SDL_GLContext backup_current_context = SDL_GL_GetCurrentContext();
 
-// This should technically prevent our window from taking focus.
-// Clearly it doesn't
-#ifdef _WIN32 || _WIN64
-			HWND hwnd = (HWND)window;
-			::ShowWindow(hwnd, SW_SHOWNA);
-#endif
-			
+			std::cout << backup_current_window << std::endl;
+
+			PlatformHandleFocus();
+
 			ImGui::UpdatePlatformWindows();
 			ImGui::RenderPlatformWindowsDefault();
 			SDL_GL_MakeCurrent(backup_current_window, backup_current_context);
@@ -172,5 +169,14 @@ namespace render
 		SDL_GL_DeleteContext(gl_context);
 		SDL_DestroyWindow(window);
 		SDL_Quit();
+	}
+
+	// Runs platform specific code to handle the focus of windows
+	void PlatformHandleFocus() {
+	
+	};
+
+	void PlatformHandleMacros() {
+
 	}
 }
