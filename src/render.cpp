@@ -2,6 +2,15 @@
 
 namespace render
 {
+	// Runs platform specific code to handle the focus of windows
+	void PlatformHandleFocus() {
+
+	};
+
+	void PlatformHandleMacros() {
+
+	}
+
 	void Render()
 	{
 		//ImGui::ShowDemoWindow();
@@ -169,14 +178,5 @@ namespace render
 		SDL_GL_DeleteContext(gl_context);
 		SDL_DestroyWindow(window);
 		SDL_Quit();
-	}
-
-	// Runs platform specific code to handle the focus of windows
-	void PlatformHandleFocus() {
-	
-	};
-
-	void PlatformHandleMacros() {
-
 	}
 }
