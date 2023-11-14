@@ -2,15 +2,6 @@
 
 namespace render
 {
-	// Runs platform specific code to handle the focus of windows
-	void PlatformHandleFocus() {
-
-	};
-
-	void PlatformHandleMacros() {
-
-	}
-
 	void Render()
 	{
 		//ImGui::ShowDemoWindow();
@@ -65,12 +56,14 @@ namespace render
 
 			std::cout << backup_current_window << std::endl;
 
-			PlatformHandleFocus();
+			HandleFocus();
 
 			ImGui::UpdatePlatformWindows();
 			ImGui::RenderPlatformWindowsDefault();
 			SDL_GL_MakeCurrent(backup_current_window, backup_current_context);
 		}
+
+		HandleMacros();
 
 		SDL_GL_SwapWindow(window);
 	}
@@ -178,5 +171,12 @@ namespace render
 		SDL_GL_DeleteContext(gl_context);
 		SDL_DestroyWindow(window);
 		SDL_Quit();
+	}
+	void HandleFocus()
+	{
+	}
+
+	void HandleMacros()
+	{
 	}
 }

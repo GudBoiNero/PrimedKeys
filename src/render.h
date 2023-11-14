@@ -17,9 +17,6 @@
 
 namespace render
 {
-	//void(&PlatformHandleFocus)();
-	//void(&PlatformHandleMacros)();
-
 	inline SDL_Window* window;
 	inline SDL_GLContext gl_context;
 	inline ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
@@ -48,7 +45,9 @@ namespace render
 	void Setup();
 	void Cleanup();
 
-	//void PlatformHandleFocus();
-	//void PlatformHandleMacros();
+	// Runs platform specific code to handle the focus of windows
+	void HandleFocus();
+	// Runs platform specific code to handle the running of macros
+	void HandleMacros();
 }
 #endif // RENDER_H
