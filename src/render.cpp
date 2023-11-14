@@ -1,14 +1,11 @@
 #include "render.h"
 
-#ifdef _WIN32 || WIN64
-
-#endif
-
 namespace render
 {
 	void HandleFocus() 
 	{
 #ifdef _WIN32 || _WIN64 // Windows
+
 #elif __APPLE__ || __MACH__ // Mac OS
 #elif __LINUX__ || __unix || __unix__ // Linux/Unix
 #endif

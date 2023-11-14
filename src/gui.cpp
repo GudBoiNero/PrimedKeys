@@ -14,12 +14,20 @@ namespace gui
 		for (int i = 0; i < macros.size(); i++)
 		{
 			Macro macro = macros[i];
-			gui::MacroButton((ImGuiID)"macro_button_" + (char)1 + i, macro);
+			bool pressed = gui::MacroButton((ImGuiID)"macro_button_" + (char)1 + i, macro);
 			if (macro.is_inline) ImGui::SameLine();
+
+			if (pressed)
+				HandleMacroPress(macro);
 		}
 
 		ImGui::End();
-	}	
+	}
+
+	void HandleMacroPress(Macro macro) 
+	{
+	
+	}
 
 	inline const char path_btn_default[] = "images/buttons/button.png";
 	inline const char path_btn_hover[] = "images/buttons/button_hover.png";
