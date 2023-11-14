@@ -176,6 +176,7 @@
     <ClCompile Include="lib\usynergy\uSynergy.c" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="src\gui.cpp" />
+    <ClCompile Include="src\handlers.cpp" />
     <ClCompile Include="src\macro.cpp" />
     <ClCompile Include="src\render.cpp" />
     <ClCompile Include="src\texture.cpp" />
@@ -278,6 +279,7 @@
     <ClInclude Include="lib\SDL2-2.28.3\include\SDL_video.h" />
     <ClInclude Include="lib\SDL2-2.28.3\include\SDL_vulkan.h" />
     <ClInclude Include="lib\usynergy\uSynergy.h" />
+    <ClInclude Include="src\handlers.h" />
     <ClInclude Include="src\user_config.h" />
     <ClInclude Include="src\gui.h" />
     <ClInclude Include="src\macro.h" />

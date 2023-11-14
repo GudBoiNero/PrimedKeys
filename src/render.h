@@ -45,9 +45,7 @@ namespace render
 	void Setup();
 	void Cleanup();
 
-	// Runs platform specific code to handle the focus of windows
 	void HandleFocus();
-	// Runs platform specific code to handle the running of macros
 	void HandleMacros();
 }
 #endif // RENDER_H

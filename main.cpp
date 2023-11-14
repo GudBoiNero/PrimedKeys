@@ -6,6 +6,7 @@
 #define STB_IMAGE_STATIC
 
 #include "render.h"
+#include "handlers.h"
 #include "user_config.h"
 #include <thread>
 

@@ -1,7 +1,27 @@
 #include "render.h"
 
+#ifdef _WIN32 || WIN64
+
+#endif
+
 namespace render
 {
+	void HandleFocus() 
+	{
+#ifdef _WIN32 || _WIN64 // Windows
+#elif __APPLE__ || __MACH__ // Mac OS
+#elif __LINUX__ || __unix || __unix__ // Linux/Unix
+#endif
+	};
+
+	void HandleMacros() 
+	{
+#ifdef _WIN32 || _WIN64 // Windows
+#elif __APPLE__ || __MACH__ // Mac OS
+#elif __LINUX__ || __unix || __unix__ // Linux/Unix
+#endif
+	};
+
 	void Render()
 	{
 		//ImGui::ShowDemoWindow();
@@ -171,12 +191,5 @@ namespace render
 		SDL_GL_DeleteContext(gl_context);
 		SDL_DestroyWindow(window);
 		SDL_Quit();
-	}
-	void HandleFocus()
-	{
-	}
-
-	void HandleMacros()
-	{
 	}
 }

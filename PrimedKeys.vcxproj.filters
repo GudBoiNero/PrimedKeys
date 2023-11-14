@@ -80,6 +80,9 @@
     <ClCompile Include="src\macro.cpp">
       <Filter>sources</Filter>
     </ClCompile>
+    <ClCompile Include="src\handlers.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="./imgui/*.h">
@@ -221,6 +224,7 @@
     <ClInclude Include="src\macro.h" />
     <ClInclude Include="src\texture.h" />
     <ClInclude Include="src\user_config.h" />
+    <ClInclude Include="src\handlers.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitattributes" />
