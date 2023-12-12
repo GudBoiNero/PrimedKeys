@@ -44,8 +44,5 @@ namespace render
 
 	void Setup();
 	void Cleanup();
-
-	void HandleFocus();
-	void HandleMacros();
 }
 #endif // RENDER_H

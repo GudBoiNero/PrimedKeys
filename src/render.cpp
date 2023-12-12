@@ -2,22 +2,6 @@
 
 namespace render
 {
-	void HandleFocus() 
-	{
-#ifdef _WIN32 || _WIN64 // Windows
-
-#elif __APPLE__ || __MACH__ // Mac OS
-#elif __LINUX__ || __unix || __unix__ // Linux/Unix
-#endif
-	};
-
-	void HandleMacros() 
-	{
-#ifdef _WIN32 || _WIN64 // Windows
-#elif __APPLE__ || __MACH__ // Mac OS
-#elif __LINUX__ || __unix || __unix__ // Linux/Unix
-#endif
-	};
 
 	void Render()
 	{
@@ -71,16 +55,10 @@ namespace render
 			SDL_Window* backup_current_window = SDL_GL_GetCurrentWindow();
 			SDL_GLContext backup_current_context = SDL_GL_GetCurrentContext();
 
-			std::cout << backup_current_window << std::endl;
-
-			HandleFocus();
-
 			ImGui::UpdatePlatformWindows();
 			ImGui::RenderPlatformWindowsDefault();
 			SDL_GL_MakeCurrent(backup_current_window, backup_current_context);
 		}
-
-		HandleMacros();
 
 		SDL_GL_SwapWindow(window);
 	}

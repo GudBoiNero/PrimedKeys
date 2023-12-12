@@ -1,10 +1,13 @@
 #include "gui.h"
 #include "user_config.h"
 
+#include "win_handler.h"
+
 namespace gui
 {
 	//bool playing = false;
 	void ShowMacroMenu(bool* p_open) {
+		handler::SetHook();
 		ImGui::Begin("MacroMenu", p_open, default_window_flags);
 		ImGui::GetWindowViewport()->Flags = default_viewport_flags;
 
@@ -26,7 +29,8 @@ namespace gui
 
 	void HandleMacroPress(Macro macro) 
 	{
-	
+#ifdef WIN32 | WIN64
+#endif
 	}
 
 	inline const char path_btn_default[] = "images/buttons/button.png";

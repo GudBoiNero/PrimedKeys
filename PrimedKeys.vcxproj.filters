@@ -80,7 +80,7 @@
     <ClCompile Include="src\macro.cpp">
       <Filter>sources</Filter>
     </ClCompile>
-    <ClCompile Include="src\handlers.cpp">
+    <ClCompile Include="src\win_handler.cpp">
       <Filter>sources</Filter>
     </ClCompile>
   </ItemGroup>
@@ -224,7 +224,7 @@
     <ClInclude Include="src\macro.h" />
     <ClInclude Include="src\texture.h" />
     <ClInclude Include="src\user_config.h" />
-    <ClInclude Include="src\handlers.h" />
+    <ClInclude Include="src\win_handler.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitattributes" />
