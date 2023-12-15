@@ -29,7 +29,9 @@ HHOOK handler::SetHook()
             std::cout << "Foreground Window Process ID: " << process_id << std::endl;
             std::cout << "Foreground Window Thread ID: " << thread_id << std::endl;
 
-            hook = SetWindowsHookEx(WH_CBT, handler::CBTProc, 0, thread_id);
+            if (process_id != GetCurrentProcessId())
+                hook = SetWindowsHookEx(WH_CBT, handler::CBTProc, 0, thread_id);
+            else std::cout << "Focused On Program!" << std::endl;
         }
         else {
             std::cerr << "Error getting thread/process ID" << std::endl;
