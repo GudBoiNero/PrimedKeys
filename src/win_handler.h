@@ -8,7 +8,7 @@
 namespace handler {
 	LRESULT CALLBACK CBTProc(int nCode, WPARAM wParam, LPARAM lParam);
 	HHOOK SetHook();
-	void Unhook(HHOOK hookHandle);
+	void Unhook();
 }
 
-#endif
+#endif 
