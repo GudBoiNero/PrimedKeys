@@ -1,235 +1,50 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="sources">
-      <UniqueIdentifier>{f18ab499-84e1-499f-8eff-9754361e0e52}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="libs">
-      <UniqueIdentifier>{03770597-921b-4bdf-b30b-ea65ca7627d2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="libs\imgui">
-      <UniqueIdentifier>{20b90ce4-7fcb-4731-b9a0-075f875de82d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="debuggers">
-      <UniqueIdentifier>{b18e0416-d5cd-45e0-adef-3af952c0dbb4}</UniqueIdentifier>
-    </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="./imgui/*.cpp">
-      <Filter>libs\imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="./imgui/*.cpp">
-      <Filter>libs\imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="./imgui/*.cpp">
-      <Filter>libs\imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="./imgui/*.cpp">
-      <Filter>libs\imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="./imgui/*.cpp">
-      <Filter>libs\imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="./imgui/*.cpp">
-      <Filter>libs\imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="./imgui/*.cpp">
-      <Filter>libs\imgui</Filter>
-    </ClCompile>
+    <ClCompile Include="include\glad.c" />
+    <ClCompile Include="include\imgui.cpp" />
+    <ClCompile Include="include\imgui_demo.cpp" />
+    <ClCompile Include="include\imgui_draw.cpp" />
+    <ClCompile Include="include\imgui_impl_opengl3.cpp" />
+    <ClCompile Include="include\imgui_impl_sdl2.cpp" />
+    <ClCompile Include="include\imgui_tables.cpp" />
+    <ClCompile Include="include\imgui_widgets.cpp" />
+    <ClCompile Include="lib\usynergy\uSynergy.c" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="include\imgui.cpp">
-      <Filter>libs\imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="include\imgui_demo.cpp">
-      <Filter>libs\imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="include\imgui_draw.cpp">
-      <Filter>libs\imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="include\imgui_impl_opengl3.cpp">
-      <Filter>libs\imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="include\imgui_impl_sdl2.cpp">
-      <Filter>libs\imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="include\imgui_tables.cpp">
-      <Filter>libs\imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="include\imgui_widgets.cpp">
-      <Filter>libs\imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="src\render.cpp">
-      <Filter>sources</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\usynergy\uSynergy.c">
-      <Filter>sources</Filter>
-    </ClCompile>
-    <ClCompile Include="src\gui.cpp">
-      <Filter>sources</Filter>
-    </ClCompile>
-    <ClCompile Include="include\glad.c">
-      <Filter>sources</Filter>
-    </ClCompile>
-    <ClCompile Include="src\texture.cpp">
-      <Filter>sources</Filter>
-    </ClCompile>
-    <ClCompile Include="src\user_config.cpp">
-      <Filter>sources</Filter>
-    </ClCompile>
-    <ClCompile Include="src\macro.cpp">
-      <Filter>sources</Filter>
-    </ClCompile>
+    <ClCompile Include="src\gui.cpp" />
+    <ClCompile Include="src\macro.cpp" />
+    <ClCompile Include="src\render.cpp" />
+    <ClCompile Include="src\texture.cpp" />
+    <ClCompile Include="src\user_config.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="./imgui/*.h">
-      <Filter>libs\imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="./imgui/*.h">
-      <Filter>libs\imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="./imgui/*.h">
-      <Filter>libs\imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="./imgui/*.h">
-      <Filter>libs\imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="./imgui/*.h">
-      <Filter>libs\imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="./imgui/*.h">
-      <Filter>libs\imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="./imgui/*.h">
-      <Filter>libs\imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="./imgui/*.h">
-      <Filter>libs\imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="include\imconfig.h">
-      <Filter>libs\imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="include\imgui.h">
-      <Filter>libs\imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="include\imgui_impl_opengl3.h">
-      <Filter>libs\imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="include\imgui_impl_opengl3_loader.h">
-      <Filter>libs\imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="include\imgui_impl_sdl2.h">
-      <Filter>libs\imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="include\imgui_internal.h">
-      <Filter>libs\imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="include\imstb_rectpack.h">
-      <Filter>libs\imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="include\imstb_textedit.h">
-      <Filter>libs\imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="include\imstb_truetype.h" />
-    <ClInclude Include="src\render.h" />
+    <ClInclude Include="include\glad.h" />
+    <ClInclude Include="include\khrplatform.h" />
+    <ClInclude Include="include\stb_image.h" />
     <ClInclude Include="lib\emscripten\emscripten_mainloop_stub.h" />
     <ClInclude Include="lib\glfw\include\GLFW\glfw3.h" />
     <ClInclude Include="lib\glfw\include\GLFW\glfw3native.h" />
-    <ClInclude Include="lib\usynergy\uSynergy.h" />
-    <ClInclude Include="src\gui.h" />
-    <ClInclude Include="include\stb_image.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\begin_code.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\close_code.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_assert.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_atomic.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_audio.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_bits.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_blendmode.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_clipboard.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_config.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_cpuinfo.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_egl.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_endian.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_error.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_events.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_filesystem.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_gamecontroller.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_gesture.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_guid.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_haptic.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_hidapi.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_hints.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_joystick.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_keyboard.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_keycode.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_loadso.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_locale.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_log.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_main.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_messagebox.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_metal.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_misc.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_mouse.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_mutex.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_name.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_opengl.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_opengl_glext.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_opengles.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_opengles2.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_opengles2_gl2.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_opengles2_gl2ext.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_opengles2_gl2platform.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_opengles2_khrplatform.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_pixels.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_platform.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_power.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_quit.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_rect.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_render.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_revision.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_rwops.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_scancode.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_sensor.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_shape.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_stdinc.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_surface.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_system.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_syswm.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_test.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_test_assert.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_test_common.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_test_compare.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_test_crc32.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_test_font.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_test_fuzzer.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_test_harness.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_test_images.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_test_log.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_test_md5.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_test_memory.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_test_random.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_thread.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_timer.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_touch.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_types.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_version.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_video.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_vulkan.h" />
-    <ClInclude Include="include\glad.h" />
-    <ClInclude Include="include\khrplatform.h" />
-    <ClInclude Include="src\macro.h" />
-    <ClInclude Include="src\texture.h" />
-    <ClInclude Include="src\user_config.h" />
-<<<<<<< Updated upstream
-=======
-    <ClInclude Include="src\win_handler.h" />
-    <ClInclude Include="lib\nlohmann\json.hpp" />
-    <ClInclude Include="lib\nlohmann\json_fwd.hpp" />
+    <ClInclude Include="include\imconfig.h" />
+    <ClInclude Include="include\imgui.h" />
+    <ClInclude Include="include\imgui_impl_opengl3.h" />
+    <ClInclude Include="include\imgui_impl_opengl3_loader.h" />
+    <ClInclude Include="include\imgui_impl_sdl2.h" />
+    <ClInclude Include="include\imgui_internal.h" />
+    <ClInclude Include="include\imstb_rectpack.h" />
+    <ClInclude Include="include\imstb_textedit.h" />
+    <ClInclude Include="include\imstb_truetype.h" />
+    <ClInclude Include="lib\jsoncons\allocator_holder.hpp" />
+    <ClInclude Include="lib\jsoncons\allocator_set.hpp" />
+    <ClInclude Include="lib\jsoncons\basic_json.hpp" />
+    <ClInclude Include="lib\jsoncons\bigint.hpp" />
+    <ClInclude Include="lib\jsoncons\byte_string.hpp" />
     <ClInclude Include="lib\jsoncons\config\binary_config.hpp" />
     <ClInclude Include="lib\jsoncons\config\compiler_support.hpp" />
     <ClInclude Include="lib\jsoncons\config\jsoncons_config.hpp" />
     <ClInclude Include="lib\jsoncons\config\version.hpp" />
+    <ClInclude Include="lib\jsoncons\conv_error.hpp" />
+    <ClInclude Include="lib\jsoncons\decode_json.hpp" />
+    <ClInclude Include="lib\jsoncons\decode_traits.hpp" />
     <ClInclude Include="lib\jsoncons\detail\endian.hpp" />
     <ClInclude Include="lib\jsoncons\detail\grisu3.hpp" />
     <ClInclude Include="lib\jsoncons\detail\heap_string.hpp" />
@@ -238,14 +53,6 @@
     <ClInclude Include="lib\jsoncons\detail\span.hpp" />
     <ClInclude Include="lib\jsoncons\detail\string_view.hpp" />
     <ClInclude Include="lib\jsoncons\detail\write_number.hpp" />
-    <ClInclude Include="lib\jsoncons\allocator_holder.hpp" />
-    <ClInclude Include="lib\jsoncons\allocator_set.hpp" />
-    <ClInclude Include="lib\jsoncons\basic_json.hpp" />
-    <ClInclude Include="lib\jsoncons\bigint.hpp" />
-    <ClInclude Include="lib\jsoncons\byte_string.hpp" />
-    <ClInclude Include="lib\jsoncons\conv_error.hpp" />
-    <ClInclude Include="lib\jsoncons\decode_json.hpp" />
-    <ClInclude Include="lib\jsoncons\decode_traits.hpp" />
     <ClInclude Include="lib\jsoncons\encode_json.hpp" />
     <ClInclude Include="lib\jsoncons\encode_traits.hpp" />
     <ClInclude Include="lib\jsoncons\extension_traits.hpp" />
@@ -283,29 +90,97 @@
     <ClInclude Include="lib\jsoncons\unicode_traits.hpp" />
     <ClInclude Include="lib\jsoncons\uri.hpp" />
     <ClInclude Include="lib\jsoncons\value_converter.hpp" />
->>>>>>> Stashed changes
+    <ClInclude Include="lib\SDL2-2.28.3\include\begin_code.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\close_code.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_assert.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_atomic.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_audio.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_bits.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_blendmode.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_clipboard.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_config.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_cpuinfo.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_egl.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_endian.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_error.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_events.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_filesystem.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_gamecontroller.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_gesture.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_guid.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_haptic.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_hidapi.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_hints.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_joystick.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_keyboard.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_keycode.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_loadso.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_locale.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_log.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_main.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_messagebox.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_metal.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_misc.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_mouse.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_mutex.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_name.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_opengl.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_opengles.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_opengles2.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_opengles2_gl2.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_opengles2_gl2ext.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_opengles2_gl2platform.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_opengles2_khrplatform.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_opengl_glext.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_pixels.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_platform.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_power.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_quit.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_rect.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_render.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_revision.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_rwops.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_scancode.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_sensor.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_shape.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_stdinc.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_surface.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_system.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_syswm.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_test.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_test_assert.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_test_common.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_test_compare.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_test_crc32.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_test_font.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_test_fuzzer.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_test_harness.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_test_images.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_test_log.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_test_md5.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_test_memory.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_test_random.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_thread.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_timer.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_touch.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_types.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_version.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_video.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_vulkan.h" />
+    <ClInclude Include="lib\usynergy\uSynergy.h" />
+    <ClInclude Include="src\user_config.h" />
+    <ClInclude Include="src\gui.h" />
+    <ClInclude Include="src\macro.h" />
+    <ClInclude Include="src\render.h" />
+    <ClInclude Include="src\texture.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include=".gitattributes" />
-    <None Include=".gitignore" />
-    <None Include="debuggers\imgui.gdb" />
-    <None Include="debuggers\imgui.natstepfilter" />
-    <None Include="debuggers\imgui.natvis" />
-    <None Include="README.md" />
-    <None Include="lib\emscripten\shell_minimal.html" />
-    <None Include="SDL2.dll" />
-    <None Include="macros.json" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="debuggers\README.txt" />
-    <Text Include="lib\glfw\COPYING.txt" />
-    <Text Include="lib\usynergy\README.txt" />
-    <Text Include="LICENSE.txt" />
-    <Text Include="lib\SDL2-2.28.3\WhatsNew.txt" />
-    <Text Include="lib\SDL2-2.28.3\BUGS.txt" />
-    <Text Include="lib\SDL2-2.28.3\COPYING.txt" />
-    <Text Include="lib\SDL2-2.28.3\README.txt" />
-    <Text Include="lib\SDL2-2.28.3\README-SDL.txt" />
+    <Library Include="lib\glfw\lib-vc2010-32\glfw3.lib" />
+    <Library Include="lib\glfw\lib-vc2010-64\glfw3.lib" />
+    <Library Include="lib\SDL2-2.28.3\lib\x86\SDL2.lib" />
+    <Library Include="lib\SDL2-2.28.3\lib\x86\SDL2main.lib" />
+    <Library Include="lib\SDL2-2.28.3\lib\x86\SDL2test.lib" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="images\buttons\button.png" />
@@ -322,10 +197,25 @@
     <Image Include="images\palettes\sky.png" />
   </ItemGroup>
   <ItemGroup>
-    <Library Include="lib\glfw\lib-vc2010-32\glfw3.lib" />
-    <Library Include="lib\glfw\lib-vc2010-64\glfw3.lib" />
-    <Library Include="lib\SDL2-2.28.3\lib\x86\SDL2.lib" />
-    <Library Include="lib\SDL2-2.28.3\lib\x86\SDL2main.lib" />
-    <Library Include="lib\SDL2-2.28.3\lib\x86\SDL2test.lib" />
+    <None Include=".gitattributes" />
+    <None Include=".gitignore" />
+    <None Include="debuggers\imgui.gdb" />
+    <None Include="debuggers\imgui.natvis" />
+    <None Include="debuggers\imgui.natstepfilter" />
+    <None Include="lib\emscripten\shell_minimal.html" />
+    <None Include="macros.json" />
+    <None Include="SDL2.dll" />
+    <None Include="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="debuggers\README.txt" />
+    <Text Include="lib\glfw\COPYING.txt" />
+    <Text Include="lib\SDL2-2.28.3\BUGS.txt" />
+    <Text Include="lib\SDL2-2.28.3\COPYING.txt" />
+    <Text Include="lib\SDL2-2.28.3\README-SDL.txt" />
+    <Text Include="lib\SDL2-2.28.3\README.txt" />
+    <Text Include="lib\SDL2-2.28.3\WhatsNew.txt" />
+    <Text Include="lib\usynergy\README.txt" />
+    <Text Include="LICENSE.txt" />
   </ItemGroup>
 </Project>

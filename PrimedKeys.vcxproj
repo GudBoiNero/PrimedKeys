@@ -256,8 +256,6 @@
     <ClInclude Include="lib\jsoncons\unicode_traits.hpp" />
     <ClInclude Include="lib\jsoncons\uri.hpp" />
     <ClInclude Include="lib\jsoncons\value_converter.hpp" />
-    <ClInclude Include="lib\nlohmann\json.hpp" />
-    <ClInclude Include="lib\nlohmann\json_fwd.hpp" />
     <ClInclude Include="lib\SDL2-2.28.3\include\begin_code.h" />
     <ClInclude Include="lib\SDL2-2.28.3\include\close_code.h" />
     <ClInclude Include="lib\SDL2-2.28.3\include\SDL.h" />

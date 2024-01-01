@@ -53,6 +53,17 @@ public:
 	const bool is_inline() const { return is_inline_; }
 };
 
+class MacroFile
+{
+	std::vector<Macro> macros_;
+public:
+	MacroFile(const std::vector<Macro> macros = {}) : macros_(macros)
+	{
+	}
+
+	const std::vector<Macro> macros() const { return macros_; }
+};
+
 class MacroManager {
 public:
 	static std::vector<Macro> GetMacros() noexcept;

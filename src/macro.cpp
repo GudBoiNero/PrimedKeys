@@ -13,6 +13,8 @@ std::vector<Macro> MacroManager::GetMacros() noexcept
 // load macros from a JSON file
 std::vector<Macro> MacroManager::LoadMacros(const std::string& filePath) noexcept {
 	std::vector<Macro> macros;
+
+
 	
 	return macros;
 }
