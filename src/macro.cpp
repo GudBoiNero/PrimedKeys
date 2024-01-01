@@ -9,7 +9,6 @@ MacroFile MacroManager::GetMacroFile() noexcept
 	return macro_file;
 };
 
-// ISSUE: Need to fix the macro file if any properties are missing. https://github.com/GudBoiNero/PrimedKeys/issues/43
 // load macros from a JSON file
 MacroFile MacroManager::LoadMacroFile(const std::string& file_path) noexcept {
 	MacroFile macro_file;
