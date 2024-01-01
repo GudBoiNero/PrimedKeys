@@ -15,7 +15,7 @@ namespace gui
 		{
 			Macro macro = macros[i];
 			gui::MacroButton((ImGuiID)"macro_button_" + (char)1 + i, macro);
-			if (macro.is_inline) ImGui::SameLine();
+			if (macro.is_inline()) ImGui::SameLine();
 		}
 
 		ImGui::End();
@@ -101,7 +101,7 @@ namespace gui
 
 	bool MacroButton(ImGuiID id, Macro macro)
 	{
-		bool val = TextureButton(id, tex::GetTextureID(macro.icon_path).id, tex::GetTextureID(macro.bg_path).id, tex::GetTextureID(macro.bg_hover_path).id, tex::GetTextureID(macro.bg_active_path).id, ImGuiButtonFlags_None);
+		bool val = TextureButton(id, tex::GetTextureID(macro.icon_path()).id, tex::GetTextureID(macro.bg_path()).id, tex::GetTextureID(macro.bg_hover_path()).id, tex::GetTextureID(macro.bg_active_path()).id, ImGuiButtonFlags_None);
 		return val;
 	}
 }
