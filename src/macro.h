@@ -66,10 +66,10 @@ public:
 
 class MacroManager {
 public:
-	static std::vector<Macro> GetMacros() noexcept;
+	static MacroFile GetMacroFile() noexcept;
 	// load macros from a JSON file
-	static std::vector<Macro> LoadMacros(const std::string& filePath) noexcept;
-	static void WriteMacros(const std::vector<Macro>& macroList, const std::string& filePath = "macros.json") noexcept;
+	static MacroFile LoadMacroFile(const std::string& file_path) noexcept;
+	static void WriteMacroFile(const MacroFile& macroFile, const std::string& file_path = "macros.json") noexcept;
 };
 
 #endif // MACRO_H

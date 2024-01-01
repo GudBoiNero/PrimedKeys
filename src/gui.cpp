@@ -8,8 +8,9 @@ namespace gui
 		ImGui::Begin("MacroMenu", p_open, default_window_flags);
 		ImGui::GetWindowViewport()->Flags = default_viewport_flags;
 
-		std::vector<Macro> macros;
-		macros = MacroManager::GetMacros();
+		MacroFile macro_file;
+		macro_file = MacroManager::GetMacroFile();
+		std::vector<Macro> macros = macro_file.macros();
 
 		for (int i = 0; i < macros.size(); i++)
 		{
