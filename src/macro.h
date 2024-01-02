@@ -5,7 +5,7 @@
 #include <vector>
 #include <fstream>
 #include <string>
-#include <json.hpp>
+#include <jsoncons/json.hpp>
 
 class MacroKey {
 	std::string key_;
