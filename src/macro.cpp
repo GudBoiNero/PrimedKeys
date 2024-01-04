@@ -10,14 +10,18 @@ MacroFile MacroManager::GetMacroFile() noexcept
 };
 
 // load macros from a JSON file
-MacroFile MacroManager::LoadMacroFile(const std::string& file_path) noexcept {
-	MacroFile macro_file;
+MacroFile MacroManager::LoadMacroFile(const std::string& file_path) noexcept 
+{
+	std::fstream f(file_path);
+	std:: stringstream iss;
+	iss << f.rdbuf();
+	std::string data = iss.str();
 
-
-	
+	MacroFile macro_file = jsoncons::decode_json<MacroFile>(data);
 	return macro_file;
 }
 
-void MacroManager::WriteMacroFile(const MacroFile& macro_file, const std::string& file_path) noexcept {
+void MacroManager::WriteMacroFile(const MacroFile& macro_file, const std::string& file_path) noexcept 
+{
 	
 }

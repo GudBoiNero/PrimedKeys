@@ -6,6 +6,7 @@
 #include <fstream>
 #include <string>
 #include <jsoncons/json.hpp>
+#include <jsoncons_ext/jsonpath/jsonpath.hpp>
 
 class MacroKey {
 	std::string key_;
@@ -32,7 +33,7 @@ class Macro {
 	bool is_inline_;
 public:
 	Macro(
-		const std::string name = "",
+		const std::string name,
 		const std::string icon_path = "",
 		const std::string bg_path = "",
 		const std::string bg_hover_path = "",
@@ -64,6 +65,10 @@ public:
 
 	const std::vector<Macro> macros() const { return macros_; }
 };
+
+JSONCONS_ALL_CTOR_GETTER_TRAITS(MacroFile, macros);
+JSONCONS_N_CTOR_GETTER_TRAITS(Macro, 1, name, icon_path, bg_path, bg_hover_path, bg_active_path, is_inline, keys);
+JSONCONS_ALL_CTOR_GETTER_TRAITS(MacroKey, key, action);
 
 class MacroManager {
 public:
