@@ -1,42 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="sources">
-      <UniqueIdentifier>{f18ab499-84e1-499f-8eff-9754361e0e52}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="libs">
-      <UniqueIdentifier>{03770597-921b-4bdf-b30b-ea65ca7627d2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="libs\imgui">
-      <UniqueIdentifier>{20b90ce4-7fcb-4731-b9a0-075f875de82d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="debuggers">
-      <UniqueIdentifier>{b18e0416-d5cd-45e0-adef-3af952c0dbb4}</UniqueIdentifier>
-    </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="./imgui/*.cpp">
-      <Filter>libs\imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="./imgui/*.cpp">
-      <Filter>libs\imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="./imgui/*.cpp">
-      <Filter>libs\imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="./imgui/*.cpp">
-      <Filter>libs\imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="./imgui/*.cpp">
-      <Filter>libs\imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="./imgui/*.cpp">
-      <Filter>libs\imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="./imgui/*.cpp">
-      <Filter>libs\imgui</Filter>
-    </ClCompile>
+    <ClCompile Include="include\glad.c" />
+    <ClCompile Include="include\imgui.cpp" />
+    <ClCompile Include="include\imgui_demo.cpp" />
+    <ClCompile Include="include\imgui_draw.cpp" />
+    <ClCompile Include="include\imgui_impl_opengl3.cpp" />
+    <ClCompile Include="include\imgui_impl_sdl2.cpp" />
+    <ClCompile Include="include\imgui_tables.cpp" />
+    <ClCompile Include="include\imgui_widgets.cpp" />
+    <ClCompile Include="lib\usynergy\uSynergy.c" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="include\imgui.cpp">
       <Filter>libs\imgui</Filter>
@@ -85,62 +58,78 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="./imgui/*.h">
-      <Filter>libs\imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="./imgui/*.h">
-      <Filter>libs\imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="./imgui/*.h">
-      <Filter>libs\imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="./imgui/*.h">
-      <Filter>libs\imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="./imgui/*.h">
-      <Filter>libs\imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="./imgui/*.h">
-      <Filter>libs\imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="./imgui/*.h">
-      <Filter>libs\imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="./imgui/*.h">
-      <Filter>libs\imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="include\imconfig.h">
-      <Filter>libs\imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="include\imgui.h">
-      <Filter>libs\imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="include\imgui_impl_opengl3.h">
-      <Filter>libs\imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="include\imgui_impl_opengl3_loader.h">
-      <Filter>libs\imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="include\imgui_impl_sdl2.h">
-      <Filter>libs\imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="include\imgui_internal.h">
-      <Filter>libs\imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="include\imstb_rectpack.h">
-      <Filter>libs\imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="include\imstb_textedit.h">
-      <Filter>libs\imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="include\imstb_truetype.h" />
-    <ClInclude Include="src\render.h" />
+    <ClInclude Include="include\glad.h" />
+    <ClInclude Include="include\khrplatform.h" />
+    <ClInclude Include="include\stb_image.h" />
     <ClInclude Include="lib\emscripten\emscripten_mainloop_stub.h" />
     <ClInclude Include="lib\glfw\include\GLFW\glfw3.h" />
     <ClInclude Include="lib\glfw\include\GLFW\glfw3native.h" />
-    <ClInclude Include="lib\usynergy\uSynergy.h" />
-    <ClInclude Include="src\gui.h" />
-    <ClInclude Include="include\stb_image.h" />
+    <ClInclude Include="include\imconfig.h" />
+    <ClInclude Include="include\imgui.h" />
+    <ClInclude Include="include\imgui_impl_opengl3.h" />
+    <ClInclude Include="include\imgui_impl_opengl3_loader.h" />
+    <ClInclude Include="include\imgui_impl_sdl2.h" />
+    <ClInclude Include="include\imgui_internal.h" />
+    <ClInclude Include="include\imstb_rectpack.h" />
+    <ClInclude Include="include\imstb_textedit.h" />
+    <ClInclude Include="include\imstb_truetype.h" />
+    <ClInclude Include="include\jsoncons\allocator_holder.hpp" />
+    <ClInclude Include="include\jsoncons\allocator_set.hpp" />
+    <ClInclude Include="include\jsoncons\basic_json.hpp" />
+    <ClInclude Include="include\jsoncons\bigint.hpp" />
+    <ClInclude Include="include\jsoncons\byte_string.hpp" />
+    <ClInclude Include="include\jsoncons\config\binary_config.hpp" />
+    <ClInclude Include="include\jsoncons\config\compiler_support.hpp" />
+    <ClInclude Include="include\jsoncons\config\jsoncons_config.hpp" />
+    <ClInclude Include="include\jsoncons\config\version.hpp" />
+    <ClInclude Include="include\jsoncons\conv_error.hpp" />
+    <ClInclude Include="include\jsoncons\decode_json.hpp" />
+    <ClInclude Include="include\jsoncons\decode_traits.hpp" />
+    <ClInclude Include="include\jsoncons\detail\endian.hpp" />
+    <ClInclude Include="include\jsoncons\detail\grisu3.hpp" />
+    <ClInclude Include="include\jsoncons\detail\heap_string.hpp" />
+    <ClInclude Include="include\jsoncons\detail\optional.hpp" />
+    <ClInclude Include="include\jsoncons\detail\parse_number.hpp" />
+    <ClInclude Include="include\jsoncons\detail\span.hpp" />
+    <ClInclude Include="include\jsoncons\detail\string_view.hpp" />
+    <ClInclude Include="include\jsoncons\detail\write_number.hpp" />
+    <ClInclude Include="include\jsoncons\encode_json.hpp" />
+    <ClInclude Include="include\jsoncons\encode_traits.hpp" />
+    <ClInclude Include="include\jsoncons\extension_traits.hpp" />
+    <ClInclude Include="include\jsoncons\item_event_reader.hpp" />
+    <ClInclude Include="include\jsoncons\item_event_visitor.hpp" />
+    <ClInclude Include="include\jsoncons\json.hpp" />
+    <ClInclude Include="include\jsoncons\json_array.hpp" />
+    <ClInclude Include="include\jsoncons\json_content_handler.hpp" />
+    <ClInclude Include="include\jsoncons\json_cursor.hpp" />
+    <ClInclude Include="include\jsoncons\json_decoder.hpp" />
+    <ClInclude Include="include\jsoncons\json_encoder.hpp" />
+    <ClInclude Include="include\jsoncons\json_error.hpp" />
+    <ClInclude Include="include\jsoncons\json_exception.hpp" />
+    <ClInclude Include="include\jsoncons\json_filter.hpp" />
+    <ClInclude Include="include\jsoncons\json_fwd.hpp" />
+    <ClInclude Include="include\jsoncons\json_object.hpp" />
+    <ClInclude Include="include\jsoncons\json_options.hpp" />
+    <ClInclude Include="include\jsoncons\json_parser.hpp" />
+    <ClInclude Include="include\jsoncons\json_reader.hpp" />
+    <ClInclude Include="include\jsoncons\json_traits_macros.hpp" />
+    <ClInclude Include="include\jsoncons\json_traits_macros_deprecated.hpp" />
+    <ClInclude Include="include\jsoncons\json_type.hpp" />
+    <ClInclude Include="include\jsoncons\json_type_traits.hpp" />
+    <ClInclude Include="include\jsoncons\json_visitor.hpp" />
+    <ClInclude Include="include\jsoncons\pretty_print.hpp" />
+    <ClInclude Include="include\jsoncons\ser_context.hpp" />
+    <ClInclude Include="include\jsoncons\sink.hpp" />
+    <ClInclude Include="include\jsoncons\source.hpp" />
+    <ClInclude Include="include\jsoncons\source_adaptor.hpp" />
+    <ClInclude Include="include\jsoncons\staj_cursor.hpp" />
+    <ClInclude Include="include\jsoncons\staj_iterator.hpp" />
+    <ClInclude Include="include\jsoncons\tag_type.hpp" />
+    <ClInclude Include="include\jsoncons\text_source_adaptor.hpp" />
+    <ClInclude Include="include\jsoncons\typed_array_view.hpp" />
+    <ClInclude Include="include\jsoncons\unicode_traits.hpp" />
+    <ClInclude Include="include\jsoncons\uri.hpp" />
+    <ClInclude Include="include\jsoncons\value_converter.hpp" />
     <ClInclude Include="lib\SDL2-2.28.3\include\begin_code.h" />
     <ClInclude Include="lib\SDL2-2.28.3\include\close_code.h" />
     <ClInclude Include="lib\SDL2-2.28.3\include\SDL.h" />
@@ -177,13 +166,13 @@
     <ClInclude Include="lib\SDL2-2.28.3\include\SDL_mutex.h" />
     <ClInclude Include="lib\SDL2-2.28.3\include\SDL_name.h" />
     <ClInclude Include="lib\SDL2-2.28.3\include\SDL_opengl.h" />
-    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_opengl_glext.h" />
     <ClInclude Include="lib\SDL2-2.28.3\include\SDL_opengles.h" />
     <ClInclude Include="lib\SDL2-2.28.3\include\SDL_opengles2.h" />
     <ClInclude Include="lib\SDL2-2.28.3\include\SDL_opengles2_gl2.h" />
     <ClInclude Include="lib\SDL2-2.28.3\include\SDL_opengles2_gl2ext.h" />
     <ClInclude Include="lib\SDL2-2.28.3\include\SDL_opengles2_gl2platform.h" />
     <ClInclude Include="lib\SDL2-2.28.3\include\SDL_opengles2_khrplatform.h" />
+    <ClInclude Include="lib\SDL2-2.28.3\include\SDL_opengl_glext.h" />
     <ClInclude Include="lib\SDL2-2.28.3\include\SDL_pixels.h" />
     <ClInclude Include="lib\SDL2-2.28.3\include\SDL_platform.h" />
     <ClInclude Include="lib\SDL2-2.28.3\include\SDL_power.h" />
@@ -219,34 +208,21 @@
     <ClInclude Include="lib\SDL2-2.28.3\include\SDL_version.h" />
     <ClInclude Include="lib\SDL2-2.28.3\include\SDL_video.h" />
     <ClInclude Include="lib\SDL2-2.28.3\include\SDL_vulkan.h" />
-    <ClInclude Include="include\glad.h" />
-    <ClInclude Include="include\khrplatform.h" />
+    <ClInclude Include="lib\usynergy\uSynergy.h" />
+    <ClInclude Include="src\user_config.h" />
+    <ClInclude Include="src\gui.h" />
     <ClInclude Include="src\macro.h" />
+    <ClInclude Include="src\render.h" />
     <ClInclude Include="src\texture.h" />
     <ClInclude Include="src\user_config.h" />
     <ClInclude Include="src\win_handler.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include=".gitattributes" />
-    <None Include=".gitignore" />
-    <None Include="debuggers\imgui.gdb" />
-    <None Include="debuggers\imgui.natstepfilter" />
-    <None Include="debuggers\imgui.natvis" />
-    <None Include="README.md" />
-    <None Include="lib\emscripten\shell_minimal.html" />
-    <None Include="SDL2.dll" />
-    <None Include="macros.json" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="debuggers\README.txt" />
-    <Text Include="lib\glfw\COPYING.txt" />
-    <Text Include="lib\usynergy\README.txt" />
-    <Text Include="LICENSE.txt" />
-    <Text Include="lib\SDL2-2.28.3\WhatsNew.txt" />
-    <Text Include="lib\SDL2-2.28.3\BUGS.txt" />
-    <Text Include="lib\SDL2-2.28.3\COPYING.txt" />
-    <Text Include="lib\SDL2-2.28.3\README.txt" />
-    <Text Include="lib\SDL2-2.28.3\README-SDL.txt" />
+    <Library Include="lib\glfw\lib-vc2010-32\glfw3.lib" />
+    <Library Include="lib\glfw\lib-vc2010-64\glfw3.lib" />
+    <Library Include="lib\SDL2-2.28.3\lib\x86\SDL2.lib" />
+    <Library Include="lib\SDL2-2.28.3\lib\x86\SDL2main.lib" />
+    <Library Include="lib\SDL2-2.28.3\lib\x86\SDL2test.lib" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="images\buttons\button.png" />
@@ -263,10 +239,25 @@
     <Image Include="images\palettes\sky.png" />
   </ItemGroup>
   <ItemGroup>
-    <Library Include="lib\glfw\lib-vc2010-32\glfw3.lib" />
-    <Library Include="lib\glfw\lib-vc2010-64\glfw3.lib" />
-    <Library Include="lib\SDL2-2.28.3\lib\x86\SDL2.lib" />
-    <Library Include="lib\SDL2-2.28.3\lib\x86\SDL2main.lib" />
-    <Library Include="lib\SDL2-2.28.3\lib\x86\SDL2test.lib" />
+    <None Include=".gitattributes" />
+    <None Include=".gitignore" />
+    <None Include="debuggers\imgui.gdb" />
+    <None Include="debuggers\imgui.natvis" />
+    <None Include="debuggers\imgui.natstepfilter" />
+    <None Include="lib\emscripten\shell_minimal.html" />
+    <None Include="macros.json" />
+    <None Include="SDL2.dll" />
+    <None Include="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="debuggers\README.txt" />
+    <Text Include="lib\glfw\COPYING.txt" />
+    <Text Include="lib\SDL2-2.28.3\BUGS.txt" />
+    <Text Include="lib\SDL2-2.28.3\COPYING.txt" />
+    <Text Include="lib\SDL2-2.28.3\README-SDL.txt" />
+    <Text Include="lib\SDL2-2.28.3\README.txt" />
+    <Text Include="lib\SDL2-2.28.3\WhatsNew.txt" />
+    <Text Include="lib\usynergy\README.txt" />
+    <Text Include="LICENSE.txt" />
   </ItemGroup>
 </Project>

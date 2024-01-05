@@ -55,7 +55,9 @@ namespace render
 			SDL_Window* backup_current_window = SDL_GL_GetCurrentWindow();
 			SDL_GLContext backup_current_context = SDL_GL_GetCurrentContext();
 
-			ImGui::UpdatePlatformWindows();
+			PlatformHandleFocus();
+
+      ImGui::UpdatePlatformWindows();
 			ImGui::RenderPlatformWindowsDefault();
 			SDL_GL_MakeCurrent(backup_current_window, backup_current_context);
 		}
@@ -154,7 +156,6 @@ namespace render
 		//io.Fonts->AddFontFromFileTTF("../../misc/fonts/Cousine-Regular.ttf", 15.0f);
 		//ImFont* font = io.Fonts->AddFontFromFileTTF("c:\\Windows\\Fonts\\ArialUni.ttf", 18.0f, nullptr, io.Fonts->GetGlyphRangesJapanese());
 		//IM_ASSERT(font != nullptr);
-		gui::ReloadTextures();
 	}
 	void Cleanup()
 	{

@@ -22,9 +22,8 @@ namespace gui
 	void HandleMacroPress(Macro macro);
 
 #pragma region TextureButton
-	void ReloadTextures();
-	bool TextureButton(ImGuiID id, ImTextureID texture_icon_id, ImGuiButtonFlags flags);
-	bool TextureButton(ImGuiID id, ImTextureID texture_icon_id, ImTextureID texture_default_id, ImTextureID texture_hover_id, ImTextureID texture_active_id, ImGuiButtonFlags flags);
+	bool TextureButton(ImGuiID id, tex::Tex icon_tex, ImGuiButtonFlags flags);
+	bool TextureButton(ImGuiID id, tex::Tex icon_tex, tex::Tex default_tex, tex::Tex hover_tex, tex::Tex active_tex, ImGuiButtonFlags flags);
 	bool MacroButton(ImGuiID id, Macro macro);
 #pragma endregion
 }
