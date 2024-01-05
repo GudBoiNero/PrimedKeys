@@ -8,48 +8,35 @@ namespace gui
 		ImGui::Begin("MacroMenu", p_open, default_window_flags);
 		ImGui::GetWindowViewport()->Flags = default_viewport_flags;
 
-		std::vector<Macro> macros;
-		macros = MacroManager::GetMacros();
+		MacroFile macro_file;
+		macro_file = MacroManager::GetMacroFile();
+		std::vector<Macro> macros = macro_file.macros();
 
 		for (int i = 0; i < macros.size(); i++)
 		{
 			Macro macro = macros[i];
+			macro.LoadTextures();
 			gui::MacroButton((ImGuiID)"macro_button_" + (char)1 + i, macro);
-			if (macro.is_inline) ImGui::SameLine();
+			if (macro.is_inline()) ImGui::SameLine();
 		}
 
 		ImGui::End();
 	}	
 
-	inline const char path_btn_default[] = "images/buttons/button.png";
-	inline const char path_btn_hover[] = "images/buttons/button_hover.png";
-	inline const char path_btn_active[] = "images/buttons/button_active.png";
-	tex::Tex tex_btn_default;
-	tex::Tex tex_btn_hover;
-	tex::Tex tex_btn_active;
-
-	ImVec2 btn_size;
+	inline const char btn_default_path[] = "images/buttons/button.png";
+	inline const char btn_hover_path[] = "images/buttons/button_hover.png";
+	inline const char btn_active_path[] = "images/buttons/button_active.png";
+	
 	ImVec2 btn_uv0 = ImVec2(0.0f, 0.0f);
 	ImVec2 btn_uv1 = ImVec2(1.0f, 1.0f);
 	ImVec4 btn_bg_col = ImVec4(0.0f, 0.0f, 0.0f, 1.0f);
 	ImVec4 btn_tint_col = ImVec4(1.0f, 1.0f, 1.0f, 1.0f);
 
-	void ReloadTextures()
-	{
-		bool ret = tex::LoadTextureFromFile(path_btn_default, (GLuint*)(void*)&tex_btn_default.id, &tex_btn_default.width, &tex_btn_default.height);
-		IM_ASSERT(ret);
-		ret = tex::LoadTextureFromFile(path_btn_hover, (GLuint*)(void*)&tex_btn_hover.id, &tex_btn_hover.width, &tex_btn_hover.height);
-		IM_ASSERT(ret);
-		ret = tex::LoadTextureFromFile(path_btn_active, (GLuint*)(void*)&tex_btn_active.id, &tex_btn_active.width, &tex_btn_active.height);
-		IM_ASSERT(ret);
-
-		btn_size = ImVec2(tex_btn_default.width, tex_btn_default.height);
-	}
-
 	// Custom Textures
-	bool TextureButton(ImGuiID id, ImTextureID tex_icon_id, ImTextureID tex_default_id, ImTextureID tex_hover_id, ImTextureID tex_active_id, ImGuiButtonFlags flags)
+	bool TextureButton(ImGuiID id, tex::Tex icon_tex, tex::Tex default_tex, tex::Tex hover_tex, tex::Tex active_tex, ImGuiButtonFlags flags)
 	{
-		ImTextureID tex_id = tex_default_id;
+		ImVec2 btn_size = { (float)default_tex.width, (float)default_tex.height };
+		ImTextureID tex_id = default_tex.id;
 		ImGuiContext& g = *GImGui;
 		ImGuiWindow* window = ImGui::GetCurrentWindow();
 		if (window->SkipItems)
@@ -69,13 +56,15 @@ namespace gui
 		if (hovered)
 		{
 			//std::cout << "Hovered!";
-			tex_id = tex_hover_id;
+			tex_id = hover_tex.id;
+			btn_size = { (float)hover_tex.width, (float)hover_tex.height };
 			icon_offset = ImVec2(0, 1);
 		}
 		if (pressed || held)
 		{
 			//std::cout << "Pressed!";
-			tex_id = tex_active_id;
+			tex_id = active_tex.id;
+			btn_size = { (float)active_tex.width, (float)active_tex.height };
 			icon_offset = ImVec2(0, 2);
 		}
 
@@ -87,21 +76,21 @@ namespace gui
 		if (btn_bg_col.w > 0.0f)
 			window->DrawList->AddRectFilled(bb.Min + padding, bb.Max - padding, ImGui::GetColorU32(btn_bg_col));
 		window->DrawList->AddImage(tex_id, bb.Min + padding, bb.Max - padding, btn_uv0, btn_uv1, ImGui::GetColorU32(btn_tint_col));
-		if (tex_icon_id)
-			window->DrawList->AddImage(tex_icon_id, bb.Min + padding + icon_offset, bb.Max - padding + icon_offset, btn_uv0, btn_uv1, ImGui::GetColorU32(btn_tint_col));
-		
+		if (icon_tex.id)
+			window->DrawList->AddImage(icon_tex.id, bb.Min + padding + icon_offset, bb.Max - padding + icon_offset, btn_uv0, btn_uv1, ImGui::GetColorU32(btn_tint_col));
+
 		return pressed;
 	}
 
 	// Native textures
-	bool TextureButton(ImGuiID id, ImTextureID tex_icon_id, ImGuiButtonFlags flags)
+	bool TextureButton(ImGuiID id, tex::Tex icon_tex, ImGuiButtonFlags flags)
 	{
-		return TextureButton(id, tex_icon_id, tex_btn_default.id, tex_btn_hover.id, tex_btn_active.id, flags);
+		return TextureButton(id, icon_tex, tex::GetTexture(btn_default_path), tex::GetTexture(btn_hover_path), tex::GetTexture(btn_active_path), flags);
 	}
 
 	bool MacroButton(ImGuiID id, Macro macro)
 	{
-		bool val = TextureButton(id, tex::GetTextureID(macro.icon_path).id, tex::GetTextureID(macro.bg_path).id, tex::GetTextureID(macro.bg_hover_path).id, tex::GetTextureID(macro.bg_active_path).id, ImGuiButtonFlags_None);
+		bool val = TextureButton(id, tex::GetTexture(macro.icon_path()), tex::GetTexture(macro.bg_path()), tex::GetTexture(macro.bg_hover_path()), tex::GetTexture(macro.bg_active_path()), ImGuiButtonFlags_None);
 		return val;
 	}
 }

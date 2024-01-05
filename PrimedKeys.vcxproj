@@ -82,7 +82,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(ProjectDir)$(Configuration)\</OutDir>
     <IntDir>$(ProjectDir)$(Configuration)\</IntDir>
-    <IncludePath>lib\SDL2-2.28.3\include;src;include;$(IncludePath)</IncludePath>
+    <IncludePath>lib\SDL2-2.28.3\include;src;include;lib\jsoncons;lib\jsoncons_ext;$(IncludePath)</IncludePath>
     <LibraryPath>lib\SDL2-2.28.3\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -199,6 +199,63 @@
     <ClInclude Include="include\imstb_rectpack.h" />
     <ClInclude Include="include\imstb_textedit.h" />
     <ClInclude Include="include\imstb_truetype.h" />
+    <ClInclude Include="include\jsoncons\allocator_holder.hpp" />
+    <ClInclude Include="include\jsoncons\allocator_set.hpp" />
+    <ClInclude Include="include\jsoncons\basic_json.hpp" />
+    <ClInclude Include="include\jsoncons\bigint.hpp" />
+    <ClInclude Include="include\jsoncons\byte_string.hpp" />
+    <ClInclude Include="include\jsoncons\config\binary_config.hpp" />
+    <ClInclude Include="include\jsoncons\config\compiler_support.hpp" />
+    <ClInclude Include="include\jsoncons\config\jsoncons_config.hpp" />
+    <ClInclude Include="include\jsoncons\config\version.hpp" />
+    <ClInclude Include="include\jsoncons\conv_error.hpp" />
+    <ClInclude Include="include\jsoncons\decode_json.hpp" />
+    <ClInclude Include="include\jsoncons\decode_traits.hpp" />
+    <ClInclude Include="include\jsoncons\detail\endian.hpp" />
+    <ClInclude Include="include\jsoncons\detail\grisu3.hpp" />
+    <ClInclude Include="include\jsoncons\detail\heap_string.hpp" />
+    <ClInclude Include="include\jsoncons\detail\optional.hpp" />
+    <ClInclude Include="include\jsoncons\detail\parse_number.hpp" />
+    <ClInclude Include="include\jsoncons\detail\span.hpp" />
+    <ClInclude Include="include\jsoncons\detail\string_view.hpp" />
+    <ClInclude Include="include\jsoncons\detail\write_number.hpp" />
+    <ClInclude Include="include\jsoncons\encode_json.hpp" />
+    <ClInclude Include="include\jsoncons\encode_traits.hpp" />
+    <ClInclude Include="include\jsoncons\extension_traits.hpp" />
+    <ClInclude Include="include\jsoncons\item_event_reader.hpp" />
+    <ClInclude Include="include\jsoncons\item_event_visitor.hpp" />
+    <ClInclude Include="include\jsoncons\json.hpp" />
+    <ClInclude Include="include\jsoncons\json_array.hpp" />
+    <ClInclude Include="include\jsoncons\json_content_handler.hpp" />
+    <ClInclude Include="include\jsoncons\json_cursor.hpp" />
+    <ClInclude Include="include\jsoncons\json_decoder.hpp" />
+    <ClInclude Include="include\jsoncons\json_encoder.hpp" />
+    <ClInclude Include="include\jsoncons\json_error.hpp" />
+    <ClInclude Include="include\jsoncons\json_exception.hpp" />
+    <ClInclude Include="include\jsoncons\json_filter.hpp" />
+    <ClInclude Include="include\jsoncons\json_fwd.hpp" />
+    <ClInclude Include="include\jsoncons\json_object.hpp" />
+    <ClInclude Include="include\jsoncons\json_options.hpp" />
+    <ClInclude Include="include\jsoncons\json_parser.hpp" />
+    <ClInclude Include="include\jsoncons\json_reader.hpp" />
+    <ClInclude Include="include\jsoncons\json_traits_macros.hpp" />
+    <ClInclude Include="include\jsoncons\json_traits_macros_deprecated.hpp" />
+    <ClInclude Include="include\jsoncons\json_type.hpp" />
+    <ClInclude Include="include\jsoncons\json_type_traits.hpp" />
+    <ClInclude Include="include\jsoncons\json_visitor.hpp" />
+    <ClInclude Include="include\jsoncons\pretty_print.hpp" />
+    <ClInclude Include="include\jsoncons\ser_context.hpp" />
+    <ClInclude Include="include\jsoncons\sink.hpp" />
+    <ClInclude Include="include\jsoncons\source.hpp" />
+    <ClInclude Include="include\jsoncons\source_adaptor.hpp" />
+    <ClInclude Include="include\jsoncons\staj_cursor.hpp" />
+    <ClInclude Include="include\jsoncons\staj_iterator.hpp" />
+    <ClInclude Include="include\jsoncons\tag_type.hpp" />
+    <ClInclude Include="include\jsoncons\text_source_adaptor.hpp" />
+    <ClInclude Include="include\jsoncons\typed_array_view.hpp" />
+    <ClInclude Include="include\jsoncons\unicode_traits.hpp" />
+    <ClInclude Include="include\jsoncons\uri.hpp" />
+    <ClInclude Include="include\jsoncons\value_converter.hpp" />
     <ClInclude Include="lib\SDL2-2.28.3\include\begin_code.h" />
     <ClInclude Include="lib\SDL2-2.28.3\include\close_code.h" />
     <ClInclude Include="lib\SDL2-2.28.3\include\SDL.h" />

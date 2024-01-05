@@ -10,20 +10,25 @@
 inline const std::vector<Macro> default_macros = {
 	Macro {
 		"undo",
+		"images\\buttons\\icon_undo.png",
+		"images\\buttons\\button.png",
+		"images\\buttons\\button_hover.png",
+		"images\\buttons\\button_active.png",
+		true,
 		{
 			MacroKey { "ctrl", "down" },
 			MacroKey { "z",    "down" },
 			MacroKey { "z",      "up" },
 			MacroKey { "ctrl",   "up" }
-		},
-		"images\\buttons\\icon_undo.png",
-		"images\\buttons\\button.png",
-		"images\\buttons\\button_hover.png",
-		"images\\buttons\\button_active.png",
-		true
+		}
 	},
 	Macro {
 		"redo",
+		"images\\buttons\\icon_redo.png",
+		"images\\buttons\\button.png",
+		"images\\buttons\\button_hover.png",
+		"images\\buttons\\button_active.png",
+		true,
 		{
 			MacroKey { "ctrl", "down" },
 			MacroKey { "shift","down" },
@@ -31,12 +36,7 @@ inline const std::vector<Macro> default_macros = {
 			MacroKey { "z",      "up" },
 			MacroKey { "shift",  "up" },
 			MacroKey { "ctrl",   "up" }
-		},
-		"images\\buttons\\icon_redo.png",
-		"images\\buttons\\button.png",
-		"images\\buttons\\button_hover.png",
-		"images\\buttons\\button_active.png",
-		true,
+		}
 	},
 };
 
@@ -102,7 +102,7 @@ bool user_config::IsValidConfigFolderPath(std::string folder_path)
 			{
 				has_macros_json = true;
 				try {
-					MacroManager::LoadMacros(macros_json_path);
+					MacroManager::LoadMacroFile(macros_json_path);
 					macros_json_valid = true;
 				}
 				catch (...) {}
@@ -120,7 +120,7 @@ void user_config::InitConfigFolder(std::string path)
 
 		std::string macro_file_path = std::format("{}\\{}", path, default_macros_file_name);
 		
-		MacroManager::WriteMacros(default_macros, macro_file_path);
+		MacroManager::WriteMacroFile(MacroFile(default_macros), macro_file_path);
 	}
 	catch (...) {}
 };
