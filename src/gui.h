@@ -19,6 +19,7 @@ namespace gui
 		ImGuiViewportFlags_NoTaskBarIcon;
 
 	void ShowMacroMenu(bool* p_open);
+	void HandleMacroPress(Macro macro);
 
 #pragma region TextureButton
 	bool TextureButton(ImGuiID id, tex::Tex icon_tex, ImGuiButtonFlags flags);

@@ -176,6 +176,7 @@
     <ClCompile Include="lib\usynergy\uSynergy.c" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="src\gui.cpp" />
+    <ClCompile Include="src\win_handler.cpp" />
     <ClCompile Include="src\macro.cpp" />
     <ClCompile Include="src\render.cpp" />
     <ClCompile Include="src\texture.cpp" />
@@ -335,6 +336,7 @@
     <ClInclude Include="lib\SDL2-2.28.3\include\SDL_video.h" />
     <ClInclude Include="lib\SDL2-2.28.3\include\SDL_vulkan.h" />
     <ClInclude Include="lib\usynergy\uSynergy.h" />
+    <ClInclude Include="src\win_handler.h" />
     <ClInclude Include="src\user_config.h" />
     <ClInclude Include="src\gui.h" />
     <ClInclude Include="src\macro.h" />
@@ -365,9 +367,13 @@
     <Image Include="images\buttons\button.png" />
     <Image Include="images\buttons\button_active.png" />
     <Image Include="images\buttons\button_hover.png" />
+    <Image Include="images\buttons\icon_arrow_down.png" />
     <Image Include="images\buttons\icon_arrow_left.png" />
     <Image Include="images\buttons\icon_arrow_right.png" />
     <Image Include="images\buttons\icon_arrow_up.png" />
+    <Image Include="images\buttons\icon_clipboard.png" />
+    <Image Include="images\buttons\icon_cut.png" />
+    <Image Include="images\buttons\icon_paste.png" />
     <Image Include="images\buttons\icon_pause.png" />
     <Image Include="images\buttons\icon_play.png" />
     <Image Include="images\buttons\icon_redo.png" />

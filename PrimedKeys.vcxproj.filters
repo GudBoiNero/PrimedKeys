@@ -11,11 +11,51 @@
     <ClCompile Include="include\imgui_widgets.cpp" />
     <ClCompile Include="lib\usynergy\uSynergy.c" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="src\gui.cpp" />
-    <ClCompile Include="src\macro.cpp" />
-    <ClCompile Include="src\render.cpp" />
-    <ClCompile Include="src\texture.cpp" />
-    <ClCompile Include="src\user_config.cpp" />
+    <ClCompile Include="include\imgui.cpp">
+      <Filter>libs\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="include\imgui_demo.cpp">
+      <Filter>libs\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="include\imgui_draw.cpp">
+      <Filter>libs\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="include\imgui_impl_opengl3.cpp">
+      <Filter>libs\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="include\imgui_impl_sdl2.cpp">
+      <Filter>libs\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="include\imgui_tables.cpp">
+      <Filter>libs\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="include\imgui_widgets.cpp">
+      <Filter>libs\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\render.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\usynergy\uSynergy.c">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gui.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="include\glad.c">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\texture.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\user_config.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\macro.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\win_handler.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\glad.h" />
@@ -174,6 +214,8 @@
     <ClInclude Include="src\macro.h" />
     <ClInclude Include="src\render.h" />
     <ClInclude Include="src\texture.h" />
+    <ClInclude Include="src\user_config.h" />
+    <ClInclude Include="src\win_handler.h" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="lib\glfw\lib-vc2010-32\glfw3.lib" />

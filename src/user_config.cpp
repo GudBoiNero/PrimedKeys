@@ -23,12 +23,24 @@ inline const std::vector<Macro> default_macros = {
 		}
 	},
 	Macro {
+		"arrow_up",
+		"images\\buttons\\icon_arrow_up.png",
+		"images\\buttons\\button.png",
+		"images\\buttons\\button_hover.png",
+		"images\\buttons\\button_active.png",
+		true,
+		{
+			MacroKey { "up", "down" },
+			MacroKey { "up",   "up" }
+		}
+	},
+	Macro {
 		"redo",
 		"images\\buttons\\icon_redo.png",
 		"images\\buttons\\button.png",
 		"images\\buttons\\button_hover.png",
 		"images\\buttons\\button_active.png",
-		true,
+		false,
 		{
 			MacroKey { "ctrl", "down" },
 			MacroKey { "shift","down" },
@@ -36,8 +48,83 @@ inline const std::vector<Macro> default_macros = {
 			MacroKey { "z",      "up" },
 			MacroKey { "shift",  "up" },
 			MacroKey { "ctrl",   "up" }
+		},
+	},
+	Macro {
+		"arrow_left",
+		"images\\buttons\\icon_arrow_left.png",
+		"images\\buttons\\button.png",
+		"images\\buttons\\button_hover.png",
+		"images\\buttons\\button_active.png",
+		true,
+		{
+			MacroKey { "left", "down" },
+			MacroKey { "left",   "up" }
 		}
 	},
+	Macro {
+		"pause",
+		"images\\buttons\\icon_pause.png",
+		"images\\buttons\\button.png",
+		"images\\buttons\\button_hover.png",
+		"images\\buttons\\button_active.png",
+		true,
+		{
+			MacroKey { "space", "down" },
+			MacroKey { "space",   "up" }
+		}
+	},
+	Macro {
+		"arrow_right",
+		"images\\buttons\\icon_arrow_right.png",
+		"images\\buttons\\button.png",
+		"images\\buttons\\button_hover.png",
+		"images\\buttons\\button_active.png",
+		false,
+		{
+			MacroKey { "right", "down" },
+			MacroKey { "right",   "up" }
+		}
+	},Macro {
+		"copy",
+		"images\\buttons\\icon_clipboard.png",
+		"images\\buttons\\button.png",
+		"images\\buttons\\button_hover.png",
+		"images\\buttons\\button_active.png",
+		true,
+		{
+			MacroKey { "ctrl", "down" },
+			MacroKey { "c",    "down" },
+			MacroKey { "c",      "up" },
+			MacroKey { "ctrl",   "up" }
+		},
+	},
+	Macro {
+		"arrow_down",
+		"images\\buttons\\icon_arrow_down.png",
+		"images\\buttons\\button.png",
+		"images\\buttons\\button_hover.png",
+		"images\\buttons\\button_active.png",
+		true,
+		{
+			MacroKey { "down", "down" },
+			MacroKey { "down",   "up" }
+		},
+	},
+	Macro {
+		"paste",
+		"images\\buttons\\icon_paste.png",
+		"images\\buttons\\button.png",
+		"images\\buttons\\button_hover.png",
+		"images\\buttons\\button_active.png",
+		false,
+		{
+			MacroKey { "ctrl", "down" },
+			MacroKey { "v",    "down" },
+			MacroKey { "v",      "up" },
+			MacroKey { "ctrl",   "up" }
+		},
+	}
 };
 
 std::string user_config::GetConfigFolderPath()

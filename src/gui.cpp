@@ -1,10 +1,13 @@
 #include "gui.h"
 #include "user_config.h"
 
+#include "win_handler.h"
+
 namespace gui
 {
 	//bool playing = false;
 	void ShowMacroMenu(bool* p_open) {
+		handler::SetHook();
 		ImGui::Begin("MacroMenu", p_open, default_window_flags);
 		ImGui::GetWindowViewport()->Flags = default_viewport_flags;
 
@@ -16,12 +19,21 @@ namespace gui
 		{
 			Macro macro = macros[i];
 			macro.LoadTextures();
-			gui::MacroButton((ImGuiID)"macro_button_" + (char)1 + i, macro);
+			bool pressed = gui::MacroButton((ImGuiID)"macro_button_" + (char)1 + i, macro);
 			if (macro.is_inline()) ImGui::SameLine();
+
+			if (pressed)
+				HandleMacroPress(macro);
 		}
 
 		ImGui::End();
-	}	
+	}
+
+	void HandleMacroPress(Macro macro) 
+	{
+#ifdef WIN32 | WIN64
+#endif
+	}
 
 	inline const char btn_default_path[] = "images/buttons/button.png";
 	inline const char btn_hover_path[] = "images/buttons/button_hover.png";
