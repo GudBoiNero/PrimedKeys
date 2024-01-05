@@ -20,7 +20,7 @@ namespace gui
 			Macro macro = macros[i];
 			macro.LoadTextures();
 			bool pressed = gui::MacroButton((ImGuiID)"macro_button_" + (char)1 + i, macro);
-			if (macro.is_inline) ImGui::SameLine();
+			if (macro.is_inline()) ImGui::SameLine();
 
 			if (pressed)
 				HandleMacroPress(macro);
