@@ -2,6 +2,7 @@
 
 namespace render
 {
+
 	void Render()
 	{
 		//ImGui::ShowDemoWindow();
@@ -56,7 +57,7 @@ namespace render
 
 			PlatformHandleFocus();
 
-			ImGui::UpdatePlatformWindows();
+      ImGui::UpdatePlatformWindows();
 			ImGui::RenderPlatformWindowsDefault();
 			SDL_GL_MakeCurrent(backup_current_window, backup_current_context);
 		}
@@ -166,14 +167,5 @@ namespace render
 		SDL_GL_DeleteContext(gl_context);
 		SDL_DestroyWindow(window);
 		SDL_Quit();
-	}
-
-	// Runs platform specific code to handle the focus of windows
-	void PlatformHandleFocus() {
-	
-	};
-
-	void PlatformHandleMacros() {
-
 	}
 }
