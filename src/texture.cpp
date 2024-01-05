@@ -59,7 +59,7 @@ namespace tex {
 		}
 		else
 		{
-			LoadTextureFromFile(file_path.data(), (GLuint*)(void*)&t.id, &t.width, &t.height);
+			LoadTextureFromFile(file_path.data(), &t);
 			tex_cache[file_path] = t;
 			return t;
 		}

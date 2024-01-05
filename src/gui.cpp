@@ -23,12 +23,10 @@ namespace gui
 		ImGui::End();
 	}	
 
-	inline const char path_btn_hover[] = "images/buttons/button_hover.png";
-	inline const char path_btn_active[] = "images/buttons/button_active.png";
-	tex::Tex tex_btn_default;
-	tex::Tex tex_btn_hover;
-	tex::Tex tex_btn_active;
-
+	inline const char btn_default_path[] = "images/buttons/button.png";
+	inline const char btn_hover_path[] = "images/buttons/button_hover.png";
+	inline const char btn_active_path[] = "images/buttons/button_active.png";
+	
 	ImVec2 btn_uv0 = ImVec2(0.0f, 0.0f);
 	ImVec2 btn_uv1 = ImVec2(1.0f, 1.0f);
 	ImVec4 btn_bg_col = ImVec4(0.0f, 0.0f, 0.0f, 1.0f);
@@ -87,7 +85,7 @@ namespace gui
 	// Native textures
 	bool TextureButton(ImGuiID id, tex::Tex icon_tex, ImGuiButtonFlags flags)
 	{
-		return TextureButton(id, icon_tex, tex_btn_default, tex_btn_hover, tex_btn_active, flags);
+		return TextureButton(id, icon_tex, tex::GetTexture(btn_default_path), tex::GetTexture(btn_hover_path), tex::GetTexture(btn_active_path), flags);
 	}
 
 	bool MacroButton(ImGuiID id, Macro macro)

@@ -54,8 +54,6 @@ namespace render
 			SDL_Window* backup_current_window = SDL_GL_GetCurrentWindow();
 			SDL_GLContext backup_current_context = SDL_GL_GetCurrentContext();
 
-			std::cout << backup_current_window << std::endl;
-
 			PlatformHandleFocus();
 
 			ImGui::UpdatePlatformWindows();
