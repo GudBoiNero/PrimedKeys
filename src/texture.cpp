@@ -9,11 +9,12 @@ namespace tex {
 	
 	bool LoadTextureFromFile(const char* filename, tex::Tex* out_texture)
 	{
-		return LoadTextureFromFile(filename, (GLuint*)(out_texture->id), &(out_texture->width), &(out_texture->height));
+		return LoadTextureFromFile(filename, (GLuint*)(&out_texture->id), (&out_texture->width), (&out_texture->height));
 	}
 
 	bool LoadTextureFromFile(const char* filename, GLuint* out_id, int* out_width, int* out_height)
 	{
+		std::cout << "[tex::LoadTextureFromFile] Loading: " << filename << std::endl;
 		// Load from file
 		int image_width = 0;
 		int image_height = 0;

@@ -15,6 +15,7 @@ namespace gui
 		for (int i = 0; i < macros.size(); i++)
 		{
 			Macro macro = macros[i];
+			macro.LoadTextures();
 			gui::MacroButton((ImGuiID)"macro_button_" + (char)1 + i, macro);
 			if (macro.is_inline()) ImGui::SameLine();
 		}
@@ -22,7 +23,6 @@ namespace gui
 		ImGui::End();
 	}	
 
-	inline const char path_btn_default[] = "images/buttons/button.png";
 	inline const char path_btn_hover[] = "images/buttons/button_hover.png";
 	inline const char path_btn_active[] = "images/buttons/button_active.png";
 	tex::Tex tex_btn_default;
@@ -34,18 +34,6 @@ namespace gui
 	ImVec2 btn_uv1 = ImVec2(1.0f, 1.0f);
 	ImVec4 btn_bg_col = ImVec4(0.0f, 0.0f, 0.0f, 1.0f);
 	ImVec4 btn_tint_col = ImVec4(1.0f, 1.0f, 1.0f, 1.0f);
-
-	void ReloadTextures()
-	{
-		bool ret = tex::LoadTextureFromFile(path_btn_default, (GLuint*)(void*)&tex_btn_default.id, &tex_btn_default.width, &tex_btn_default.height);
-		IM_ASSERT(ret);
-		ret = tex::LoadTextureFromFile(path_btn_hover, (GLuint*)(void*)&tex_btn_hover.id, &tex_btn_hover.width, &tex_btn_hover.height);
-		IM_ASSERT(ret);
-		ret = tex::LoadTextureFromFile(path_btn_active, (GLuint*)(void*)&tex_btn_active.id, &tex_btn_active.width, &tex_btn_active.height);
-		IM_ASSERT(ret);
-
-		btn_size = ImVec2(tex_btn_default.width, tex_btn_default.height);
-	}
 
 	// Custom Textures
 	bool TextureButton(ImGuiID id, ImTextureID tex_icon_id, ImTextureID tex_default_id, ImTextureID tex_hover_id, ImTextureID tex_active_id, ImGuiButtonFlags flags)
