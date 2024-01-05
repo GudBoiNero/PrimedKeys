@@ -40,7 +40,7 @@ inline const std::vector<Macro> default_macros = {
 		"images\\buttons\\button.png",
 		"images\\buttons\\button_hover.png",
 		"images\\buttons\\button_active.png",
-		true,
+		false,
 		{
 			MacroKey { "ctrl", "down" },
 			MacroKey { "shift","down" },

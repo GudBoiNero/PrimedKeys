@@ -367,9 +367,13 @@
     <Image Include="images\buttons\button.png" />
     <Image Include="images\buttons\button_active.png" />
     <Image Include="images\buttons\button_hover.png" />
+    <Image Include="images\buttons\icon_arrow_down.png" />
     <Image Include="images\buttons\icon_arrow_left.png" />
     <Image Include="images\buttons\icon_arrow_right.png" />
     <Image Include="images\buttons\icon_arrow_up.png" />
+    <Image Include="images\buttons\icon_clipboard.png" />
+    <Image Include="images\buttons\icon_cut.png" />
+    <Image Include="images\buttons\icon_paste.png" />
     <Image Include="images\buttons\icon_pause.png" />
     <Image Include="images\buttons\icon_play.png" />
     <Image Include="images\buttons\icon_redo.png" />
