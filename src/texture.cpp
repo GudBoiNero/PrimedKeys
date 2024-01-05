@@ -6,7 +6,13 @@
 #endif
 
 namespace tex {
-	bool LoadTextureFromFile(const char* filename, GLuint* out_texture, int* out_width, int* out_height)
+	
+	bool LoadTextureFromFile(const char* filename, tex::Tex* out_texture)
+	{
+		return LoadTextureFromFile(filename, (GLuint*)(out_texture->id), &(out_texture->width), &(out_texture->height));
+	}
+
+	bool LoadTextureFromFile(const char* filename, GLuint* out_id, int* out_width, int* out_height)
 	{
 		// Load from file
 		int image_width = 0;
@@ -35,13 +41,13 @@ namespace tex {
 		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, image_width, image_height, 0, GL_RGBA, GL_UNSIGNED_BYTE, image_data);
 		stbi_image_free(image_data);
 
-		*out_texture = image_texture;
+		*out_id = image_texture;
 		*out_width = image_width;
 		*out_height = image_height;
 
 		return true;
 	}
-
+	
 	// Checks our texture_cache and returns the texture id if found, otherwise, load the texture and put it into the cache.
 	Tex GetTextureID(const std::string file_path)
 	{

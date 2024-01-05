@@ -7,6 +7,7 @@
 #include <string>
 #include <jsoncons/json.hpp>
 #include <jsoncons_ext/jsonpath/jsonpath.hpp>
+#include <texture.h>
 
 class MacroKey {
 	std::string key_;
@@ -30,6 +31,11 @@ class Macro {
 	std::string bg_hover_path_;
 	std::string bg_active_path_;
 
+	tex::Tex icon_tex;
+	tex::Tex bg_tex;
+	tex::Tex bg_hover_tex;
+	tex::Tex bg_active_tex;
+
 	bool is_inline_;
 public:
 	Macro(
@@ -42,6 +48,10 @@ public:
 		const std::vector<MacroKey> keys = {}
 	) : name_(name), icon_path_(icon_path), bg_path_(bg_path), bg_hover_path_(bg_hover_path), bg_active_path_(bg_active_path), is_inline_(is_inline), keys_(keys)
 	{
+		tex::LoadTextureFromFile(icon_path.c_str(), (GLuint*)(icon_tex.id), &(icon_tex.width), &(icon_tex.height));
+		tex::LoadTextureFromFile(bg_path.c_str(), (GLuint*)(bg_tex.id), &(bg_tex.width), &(bg_tex.height));
+		tex::LoadTextureFromFile(bg_hover_path.c_str(), (GLuint*)(bg_hover_tex.id), &(bg_hover_tex.width), &(bg_hover_tex.height));
+		tex::LoadTextureFromFile(bg_active_path.c_str(), (GLuint*)(bg_active_tex.id), &(bg_active_tex.width), &(bg_active_tex.height));
 	}
 
 	const std::string name() const { return name_; }
