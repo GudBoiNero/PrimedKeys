@@ -50,10 +50,13 @@ namespace tex {
 	}
 	
 	// Checks our texture_cache and returns the texture id if found, otherwise, load the texture and put it into the cache.
-	Tex GetTextureID(const std::string file_path)
+	Tex GetTexture(const std::string file_path)
 	{
 		if (auto& t = tex_cache[file_path]; !&t.id)
+		{
+			std::cout << "[tex::GetTextureID] Could not find " << file_path << " in the texture cache.";
 			return t;
+		}
 		else
 		{
 			LoadTextureFromFile(file_path.data(), (GLuint*)(void*)&t.id, &t.width, &t.height);
