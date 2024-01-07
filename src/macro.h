@@ -54,7 +54,7 @@ public:
 	const std::vector<MacroKey> keys() const { return keys_; }
 
 	const std::string icon_path() const { return icon_path_; };
-	const std::string bg_path() const { return icon_path_; }
+	const std::string bg_path() const { return bg_path_; }
 	const std::string bg_hover_path() const { return bg_hover_path_; }
 	const std::string bg_active_path() const { return bg_active_path_; }
 
