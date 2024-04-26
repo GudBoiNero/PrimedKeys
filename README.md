@@ -1,3 +1,6 @@
+> [!CAUTION]
+> This project has changed stacks. I'm no longer using this repository. The newer version of PrimedKeys is [here](https://github.com/GudBoiNero/primed_keys).
+
 # What is PrimedKeys?
 PrimedKeys will be an onscreen configurable hotkey menu with a preset style akin to [Aseprite](https://www.aseprite.org/).
 I plan to make specific support for customization, because not only is it fun, why not make it a little artsy considering it's literally meant for artists.
